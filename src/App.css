@@ -2,45 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ----------------- Font Initialisation ---------------- */
+@font-face {
+  font-family: Ankh;
+  src: url('./resources/font/AnkhSanctuary.woff');
+}
+@font-face {
+  font-family: Land;
+  src: url('./resources/font/Landasans.woff');
+}
+body{
+  font-family: Land;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ------------------- Navigavtion Bar ------------------ */
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #131313;
+  color: #ff00ff;
+  margin: 0px;
+  padding: 0px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.site-title{
+  /* gradient site title will be used for button instances */
+  background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 25px;
+  font-family: Ankh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.header-tabs{
+  display: flex;
+  padding-left: 10px;
 }
 
-.card {
-  padding: 2em;
+.tab-button-links{
+  display: flex;
+  padding: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.tab-button{
+  padding-right: 5px;
+  padding-left: 10px;
+  font-size: 24px;
+
 }
