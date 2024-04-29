@@ -16,7 +16,7 @@ function App() {
 
       <Routes>
 
-        <Route path="/home" Component={PageHome}>
+        <Route path="/" Component={PageHome}>
         </Route>
 
         <Route path="/browser" Component={PageBrowser}>

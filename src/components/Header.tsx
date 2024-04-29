@@ -7,27 +7,27 @@ const Header = () => {
         <header>
             <div className="container">
                 <div className="inner-content">
-                    <div className="title">
+                    <div className="site-title">
                         <h1>CinnaMate</h1>
                     </div>
                     <div className="header-tabs">
                         <ul className="tab-button-links">
                             <li>
-                                <button className="navbar-button">
-                                    <Link to="/home">Home</Link>
-                                </button>
+                                <Link to="/">
+                                    <button className="navbar-button">Home</button>
+                                </Link>
                             </li>
 
                             <li>
-                                <button className="navbar-button">
-                                    <Link to="/browser">Browse Movies</Link>
-                                </button>
+                            <Link to="/browser">
+                                    <button className="navbar-button">Browse Movies</button>
+                                </Link>
                             </li>
 
                             <li>
-                                <button className="navbar-button">
-                                    <Link to="/movies">My Movies</Link>
-                                </button>
+                            <Link to="/movies">
+                                    <button className="navbar-button">My Movies</button>
+                                </Link>
                             </li>
 
 
