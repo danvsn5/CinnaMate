@@ -1,12 +1,35 @@
-
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import PageHome from './components/PageHome'
+import PageBrowser from './components/PageBrowser'
+import PageMyMovies from './components/PageMyMovies'
 
 function App() {
   return (
+    
+    
+    <Router>
+      
+      <Header />
 
-    <div>
-      <h1>CinnaMate!</h1>
-    </div>
+      <Routes>
+
+        <Route path="/home" Component={PageHome}>
+        </Route>
+
+        <Route path="/browser" Component={PageBrowser}>
+        </Route>
+
+        <Route path="/movies" Component={PageMyMovies}>
+        </Route>
+
+      </Routes>
+
+    <Footer/>
+    </Router>
+
   )
 }
 
