@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="attribution">
           <div className="tmdb-logo">
             <a href="https://www.themoviedb.org/" target='_blank'>
-            <img src={tmdb} alt="TMDB" />
+              <img src={tmdb} alt="TMDB" />
             </a>
           </div>
           <div className="text-attribution">
@@ -20,12 +20,14 @@ const Footer = () => {
 
         <div className="github">
           <div className="github-logo">
-            <img src={github} alt="GitHub" />
+            <a href="https://github.com/danvsn5" className='git-link' target='_blank'>
+              <img src={github} alt="GitHub" />
+            </a>
           </div>
           <div className='github-referral'>
-          <h6>See my GitHub profile and other repositories at 
-            <a href="https://github.com/danvsn5" className='git-link' target='_blank'> github.com/danvsn5</a>
-          </h6>
+            <h6>See my GitHub profile and other repositories at
+              <a href="https://github.com/danvsn5" className='git-link' target='_blank'> github.com/danvsn5</a>
+            </h6>
           </div>
         </div>
         <div className="footer-title"><h1>CinnaMate</h1></div>

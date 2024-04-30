@@ -31,6 +31,8 @@ body{
   -webkit-text-fill-color: transparent;
   padding-left: 25px;
   font-family: Ankh;
+  cursor: default;
+  user-select: none;
 }
 
 .header-tabs{
@@ -77,6 +79,8 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Ankh;
+  cursor: default;
+  user-select: none;
 }
 .attribution{
   display: flex;
