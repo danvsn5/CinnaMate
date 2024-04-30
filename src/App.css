@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ----------------- Font Initialisation ---------------- */
 @font-face {
   font-family: Ankh;
@@ -20,33 +24,38 @@ body{
   margin: 0px;
   padding: 0px;
 }
+
 .site-title{
   background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-left: 25px;
   font-family: Ankh;
 }
+
 .header-tabs{
   display: flex;
   padding-left: 10px;
 }
+
 .tab-button-links{
   display: flex;
   padding: 20px;
 }
+
 .tab-button{
   padding-right: 5px;
   padding-left: 10px;
   font-size: 24px;
 }
+
 .navbar-button{
   color: #ffffff;
   background: radial-gradient(circle, rgb(106, 0, 122) 0%, rgba(90,0,154,1) 100%);
   border-radius: 24px;
   transition: 200ms box-shadow ease-out;
 }
+
 .navbar-button:hover{
   box-shadow: inset 0px 0px 0px 4px rgba(255,255,255,0.3);
 }
@@ -66,7 +75,6 @@ body{
 .footer-title{
   background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Ankh;
 }
@@ -102,7 +110,6 @@ body{
 .git-link{
   background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: rgba(90,0,154,1);
   transition: 400ms color ease-out;
@@ -112,7 +119,6 @@ body{
 .git-link:hover{
   background: unset;
   -webkit-background-clip: unset;
-  background-clip: unset;
   -webkit-text-fill-color: unset;
   color: rgba(137,0,157,1)
 }
