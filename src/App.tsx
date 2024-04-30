@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 import PageHome from './components/PageHome'
 import PageBrowser from './components/PageBrowser'
 import PageMyMovies from './components/PageMyMovies'
-import Subheader from './components/Subheader'
 
 function App() {
   return (

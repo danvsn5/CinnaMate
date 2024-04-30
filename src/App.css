@@ -79,6 +79,7 @@ body{
   width: 100%;
   padding: 25px;
   background: #131313;
+  font-family: Land;
 }
 .footer-title{
   background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
@@ -87,6 +88,7 @@ body{
   font-family: Ankh;
   cursor: default;
   user-select: none;
+  font-size: 20px;
 }
 .attribution{
   display: flex;
@@ -100,7 +102,7 @@ body{
 }
 .text-attribution{
   color: #787878;
-  width: 250px;
+  width: 350px;
   text-align: center;
   font-size: 18px;
 }
@@ -115,7 +117,7 @@ body{
 }
 .github-referral{
   color: #787878;
-  width: 250px;
+  width: 350px;
   text-align: center;
   font-size: 18px;
 }
