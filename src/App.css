@@ -11,8 +11,12 @@
   font-family: Land;
   src: url('./resources/font/Landasans.woff');
 }
+@font-face {
+  font-family: LandLight;
+  src: url('./resources/font/LandasansLight.woff');
+}
 body{
-  font-family: Land;
+  font-family: LandLight;
 }
 
 /* ----------------------- Header ----------------------- */
@@ -23,6 +27,7 @@ body{
   background: #131313;
   margin: 0px;
   padding: 0px;
+  font-family: Land;
 }
 
 .site-title{
@@ -33,6 +38,7 @@ body{
   font-family: Ankh;
   cursor: default;
   user-select: none;
+  font-size: 24px;
 }
 
 .header-tabs{
@@ -93,9 +99,10 @@ body{
   padding-bottom: 10px;
 }
 .text-attribution{
-  color: #434343;
+  color: #787878;
   width: 250px;
   text-align: center;
+  font-size: 18px;
 }
 .github{
   display: flex;
@@ -107,9 +114,10 @@ body{
   width:50px
 }
 .github-referral{
-  color: #434343;
+  color: #787878;
   width: 250px;
   text-align: center;
+  font-size: 18px;
 }
 .git-link{
   background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
@@ -117,12 +125,28 @@ body{
   -webkit-text-fill-color: transparent;
   color: rgba(90,0,154,1);
   transition: 400ms color ease-out;
-  font-size: 20px;
-
+  font-size: 24px;
 }
 .git-link:hover{
   background: unset;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
   color: rgba(137,0,157,1)
+}
+
+/* ---------------------- Subheader --------------------- */
+
+.subheader{
+  display: flex;
+  justify-items: center;
+  font-family: Land;
+}
+
+.subheader-title{
+  color: rgba(137,0,157,1);
+  padding-left: 75px;
+  padding-top: 25px;
+  font-weight: 1000;
+  text-decoration: underline rgba(90,0,154,1) 3px;
+  text-underline-offset: -50px;
 }

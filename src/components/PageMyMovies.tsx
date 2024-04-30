@@ -1,8 +1,10 @@
+import Subheader from "./Subheader"
+
 const PageMyMovies = () => {
   return (
-    <div>
-        <h1>My Movies</h1>
-        </div>
+
+    <Subheader subheaderTitle="My Movies" />
+
   )
 }
 
