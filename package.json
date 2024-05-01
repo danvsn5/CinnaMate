@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
