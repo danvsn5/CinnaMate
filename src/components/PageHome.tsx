@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Subheader from "./Subheader"
+import Card from "./cards/Card"
 
 const PageHome = () => {
+
+  // fetches API data for trending movies this week and stores data inside results array
 
   let [results, setResults] = useState([]);
 
@@ -14,26 +17,32 @@ const PageHome = () => {
     }
   };
 
-  fetch(url, options)
-    .then((res: any) => res.json())
-    .then((data: any) => {
-      console.log(data);
-      setResults(data.results);
-    })
-    .catch((err: any) => console.error('error:' + err));
+  // if the call was succcesful then store the data gathered inside the results array
+  if (results.length == 0) {
+    fetch(url, options)
+      .then((res: any) => res.json())
+      .then((data: any) => {
+        console.log(data);
+        setResults(data.results);
+      })
+      .catch((err: any) => console.error('error:' + err));
 
-    const movieTitles = results.map((movie:any) =>
-      (
-        <li>{movie.title}</li>
-      )
-      )
+  }
+
+  // movieCards element maps the collected elements from the array collected
+  // by the API and is used in return code through <Card> element
+  let movieCards = results.map((movie: any) =>
+  (
+    <li key={movie.id}>
+      <Card movie={movie} />
+    </li>
+  )
+  )
 
   return (
     <div>
       <Subheader subheaderTitle="See What's Trending" />
-      
-      <h2>{movieTitles}</h2>
-
+      {movieCards}
     </div>
 
   )

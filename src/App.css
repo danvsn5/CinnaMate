@@ -71,7 +71,6 @@ body{
 /* ----------------------- Footer ----------------------- */
 
 .footer-bar{
-  position: fixed;
   display:flex;
   bottom: 0;
   align-items: center;
