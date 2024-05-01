@@ -11,10 +11,10 @@ import './resources/fontawesome/css/solid.css'
 
 function App() {
   return (
-    
-    
+
+
     <Router>
-      
+
       <Header />
 
       <Routes>
@@ -30,7 +30,7 @@ function App() {
 
       </Routes>
 
-    <Footer/>
+      <Footer />
     </Router>
 
   )

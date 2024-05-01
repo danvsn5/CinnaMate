@@ -217,7 +217,7 @@ body {
 .page-card {
   width: 260px;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .thumbnail-title {
@@ -267,26 +267,31 @@ body {
   display: flex;
   justify-content: space-around;
   height: 60px;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.25s;
 }
 
-.thumb-button{
-  width:70px;
-  
+.thumb-button {
+  width: 70px;
+
   border: 2px solid var(var(--dark-purple));
-  box-shadow: inset 0px 0px 0px 0px var(--light-purple), 0px 0px 0px 3px var(--dark-purple);
+  box-shadow: inset 0px 0px 0px 0px var(--dark-purple), 0px 0px 0px 3px var(--light-purple);
   transition: 150ms ease-out;
 }
 
-.thumb-button:hover{
-  box-shadow: inset 0px 0px 1px 3px var(--light-purple), 0px 0px 0px 3px var(--dark-purple);
+.thumb-button:hover {
+  box-shadow: inset 0px 0px 1px 3px var(--dark-purple), 0px 0px 0px 3px var(--light-purple);
 }
 
-.thumb-button:hover .icon{
-  color: var(--light-purple);
-  
+.thumb-button:hover .icon {
+  color: var(--dark-purple);
+
 }
 
-.icon{
+.icon {
   transition: 150ms ease-out;
   scale: 1.75;
 }

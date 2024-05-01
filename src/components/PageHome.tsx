@@ -43,7 +43,7 @@ const PageHome = () => {
     <div>
       <Subheader subheaderTitle="See What's Trending" />
       <div className="trending-main-content">
-      {movieCards}
+        {movieCards}
       </div>
     </div>
 
