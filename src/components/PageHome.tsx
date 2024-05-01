@@ -33,7 +33,7 @@ const PageHome = () => {
   // by the API and is used in return code through <Card> element
   let movieCards = results.map((movie: any) =>
   (
-    <li key={movie.id}>
+    <li key={movie.id} className="trending-list">
       <Card movie={movie} />
     </li>
   )
@@ -42,7 +42,9 @@ const PageHome = () => {
   return (
     <div>
       <Subheader subheaderTitle="See What's Trending" />
+      <div className="trending-main-content">
       {movieCards}
+      </div>
     </div>
 
   )

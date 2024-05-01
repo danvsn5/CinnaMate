@@ -6,8 +6,8 @@ const Card = ({movie}:any) => {
   return (
     
     <div className="page-card">
-      <h1>{movie.title}</h1>
       <Thumbnail movie={movie}/>
+      <h2 className="thumbnail-title">{movie.title}</h2>
     </div>
 
 
