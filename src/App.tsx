@@ -5,6 +5,9 @@ import Footer from './components/Footer'
 import PageHome from './components/PageHome'
 import PageBrowser from './components/PageBrowser'
 import PageMyMovies from './components/PageMyMovies'
+import './resources/fontawesome/css/fontawesome.css'
+import './resources/fontawesome/css/solid.css'
+
 
 function App() {
   return (

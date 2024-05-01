@@ -200,14 +200,14 @@ body {
 
 @keyframes card-appear {
 
-  0%{
+  0% {
     opacity: 0;
   }
 
   100% {
     opacity: 1;
   }
-  
+
 }
 
 .trending-list {
@@ -215,7 +215,7 @@ body {
 }
 
 .page-card {
-  width: 220px;
+  width: 260px;
   margin-top: 50px;
   margin-bottom: 100px;
 }
@@ -260,4 +260,33 @@ body {
 
 .actual-thumb:hover {
   box-shadow: 0px 0px 16px 8px var(--light-purple);
+}
+
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  height: 60px;
+}
+
+.thumb-button{
+  width:70px;
+  
+  border: 2px solid var(var(--dark-purple));
+  box-shadow: inset 0px 0px 0px 0px var(--light-purple), 0px 0px 0px 3px var(--dark-purple);
+  transition: 150ms ease-out;
+}
+
+.thumb-button:hover{
+  box-shadow: inset 0px 0px 1px 3px var(--light-purple), 0px 0px 0px 3px var(--dark-purple);
+}
+
+.thumb-button:hover .icon{
+  color: var(--light-purple);
+  
+}
+
+.icon{
+  transition: 150ms ease-out;
+  scale: 1.75;
 }
