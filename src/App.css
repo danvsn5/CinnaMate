@@ -7,20 +7,26 @@
   font-family: Ankh;
   src: url('./resources/font/AnkhSanctuary.woff');
 }
+
 @font-face {
   font-family: Land;
   src: url('./resources/font/Landasans.woff');
 }
+
 @font-face {
   font-family: LandLight;
   src: url('./resources/font/LandasansLight.woff');
 }
-body{
+
+body {
   font-family: LandLight;
+
+  --dark-purple: rgba(90, 0, 154, 1);
+  --light-purple: rgba(137, 0, 157, 1)
 }
 
 /* ----------------------- Header ----------------------- */
-.navbar{
+.navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,8 +39,8 @@ body{
 
 }
 
-.site-title{
-  background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
+.site-title {
+  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-left: 25px;
@@ -44,37 +50,37 @@ body{
   font-size: 24px;
 }
 
-.header-tabs{
+.header-tabs {
   display: flex;
   padding-left: 10px;
 }
 
-.tab-button-links{
+.tab-button-links {
   display: flex;
   padding: 20px;
 }
 
-.tab-button{
+.tab-button {
   padding-right: 5px;
   padding-left: 10px;
   font-size: 24px;
 }
 
-.navbar-button{
+.navbar-button {
   color: #ffffff;
-  background: radial-gradient(circle, rgb(106, 0, 122) 0%, rgba(90,0,154,1) 100%);
+  background: radial-gradient(circle, rgb(106, 0, 122) 0%, rgba(90, 0, 154, 1) 100%);
   border-radius: 24px;
   transition: 200ms box-shadow ease-out;
 }
 
-.navbar-button:hover{
-  box-shadow: inset 0px 0px 0px 4px rgba(255,255,255,0.3);
+.navbar-button:hover {
+  box-shadow: inset 0px 0px 0px 4px rgba(255, 255, 255, 0.3);
 }
 
 /* ----------------------- Footer ----------------------- */
 
-.footer-bar{
-  display:flex;
+.footer-bar {
+  display: flex;
   bottom: 0;
   align-items: center;
   justify-content: space-between;
@@ -86,8 +92,9 @@ body{
   border-top-right-radius: 20px;
 
 }
-.footer-title{
-  background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
+
+.footer-title {
+  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Ankh;
@@ -95,102 +102,162 @@ body{
   user-select: none;
   font-size: 20px;
 }
-.attribution{
+
+.attribution {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
 }
-.tmdb-logo{
-  width:100px;
+
+.tmdb-logo {
+  width: 100px;
   padding-bottom: 10px;
 }
-.text-attribution{
+
+.text-attribution {
   color: #787878;
   width: 350px;
   text-align: center;
   font-size: 18px;
 }
-.github{
+
+.github {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
 }
-.github-logo{
-  width:50px
+
+.github-logo {
+  width: 50px
 }
-.github-referral{
+
+.github-referral {
   color: #787878;
   width: 350px;
   text-align: center;
   font-size: 18px;
 }
-.git-link{
-  background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
+
+.git-link {
+  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: rgba(90,0,154,1);
+  color: rgba(90, 0, 154, 1);
   transition: 400ms color ease-out;
   font-size: 24px;
 }
-.git-link:hover{
+
+.git-link:hover {
   background: unset;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
-  color: rgba(137,0,157,1)
+  color: rgba(137, 0, 157, 1)
 }
 
 /* ---------------------- Subheader --------------------- */
 
-.subheader{
+.subheader {
   display: flex;
   justify-items: center;
   font-family: Land;
 }
 
-.subheader-title{
+.subheader-title {
   color: #ffffff;
   padding-left: 75px;
   padding-top: 25px;
   font-weight: 1000;
-  text-decoration: underline rgba(90,0,154,1) 3px;
+  text-decoration: underline rgba(90, 0, 154, 1) 3px;
   text-underline-offset: -50px;
 }
 
-.break{
+.break {
   display: flex;
   color: #000000;
-  background: radial-gradient(circle, rgba(90,0,154,1) 0%, rgba(137,0,157,1) 100%);
-  height:5px;
+  background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
+  height: 5px;
   margin-top: 5px;
   margin-left: 75px;
   margin-right: 75px;
   border-radius: 5px;
   border: unset;
 }
+
 /* ----------------- Home Page Contents ----------------- */
 
-.trending-main-content{
+.trending-main-content {
   display: flex;
   justify-items: center;
-  justify-content: space-between  ;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-left: 75px;
   margin-right: 75px;
 }
+
 /* ------------------------ Card ------------------------ */
-.trending-list{
+
+@keyframes card-appear {
+
+  0%{
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+  
+}
+
+.trending-list {
   list-style: none;
 }
-.page-card{
-  
+
+.page-card {
   width: 220px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
-.thumbnail-title{
+
+.thumbnail-title {
+  opacity: 0;
   margin-top: 10px;
   font-size: 30px;
   text-align: center;
+  font-family: Land;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.1s;
+}
+
+.thumbnail-date {
+  opacity: 0;
+  font-size: 26px;
+  text-align: center;
+  color: #787878;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.1s;
+}
+
+.card-thumbnail {
+  opacity: 0;
+  border-radius: 10px;
+  animation-name: card-appear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.actual-thumb {
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 3px var(--dark-purple);
+  transition: 150ms ease-out;
+}
+
+.actual-thumb:hover {
+  box-shadow: 0px 0px 16px 8px var(--light-purple);
 }
