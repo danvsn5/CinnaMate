@@ -209,10 +209,11 @@ body {
 .trending-main-content {
   display: flex;
   justify-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-left: 75px;
   margin-right: 75px;
+  min-height: 2000px;
 }
 
 /* ------------------------ Card ------------------------ */
