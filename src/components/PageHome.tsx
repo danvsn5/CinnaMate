@@ -40,7 +40,7 @@ const PageHome = () => {
   )
 
   return (
-    <div>
+    <div className="main-content">
       <Subheader subheaderTitle="See What's Trending" />
       <div className="trending-main-content">
         {movieCards}

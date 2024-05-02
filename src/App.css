@@ -36,7 +36,16 @@ body {
   font-family: Land;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-
+}
+.navbar-contents{
+  display: flex;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .site-title {
@@ -90,7 +99,17 @@ body {
   font-family: Land;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
 
+.footer-bar-contents{
+  display: flex;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .footer-title {
@@ -230,6 +249,7 @@ body {
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-delay: 0.1s;
+  color: #ffffff;
 }
 
 .thumbnail-date {
@@ -294,4 +314,12 @@ body {
 .icon {
   transition: 150ms ease-out;
   scale: 1.75;
+}
+
+/* ----------------- Content Containers ----------------- */
+
+.main-content{
+max-width: 1420px;
+margin-left: auto;
+margin-right: auto;
 }
