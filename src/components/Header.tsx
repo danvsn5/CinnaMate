@@ -5,7 +5,8 @@ const Header = () => {
     return (
 
         <header>
-                <div className="navbar">
+            <div className="navbar">
+                <div className="navbar-contents">
                     <div className="site-title">
                         <h1>CinnaMate</h1>
                     </div>
@@ -18,13 +19,13 @@ const Header = () => {
                             </li>
 
                             <li className="tab-button">
-                            <Link to="/browser">
+                                <Link to="/browser">
                                     <button className="navbar-button">Browse Movies</button>
                                 </Link>
                             </li>
 
                             <li className="tab-button">
-                            <Link to="/movies">
+                                <Link to="/movies">
                                     <button className="navbar-button">My Movies</button>
                                 </Link>
                             </li>
@@ -32,9 +33,8 @@ const Header = () => {
 
                         </ul>
                     </div>
-
-
                 </div>
+            </div>
         </header>
 
     )
