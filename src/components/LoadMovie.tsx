@@ -41,10 +41,11 @@ const LoadMovie = ({ movie }: any) => {
 
             <Subheader subheaderTitle={title} />
             <div className='expanded-main-content'>
-                <ExpandedThumbnail path={posterPath}/>
-                <h2>{tagline}</h2>
-                <h2>{overview}</h2>
-                <h2>{release}</h2>
+                <ExpandedThumbnail path={posterPath} />
+                <div className='right-thumbnail-content'>
+                    <h1 className='main-tagline'>{tagline}</h1>
+                    <h2 className='overview-text'>{overview}</h2>
+                </div>
             </div>
         </div>
     )
