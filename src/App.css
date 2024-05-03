@@ -316,6 +316,7 @@ body {
   border: 2px solid var(var(--dark-purple));
   box-shadow: inset 0px 0px 0px 0px var(--dark-purple), 0px 0px 0px 3px var(--light-purple);
   transition: 150ms ease-out;
+  background-color: #131313;
 }
 
 .thumb-button:hover {
@@ -330,6 +331,7 @@ body {
 .icon {
   transition: 150ms ease-out;
   scale: 1.75;
+  color:#ffffff 
 }
 
 /* ----------------- Content Containers ----------------- */

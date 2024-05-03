@@ -3,21 +3,13 @@ import LoadMovie from "./LoadMovie"
 
 const PageMovie = () => {
 
-const location = useLocation()
+    const location = useLocation()
 
-const movie = location.state.movie;
+    const movie = location.state.movie;
     return (
-
-
-
         <div>
-            <h6>Preposition to loading movie</h6>
-            <LoadMovie movie={movie}/>
+            <LoadMovie movie={movie} />
         </div>
-
-
-
-
     )
 }
 
