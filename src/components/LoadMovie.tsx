@@ -3,6 +3,7 @@ import ExpandedThumbnail from './expandedMovie/ExpandedThumbnail';
 import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
 import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
 
+
 const LoadMovie = ({ movie }: any) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
