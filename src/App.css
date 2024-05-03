@@ -266,6 +266,12 @@ body {
   animation-fill-mode: forwards;
   animation-delay: 0.1s;
   color: #ffffff;
+  transition: 150ms;
+}
+.thumbnail-title:hover{
+  color: var(--light-purple);
+  text-decoration: underline;
+  transition: 0ms;
 }
 
 .thumbnail-date {
