@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Subheader from './Subheader';
+import ExpandedThumbnail from './cards/ExpandedThumbnail';
 
 const LoadMovie = ({ movie }: any) => {
 
@@ -33,14 +35,17 @@ const LoadMovie = ({ movie }: any) => {
         })
         .catch((err: any) => console.error('error:' + err));
 
-        // returns as a list of items insid ethe page for dev viewing 
+    // returns as a list of items inside the page for dev viewing 
     return (
-        <div>
-            <h1>{title}</h1>
-            <h2>{tagline}</h2>
-            <h2>{overview}</h2>
-            <h2>{release}</h2>
-            <h2>{posterPath}</h2>
+        <div className="main-content">
+
+            <Subheader subheaderTitle={title} />
+            <div className='expanded-main-content'>
+                <ExpandedThumbnail path={posterPath}/>
+                <h2>{tagline}</h2>
+                <h2>{overview}</h2>
+                <h2>{release}</h2>
+            </div>
         </div>
     )
 }

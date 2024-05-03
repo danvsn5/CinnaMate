@@ -7,9 +7,7 @@ const PageMovie = () => {
 
     const movie = location.state.movie;
     return (
-        <div>
-            <LoadMovie movie={movie} />
-        </div>
+        <LoadMovie movie={movie} />
     )
 }
 
