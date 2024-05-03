@@ -354,11 +354,11 @@ margin-right: auto;
 .right-thumbnail-content{
   display: flex;
   justify-content: center;
-  align-content: flex-start;
+  align-content: space-between;
   min-width: 200px;
   max-width: 840px;
   flex-wrap: wrap;
-  max-height: 600px;
+  max-height: 450px;
 }
 
 /* ------------------ Individual Movies ----------------- */
@@ -367,6 +367,11 @@ margin-right: auto;
   font-family: Land;
   color: #ffffff;
   text-align: center;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.75s;
+  animation-fill-mode: forwards;
 }
 
 .main-tagline::first-line{
@@ -374,37 +379,58 @@ margin-right: auto;
   text-underline-offset: -50px;
 }
 
+.expanded-thumbnail{
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
 .actual-expanded-thumb{
   width:300px;
   border-radius: 10px;
   cursor: none;
   box-shadow: 0px 0px 0px 3px var(--dark-purple);
-
 }
 
 @keyframes hover-glow {
   0%{
-    box-shadow: 0px 0px 16px 8px var(--light-purple);
+    box-shadow: 0px 0px 24px 12px var(--light-purple);
   }
   50%{
-    box-shadow: 0px 0px 16px 8px var(--dark-purple);
+    box-shadow: 0px 0px 24px 12px var(--dark-purple);
   }
   100%{
-    box-shadow: 0px 0px 16px 8px var(--light-purple);
+    box-shadow: 0px 0px 24px 12px var(--light-purple);
   }
 }
 
 @keyframes hover-off-glow {
   from{
-    box-shadow: 0px 0px 16px 8px var(--dark-purple);
+    box-shadow: 0px 0px 24px 12px var(--dark-purple);
   }
   to{
     box-shadow: 0px 0px 0px 3px var(--dark-purple);
   }
 }
 
+.exp-subheader-title{
+  color: #ffffff;
+  padding-left: 75px;
+  padding-top: 25px;
+  font-weight: 1000;
+  text-decoration: underline rgba(90, 0, 154, 1) 3px;
+  text-underline-offset: -50px;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
 .actual-expanded-thumb:hover{
-  box-shadow: 0px 0px 16px 8px var(--light-purple);
+  box-shadow: 0px 0px 24px 12px var(--light-purple);
   transition: 150ms ease-out;
   animation: hover-glow 3s ease-out 150ms infinite ;
 }
@@ -412,9 +438,13 @@ margin-right: auto;
 .overview-text{
   text-align:justify;
   text-align-last: center;
-  margin-top: 50px;
   font-size: 30px;
   font-family: Land;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 1.25s;
+  animation-fill-mode: forwards;
 }
 
 .overview-text::first-line{
@@ -422,3 +452,33 @@ margin-right: auto;
   text-underline-offset: -50px;
 }
 
+/* ----------------- Expanded Button Row ---------------- */
+
+.exp-button-row{
+display: flex;
+justify-content: space-between;
+min-width: max-content;
+width: 90%;
+opacity: 0;
+animation-name: card-appear;
+animation-duration: 0.5s;
+animation-delay: 1.5s;
+animation-fill-mode: forwards;
+}
+
+.exp-thumb-button{
+width: 200px;
+height: 80px;
+transition: 150ms;
+background-color: #131313;
+border: 3px solid var(--light-purple);
+}
+
+.exp-thumb-button:hover{
+box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+}
+
+.exp-icon{
+  scale: 2;
+  color: #ffffff;
+}

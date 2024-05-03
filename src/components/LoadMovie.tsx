@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Subheader from './Subheader';
-import ExpandedThumbnail from './cards/ExpandedThumbnail';
+import ExpandedThumbnail from './expandedMovie/ExpandedThumbnail';
+import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
+import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
 
 const LoadMovie = ({ movie }: any) => {
 
@@ -39,12 +40,13 @@ const LoadMovie = ({ movie }: any) => {
     return (
         <div className="main-content">
 
-            <Subheader subheaderTitle={title}/>
+            <ExpandedSubheader subheaderTitle={title}/>
             <div className='expanded-main-content'>
                 <ExpandedThumbnail path={posterPath} />
                 <div className='right-thumbnail-content'>
                     <h1 className='main-tagline'>{tagline}</h1>
                     <h2 className='overview-text'>{overview}</h2>
+                    <ExpandedAddButtons/>
                 </div>
             </div>
         </div>
