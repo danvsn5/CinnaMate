@@ -263,9 +263,9 @@ body {
   text-align: center;
   font-family: Land;
   animation-name: card-appear;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 0.1s;
+  animation-delay: 1s;
   color: #ffffff;
   transition: 150ms;
 }
@@ -284,16 +284,16 @@ body {
   animation-name: card-appear;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  animation-delay: 0.1s;
+  animation-delay: 1s;
 }
 
 .card-thumbnail {
   opacity: 0;
   border-radius: 10px;
   animation-name: card-appear;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.1s;
 }
 
 .actual-thumb {
@@ -315,7 +315,7 @@ body {
   animation-name: card-appear;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  animation-delay: 0.25s;
+  animation-delay: 0.5s;
 }
 
 .thumb-button {
@@ -429,6 +429,8 @@ body {
 
 .exp-subheader-title {
   color: #ffffff;
+  display: flex;
+  justify-content: space-between;
   padding-left: 75px;
   padding-top: 25px;
   font-weight: 1000;
