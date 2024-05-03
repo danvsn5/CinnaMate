@@ -8,14 +8,14 @@ import PageMyMovies from './components/PageMyMovies'
 import PageMovie from './components/PageMovie'
 import './resources/fontawesome/css/fontawesome.css'
 import './resources/fontawesome/css/solid.css'
-
+import ScrollToTop from './components/utils/ScrollToTop'
 
 function App() {
   return (
 
 
     <Router>
-
+      <ScrollToTop/>
       <Header />
 
       <Routes>

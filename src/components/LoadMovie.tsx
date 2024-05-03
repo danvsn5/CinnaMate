@@ -39,7 +39,7 @@ const LoadMovie = ({ movie }: any) => {
     return (
         <div className="main-content">
 
-            <Subheader subheaderTitle={title} />
+            <Subheader subheaderTitle={title}/>
             <div className='expanded-main-content'>
                 <ExpandedThumbnail path={posterPath} />
                 <div className='right-thumbnail-content'>
