@@ -9,8 +9,6 @@ function Subheader(props: any) {
             </div>
             <hr className="break" />
         </div>
-
-
     )
 }
 
