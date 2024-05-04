@@ -84,7 +84,7 @@ body {
 }
 
 .navbar-button:hover {
-  box-shadow: inset 0px 0px 0px 4px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0px 0px 0px 4px rgba(255, 255, 255, 0.2),0px 0px 8px 4px rgba(255, 255, 255, 0.1) ;
 }
 
 /* ----------------------- Footer ----------------------- */
@@ -483,7 +483,7 @@ body {
 .exp-thumb-button {
   width: 200px;
   height: 80px;
-  transition: 150ms;
+  transition: 250ms;
   background-color: #131313;
   border: 3px solid var(--light-purple);
 }
