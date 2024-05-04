@@ -22,7 +22,7 @@ body {
   font-family: LandLight;
 
   --dark-purple: rgba(90, 0, 154, 1);
-  --light-purple: rgba(137, 0, 157, 1)
+  --light-purple: rgba(137, 0, 157, 1);
 }
 
 /* ----------------------- Header ----------------------- */
@@ -50,7 +50,7 @@ body {
 }
 
 .site-title {
-  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
+  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-left: 25px;
@@ -78,7 +78,7 @@ body {
 
 .navbar-button {
   color: #ffffff;
-  background: radial-gradient(circle, rgb(106, 0, 122) 0%, rgba(90, 0, 154, 1) 100%);
+  background: radial-gradient(circle, rgb(106, 0, 122) 0%, var(--dark-purple) 100%);
   border-radius: 24px;
   transition: 200ms box-shadow ease-out;
 }
@@ -114,7 +114,7 @@ body {
 }
 
 .footer-title {
-  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
+  background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Ankh;
@@ -176,10 +176,10 @@ body {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  background: radial-gradient(circle, rgba(90, 0, 154, 1) 0%, rgba(137, 0, 157, 1) 100%);
+  background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: rgba(90, 0, 154, 1);
+  color: var(--dark-purple);
   transition: 400ms color ease-out;
   font-size: 24px;
 }
@@ -188,7 +188,7 @@ body {
   background: unset;
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
-  color: rgba(137, 0, 157, 1)
+  color: var(--light-purple)
 }
 
 /* ---------------------- Subheader --------------------- */
@@ -204,7 +204,7 @@ body {
   padding-left: 75px;
   padding-top: 25px;
   font-weight: 1000;
-  text-decoration: underline rgba(90, 0, 154, 1) 3px;
+  text-decoration: underline var(--dark-purple) 3px;
   text-underline-offset: -50px;
 }
 
@@ -434,7 +434,7 @@ body {
   padding-left: 75px;
   padding-top: 25px;
   font-weight: 1000;
-  text-decoration: underline rgba(90, 0, 154, 1) 3px;
+  text-decoration: underline var(--dark-purple) 3px;
   text-underline-offset: -50px;
   opacity: 0;
   animation-name: card-appear;
