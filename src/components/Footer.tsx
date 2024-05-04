@@ -38,8 +38,7 @@ const Footer = () => {
             <div className='github-referral'>
               <h6>See more about me in my GitHub profile and my LinkedIn
                 <a href="https://github.com/danvsn5" className='git-link' target='_blank'> github.com/danvsn5</a>
-                <a href="https://www.linkedin.com/in/daniilv522/" className='git-link' target='_blank'> linkedin.com/daniilv522</a>
-              </h6>
+                <a href="https://www.linkedin.com/in/daniilv522/" className='git-link' target='_blank'> linkedin.com/daniilv522</a>              </h6>
             </div>
           </div>
           <div className="footer-title"><h1>CinnaMate</h1></div>
