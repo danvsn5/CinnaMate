@@ -17,13 +17,22 @@ const SearchInput = () => {
     }
 
     const searchClick = (e: any) => {
-        setTextChange(e);
+        // changes text based on user input
+        setTextChange();
+        // generate query based on input value
+
+        //TODO
+        
+        // changes input box back to empty string
+
     }
 
-    const setTextChange = (e:any) => {
+    const setTextChange = () => {
+
         const text = document.getElementById("subheader-title-inner-content")
-        text?.style.setProperty('text-decoration', 'underline')
-        text?.style.setProperty('text-decoration-thickness', 'from-font')
+        let initStr = "Searching for: "
+        if (text) text.innerHTML = initStr.concat({inputValue}.inputValue);
+        
     }
 
     return (
