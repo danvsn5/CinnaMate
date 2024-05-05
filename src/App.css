@@ -83,6 +83,11 @@ body {
   transition: 200ms box-shadow cubic-bezier(1, 0, 1, 1);
 }
 
+.navbar-button:hover:active{
+  box-shadow: unset;
+  transition: 50ms;
+}
+
 .navbar-button:hover {
   box-shadow: inset 77px 0px 0px 0px var(--light-purple), inset -77px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
 }
@@ -519,6 +524,7 @@ body {
   width: 75%;
   border-radius: 40px;
   padding-left: 50px;
+  padding-right: 50px;
   font-family: Land;
   font-size: 40px;
   background-color: #131313;

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { text } from "stream/consumers"
+import Card from "../cards/Card"
 
 const SearchInput = () => {
 
@@ -17,6 +17,10 @@ const SearchInput = () => {
         setInputValue(e.currentTarget.value)
     }
 
+
+    let [results, setResults] = useState([]);
+
+    
     const searchClick = (e: any) => {
 
         if (inputValue != "") {
@@ -33,6 +37,11 @@ const SearchInput = () => {
         }
     }
 
+    // create new function that takes runs the query to the db and is run inside the searchClick function
+    // figure out way to change the movie cards displayed in the main page: main option: rename this class to
+    // 'main content'ish and then port the logic for initial trendiing query here; once the user inputs
+    // a new query, the cards update based on the user's input query
+
     const setTextChange = () => {
 
         const text = document.getElementById("subheader-title-inner-content")
@@ -41,10 +50,11 @@ const SearchInput = () => {
 
     }
 
+
     return (
         <div className="search-input-wrapper">
             <input id="search-bar" value={inputValue} className="search-input-editor" type="text" placeholder="Browse for Movies..." onChange={inputChange} />
-            <button className="search-input-button" onClick={searchClick}>
+            <button className="search-input-button" onClick={searchClick} >
                 <i className="icon fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
