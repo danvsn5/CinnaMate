@@ -583,3 +583,13 @@ body {
   font-weight: 1000;
   font-family: Land;
 }
+
+.browsing-main-content{
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: 75px;
+  margin-right: 75px;
+  min-height: 1328px;
+}

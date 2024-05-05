@@ -13,8 +13,6 @@ const SearchInput = () => {
     // and the cards to display like how they are displayed in the home trending page.  
 
     let [results, setResults] = useState([]);
-
-    
     const urlTrending = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
     const options = {
         method: 'GET',
@@ -39,14 +37,15 @@ const SearchInput = () => {
     // movieCards element maps the collected elements from the array collected
     // by the API and is used in return code through <Card> element
 
-    let movieCards = results.map((movie: any) =>
+    let movieCards = results.slice(0,8).map((movie: any) =>
     (
         <li key={movie.id} className="trending-list">
             <Card movie={movie} />
         </li>
 
-    )
-    )
+    ))
+
+    /* -------------------------- - ------------------------- */
 
 
     let [inputValue, setInputValue] = useState("")
@@ -98,20 +97,6 @@ const SearchInput = () => {
                     setResults(data.results);
                 })
                 .catch((err: any) => console.error('error:' + err));
-
-            // movieCards element maps the collected elements from the array collected
-    // by the API and is used in return code through <Card> element
-
-    movieCards = results.map((movie: any) =>
-        (
-            <li key={movie.id} className="trending-list">
-                <Card movie={movie} />
-            </li>
-    
-        )
-        )
-    
-    
     }
 
     const setTextChange = () => {
@@ -137,8 +122,8 @@ const SearchInput = () => {
 
             <hr className="browsing-break" />
             <div className="browsing-card-container">
-                <BrowsingSubheader browsingSubheaderTitle="Current Trending Movies" />
-                <div className="trending-main-content">
+                <BrowsingSubheader browsingSubheaderTitle="Currently Trending Movies" />
+                <div className="browsing-main-content">
                     {movieCards}
                 </div>
             </div>
