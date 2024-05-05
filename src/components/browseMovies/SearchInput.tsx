@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { text } from "stream/consumers"
 
 const SearchInput = () => {
 
@@ -22,8 +23,11 @@ const SearchInput = () => {
         // generate query based on input value
 
         //TODO
-        
+
         // changes input box back to empty string
+
+        setInputValue("")
+
 
     }
 
@@ -31,13 +35,13 @@ const SearchInput = () => {
 
         const text = document.getElementById("subheader-title-inner-content")
         let initStr = "Searching for: "
-        if (text) text.innerHTML = initStr.concat({inputValue}.inputValue);
-        
+        if (text) text.innerHTML = initStr.concat({ inputValue }.inputValue);
+
     }
 
     return (
         <div className="search-input-wrapper">
-            <input className="search-input-editor" type="text" placeholder="Browse for Movies..." onChange={inputChange} />
+            <input id="search-bar" value={inputValue} className="search-input-editor" type="text" placeholder="Browse for Movies..." onChange={inputChange} />
             <button className="search-input-button" onClick={searchClick}>
                 <i className="icon fa-solid fa-magnifying-glass"></i>
             </button>
