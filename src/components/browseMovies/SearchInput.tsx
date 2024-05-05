@@ -18,17 +18,19 @@ const SearchInput = () => {
     }
 
     const searchClick = (e: any) => {
-        // changes text based on user input
-        setTextChange();
-        // generate query based on input value
 
-        //TODO
+        if (inputValue != "") {
+            // changes text based on user input
+            setTextChange();
+            // generate query based on input value
 
-        // changes input box back to empty string
+            //TODO
 
-        setInputValue("")
+            // changes input box back to empty string
 
+            setInputValue("")
 
+        }
     }
 
     const setTextChange = () => {

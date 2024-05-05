@@ -554,6 +554,11 @@ body {
   box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
 }
 
+.search-input-button:active{
+  box-shadow: unset;
+  transition: 50ms;
+}
+
 .browsing-break {
   display: flex;
   color: #000000;
