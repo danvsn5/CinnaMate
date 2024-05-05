@@ -16,8 +16,14 @@ const SearchInput = () => {
         setInputValue(e.currentTarget.value)
     }
 
-    const searchClick = (e:any) => {
-        alert(inputValue)
+    const searchClick = (e: any) => {
+        setTextChange(e);
+    }
+
+    const setTextChange = (e:any) => {
+        const text = document.getElementById("subheader-title-inner-content")
+        text?.style.setProperty('text-decoration', 'underline')
+        text?.style.setProperty('text-decoration-thickness', 'from-font')
     }
 
     return (
