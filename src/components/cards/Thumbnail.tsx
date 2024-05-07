@@ -30,7 +30,7 @@ const setHoverChangeOffThumb = () => {
       {movie.poster_path ? (
 
         <Link to='/yourmovie' state={{ movie }}>
-          <img id={movie.id} className="actual-thumb" onMouseOver={setHoverChangeThumb} onMouseLeave={setHoverChangeOffThumb} src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`} alt={`${movie.title}`} />
+          <img decoding="sync" id={movie.id} className="actual-thumb" onMouseOver={setHoverChangeThumb} onMouseLeave={setHoverChangeOffThumb} src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`} alt={`${movie.title}`} />
         </Link>
       ) : (
         <div className="poster-not-found"></div>

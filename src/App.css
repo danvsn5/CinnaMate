@@ -52,7 +52,9 @@ body {
 .site-title {
   background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px transparent;
   padding-left: 25px;
   font-family: Ankh;
   cursor: default;
@@ -121,6 +123,7 @@ body {
 .footer-title {
   background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: Ankh;
   cursor: default;
@@ -183,6 +186,7 @@ body {
   margin-right: auto;
   background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: var(--dark-purple);
   transition: 400ms color ease-out;
@@ -192,6 +196,7 @@ body {
 .git-link:hover {
   background: unset;
   -webkit-background-clip: unset;
+  background-clip: text;
   -webkit-text-fill-color: unset;
   color: var(--light-purple)
 }

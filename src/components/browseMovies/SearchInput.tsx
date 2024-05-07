@@ -56,7 +56,7 @@ const SearchInput = () => {
     }
 
 
-    const searchClick = (e: any) => {
+    const searchClick = () => {
 
         if (inputValue != "") {
             // changes text based on user input
@@ -95,6 +95,10 @@ const SearchInput = () => {
             .then((data: any) => {
                 console.log(data);
                 if (data.total_results != 0) {
+
+                    // TODO create filter so that only movies WITH a poster path and and a backdrop path
+                    // are returned to reduce the possibility of returning a garbage result.
+
                     setResults([])
                     setResults(data.results);
                 } else {
