@@ -1,14 +1,14 @@
-// define our parent property accessible via globalThis. Also apply the TypeScript type.
-var ting: globalAppVariables;
+var PageID: globalAppVariables;
 
-// define the child properties and their types. 
 type globalAppVariables = {
-  tingValue: number;
-  // more can go here. 
+  pageIdentifier: string;
+  onMovie:boolean
 };
 
 // set the values.
-globalThis.ting = {
-  tingValue: 0,
-  // more can go here.
+globalThis.PageID= {
+
+  pageIdentifier: "",
+  onMovie: false
+  
 };

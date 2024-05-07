@@ -4,6 +4,11 @@ import Card from "./cards/Card"
 
 const PageHome = () => {
 
+  // initialise page variable
+  PageID.pageIdentifier = "Home"
+  PageID.onMovie = false
+
+
   // fetches API data for trending movies this week and stores data inside results array
 
   let [results, setResults] = useState([]);

@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom"
 import LoadMovie from "./LoadMovie"
+import { Link } from "react-router-dom"
 
 //TODO - create return button that returns users to the page they were on previously
 // based on a globally accessible variable; users should be able to transition between
@@ -10,8 +11,12 @@ const PageMovie = () => {
     const location = useLocation()
 
     const movie = location.state.movie;
+
+    PageID.onMovie = true
+
+
     return (
-        <LoadMovie movie={movie} />
+            <LoadMovie movie={movie} />
     )
 }
 

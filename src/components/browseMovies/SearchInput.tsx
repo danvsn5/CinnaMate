@@ -1,4 +1,4 @@
-import { EventHandler, KeyboardEvent, KeyboardEventHandler, useState } from "react"
+import {  KeyboardEvent, useState } from "react"
 import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 
