@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { EventHandler, KeyboardEvent, KeyboardEventHandler, useState } from "react"
 import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 
@@ -55,23 +55,31 @@ const SearchInput = () => {
         setInputValue(e.currentTarget.value)
     }
 
+    const Search = () =>{
+         // changes text based on user input
+         setTextChange();
+         // generate query based on input value
+
+         //TODO
+         getSpecificQuery();
+
+         // changes input box back to empty string
+
+         setInputValue("")
+    }
+
 
     const searchClick = () => {
-
         if (inputValue != "") {
-            // changes text based on user input
-            setTextChange();
-            // generate query based on input value
-
-            //TODO
-            getSpecificQuery();
-
-            // changes input box back to empty string
-
-            setInputValue("")
-
+            Search();
         }
     }
+    const searchEnter = (e?: KeyboardEvent) => {
+        if (inputValue != "" && e?.key == "Enter" ) {
+            Search();
+        }
+    }
+    
 
     // create new function that takes runs the query to the db and is run inside the searchClick function
     // figure out way to change the movie cards displayed in the main page: main option: rename this class to
@@ -125,7 +133,7 @@ const SearchInput = () => {
             <div className="browsing-container">
 
                 <div className="search-input-wrapper">
-                    <input id="search-bar" value={inputValue} className="search-input-editor" type="text" placeholder="Browse for Movies..." onChange={inputChange} />
+                    <input id="search-bar" value={inputValue} className="search-input-editor" type="text" placeholder="Browse for Movies..." onChange={inputChange} onKeyDown={searchEnter} />
                     <button className="search-input-button" onClick={searchClick} >
                         <i className="icon fa-solid fa-magnifying-glass"></i>
                     </button>
