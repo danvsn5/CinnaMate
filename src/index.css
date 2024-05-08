@@ -12,7 +12,8 @@
   -moz-osx-font-smoothing: grayscale;
   --rt-color-dark: #131313!important;
   --rt-opacity: 1!important;
-
+  --rt-transition-show-delay: 0.15s!important;
+  --rt-transition-closing-delay: 0.15s!important;
 }
 
 a {

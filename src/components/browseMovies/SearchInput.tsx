@@ -38,7 +38,15 @@ const SearchInput = () => {
     // movieCards element maps the collected elements from the array collected
     // by the API and is used in return code through <Card> element
 
-    let movieCards = results.slice(0, 8).map((movie: any) =>
+    function movieFilter(movie:any){
+        if((movie.backdrop_path == null) || (movie.poster_path == null) || (movie.overview == null)){
+            return;
+        } else {
+            return movie;
+        }
+    }
+
+    let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: any) =>
     (
         <li key={movie.id} className="trending-list">
             <Card movie={movie} />
@@ -103,10 +111,8 @@ const SearchInput = () => {
             .then((data: any) => {
                 console.log(data);
                 if (data.total_results != 0) {
-
                     // TODO create filter so that only movies WITH a poster path and and a backdrop path
-                    // are returned to reduce the possibility of returning a garbage result.
-
+                    // are returned to reduce the possibility of returning a garbage results
                     setResults([])
                     setResults(data.results);
                 } else {
