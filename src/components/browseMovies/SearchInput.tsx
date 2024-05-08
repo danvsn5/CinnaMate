@@ -35,9 +35,9 @@ const SearchInput = () => {
 
     }
 
-    // movieCards element maps the collected elements from the array collected
-    // by the API and is used in return code through <Card> element
 
+    // filters movies so that if they either do not have a poster, backdrop or overview, they will not be
+    // displayed after the search
     function movieFilter(movie:any){
         if((movie.backdrop_path == null) || (movie.poster_path == null) || (movie.overview == null)){
             return;
@@ -45,7 +45,8 @@ const SearchInput = () => {
             return movie;
         }
     }
-
+    // movieCards element maps the collected elements from the array collected
+    // by the API and is used in return code through <Card> element
     let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: any) =>
     (
         <li key={movie.id} className="trending-list">

@@ -10,7 +10,7 @@ const LoadMovie = ({ movie }: any) => {
     // tagline and poster path
     let [title, setTitle] = useState();
     let [overview, setOverview] = useState();
-    let [release, setRelease] = useState();
+    //let [release, setRelease] = useState();
     let [tagline, setTagline] = useState();
     let [posterPath, setPosterPath] = useState();
 
@@ -31,7 +31,7 @@ const LoadMovie = ({ movie }: any) => {
         .then((data: any) => {
             setTitle(data.title)
             setOverview(data.overview)
-            setRelease(data.release_date)
+            //setRelease(data.release_date)
             setTagline(data.tagline)
             setPosterPath(data.poster_path)
         })
@@ -41,13 +41,21 @@ const LoadMovie = ({ movie }: any) => {
     return (
         <div className="main-content">
 
-            <ExpandedSubheader subheaderTitle={title}/>
+            <ExpandedSubheader subheaderTitle={title} />
             <div className='expanded-main-content'>
                 <ExpandedThumbnail path={posterPath} />
                 <div className='right-thumbnail-content'>
-                    <h1 className='main-tagline'>{tagline}</h1>
-                    <h2 className='overview-text'>{overview}</h2>
-                    <ExpandedAddButtons/>
+                    {tagline ? (
+                        <h1 className='main-tagline'>{tagline}</h1>
+                    ) : (
+                        <h2 className='overview-text'>{overview}</h2>
+                    )}
+                    {tagline ? (
+                        <h2 className='overview-text'>{overview}</h2>
+                    ) : (
+                        <span></span>
+                    )}
+                    <ExpandedAddButtons />
                 </div>
             </div>
         </div>
