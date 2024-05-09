@@ -37,7 +37,10 @@ const LoadMovie = ({ movie }: any) => {
         })
         .catch((err: any) => console.error('error:' + err));
 
-    // returns as a list of items inside the page for dev viewing 
+    // result from API call is used either:
+    // individually through HTML elements
+    // conditional rendering
+    // props to other subfile components 
     return (
         <div className="main-content">
 

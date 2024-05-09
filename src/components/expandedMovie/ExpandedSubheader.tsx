@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 
 function ExpandedSubheader(props: any) {
+    // renders the subheader for the expanded movie page based on the title of movie and return links to the 
+    // previous page: either the browsing page or the home page
     return (
         <div className="subheader-container">
             <div className="subheader">

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 // thumbnail element used within cards to be displayed to user
 const Thumbnail = ({ movie }: any) => {
+  // id for the title of the movie so that it can be referenced properly
+  const id1: any = movie.id - 1000000;
 
-  const id1: any = movie.id -1000000;
-
+  // js logic so that when the user hovers over the title, the thumbnail hover effect is applied as well; vice versa
   const setHoverChangeThumb = () => {
     let id: any = movie.id;
     const thumb = document.getElementById(id)
@@ -13,17 +14,17 @@ const Thumbnail = ({ movie }: any) => {
     const title = document.getElementById(id1)
     if (title) title.style.color = "var(--light-purple)";
     if (title) title.style.textDecoration = "underline";
-}
+  }
 
-const setHoverChangeOffThumb = () => {
-  let id: any = movie.id;
-  const thumb = document.getElementById(id)
-  if (thumb) thumb.style.boxShadow = "0px 0px 0px 3px var(--dark-purple)";
-  const title = document.getElementById(id1)
+  const setHoverChangeOffThumb = () => {
+    let id: any = movie.id;
+    const thumb = document.getElementById(id)
+    if (thumb) thumb.style.boxShadow = "0px 0px 0px 3px var(--dark-purple)";
+    const title = document.getElementById(id1)
     if (title) title.style.color = "#ffffff";
     if (title) title.style.textDecoration = "none";
 
-}
+  }
 
   return (
     <div className="card-thumbnail">

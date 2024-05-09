@@ -18,16 +18,17 @@ const PageHome = () => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwYyIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
-    }
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwY'
+      +'yIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu'
+      +'5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'    }
   };
 
-  // if the call was succcesful then store the data gathered inside the results array
+  // if the call was succcesful then store the data gathered inside the results array;
+  // ensures that call is made only once 
   if (results.length == 0) {
     fetch(url, options)
       .then((res: any) => res.json())
       .then((data: any) => {
-        console.log(data);
         setResults(data.results);
       })
       .catch((err: any) => console.error('error:' + err));

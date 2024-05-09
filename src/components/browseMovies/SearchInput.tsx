@@ -1,4 +1,4 @@
-import {  KeyboardEvent, useState } from "react"
+import { KeyboardEvent, useState } from "react"
 import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 
@@ -19,7 +19,9 @@ const SearchInput = () => {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwYyIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwY'
+                + 'yIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu'
+                + '5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
         }
     };
 
@@ -38,8 +40,8 @@ const SearchInput = () => {
 
     // filters movies so that if they either do not have a poster, backdrop or overview, they will not be
     // displayed after the search
-    function movieFilter(movie:any){
-        if((movie.backdrop_path == null) || (movie.poster_path == null) || (movie.overview == null)){
+    function movieFilter(movie: any) {
+        if ((movie.backdrop_path == null) || (movie.poster_path == null) || (movie.overview == null)) {
             return;
         } else {
             return movie;
@@ -64,17 +66,17 @@ const SearchInput = () => {
         setInputValue(e.currentTarget.value)
     }
 
-    const Search = () =>{
-         // changes text based on user input
-         setTextChange();
-         // generate query based on input value
+    const Search = () => {
+        // changes text based on user input
+        setTextChange();
+        // generate query based on input value
 
-         //TODO
-         getSpecificQuery();
+        //TODO
+        getSpecificQuery();
 
-         // changes input box back to empty string
+        // changes input box back to empty string
 
-         setInputValue("")
+        setInputValue("")
     }
 
 
@@ -84,11 +86,11 @@ const SearchInput = () => {
         }
     }
     const searchEnter = (e?: KeyboardEvent) => {
-        if (inputValue != "" && e?.key == "Enter" ) {
+        if (inputValue != "" && e?.key == "Enter") {
             Search();
         }
     }
-    
+
 
     // create new function that takes runs the query to the db and is run inside the searchClick function
     // figure out way to change the movie cards displayed in the main page: main option: rename this class to
@@ -102,7 +104,9 @@ const SearchInput = () => {
             method: 'GET',
             headers: {
                 accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwYyIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwY'
+                    + 'yIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu'
+                    + '5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
             }
         };
 

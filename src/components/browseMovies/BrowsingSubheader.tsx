@@ -1,4 +1,4 @@
-function BrowsingSubheader(props:any){
+function BrowsingSubheader(props: any) {
   return (
     <div className="browsing-subheader-container">
       <div className="browsing-subheader-title">
