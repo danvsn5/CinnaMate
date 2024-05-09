@@ -1,6 +1,7 @@
 import Subheader from "./Subheader"
 import SearchInput from "./browseMovies/SearchInput"
 const PageBrowser = () => {
+  // initialise page variable
   PageID.pageIdentifier = "Browse"
   PageID.onMovie = false
   return (

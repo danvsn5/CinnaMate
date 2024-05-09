@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Subheader from "./Subheader"
 import Card from "./cards/Card"
+import movieType from "./utils/movieType";
 
 const PageHome = () => {
 
@@ -37,7 +38,7 @@ const PageHome = () => {
 
   // movieCards element maps the collected elements from the array collected
   // by the API and is used in return code through <Card> element
-  let movieCards = results.map((movie: any) =>
+  let movieCards = results.map((movie: movieType) =>
   (
     <li key={movie.id} className="trending-list">
       <Card movie={movie} />
