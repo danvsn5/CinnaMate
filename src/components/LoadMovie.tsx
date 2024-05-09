@@ -2,9 +2,10 @@ import { useState } from 'react';
 import ExpandedThumbnail from './expandedMovie/ExpandedThumbnail';
 import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
 import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
+import movieType from './utils/movieType';
 
 
-const LoadMovie = ({ movie }: any) => {
+const LoadMovie = ({ movie }:movieType) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path

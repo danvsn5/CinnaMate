@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 // thumbnail element used within cards to be displayed to user
 const Thumbnail = ({ movie }: any) => {
   // id for the title of the movie so that it can be referenced properly
