@@ -1,6 +1,7 @@
 import { KeyboardEvent, useState } from "react"
 import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
+import movieType from "../utils/movieType";
 
 const SearchInput = () => {
 
@@ -40,7 +41,7 @@ const SearchInput = () => {
 
     // filters movies so that if they either do not have a poster, backdrop or overview, they will not be
     // displayed after the search
-    function movieFilter(movie: any) {
+    function movieFilter(movie: movieType) {
         if ((movie.backdrop_path == null) || (movie.poster_path == null) || (movie.overview == null)) {
             return;
         } else {
@@ -49,7 +50,7 @@ const SearchInput = () => {
     }
     // movieCards element maps the collected elements from the array collected
     // by the API and is used in return code through <Card> element
-    let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: any) =>
+    let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: movieType) =>
     (
         <li key={movie.id} className="trending-list">
             <Card movie={movie} />

@@ -18,15 +18,15 @@ type movieType = {
         /**
      *  Release date for movie
      */
-    releaseDate: string
+    release_date: string
         /**
      *  Unique poster path for movie that can be used to query a specific poster image from tmdb
      */
-    posterPath: string
+    poster_path: string
         /**
      *  Unique backdrop path for movie that can be used to query a specific backdrop image from tmdb
      */
-    backdropPath: string
+    backdrop_path: string
 }
 
 export default movieType
