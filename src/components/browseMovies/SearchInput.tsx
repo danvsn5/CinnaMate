@@ -3,6 +3,7 @@ import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 import movieType from "../utils/movieType";
 import SearchMovieCard from "./SearchMovieCard";
+import { Link } from "react-router-dom";
 
 const SearchInput = () => {
 
@@ -61,7 +62,9 @@ const SearchInput = () => {
     let searchMovieCards = results.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
     (
         <li key={movie.id} className="search-card-list">
+            <Link to='/yourmovie' state={{ movie }}>
                 <SearchMovieCard movie={movie} />
+            </Link>
         </li>
     ))
 

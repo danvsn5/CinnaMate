@@ -579,6 +579,26 @@ body {
   border-top: 3px solid var(--dark-purple);
   border-right: 3px solid var(--dark-purple);
   border-radius: 10px;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  transition: 150ms ease-out;
+}
+
+.search-card-result:hover {
+  border-color: var(--light-purple);
+}
+
+.search-card-result:hover .actual-thumb {
+  box-shadow: 0px 0px 16px 8px var(--light-purple);
+}
+
+.search-card-result:hover .search-card-title {
+  color: var(--light-purple);
+  text-decoration: underline;
+  transition: 0ms ease-out;
 }
 
 .thumbnail-and-title {
@@ -594,16 +614,19 @@ body {
   font-family: Land;
   font-size: 36px;
   color: #ffffff;
+  transition: 150ms ease-out;
 }
 
 .search-card-date {
   font-size: 36px;
   color: #787878;
   padding-right: 25px;
+  transition: 150ms ease-out;
 }
 
 .search-card-result .actual-thumb {
   width: 100px;
+  z-index: 100;
 }
 
 .unordered-list {
