@@ -4,7 +4,7 @@ import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
 import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
 
 
-const LoadMovie = ({ movie }:any) => {
+const LoadMovie = ({ movie }: any) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path
@@ -14,6 +14,7 @@ const LoadMovie = ({ movie }:any) => {
     let [tagline, setTagline] = useState();
     let [posterPath, setPosterPath] = useState();
 
+    /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
 
     const url = `https://api.themoviedb.org/3/movie/${movie.id}?language=en-US`;
     const options = {
@@ -36,6 +37,8 @@ const LoadMovie = ({ movie }:any) => {
             setPosterPath(data.poster_path)
         })
         .catch((err: any) => console.error('error:' + err));
+
+    /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 
     // result from API call is used either:
     // individually through HTML elements

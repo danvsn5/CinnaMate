@@ -14,14 +14,17 @@ const PageHome = () => {
 
   let [results, setResults] = useState([]);
 
+  /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
+
   const url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YWIxNjYwNWY5MzQ5MzJiYzk4N2NlZTJjYjRiZGMwY'
-      +'yIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu'
-      +'5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'    }
+        + 'yIsInN1YiI6IjY2MmNmMTk1ZTMzZjgzMDEyMjIxMDc3NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xu'
+        + '5UsO6VS90CsemI07dMUU6xjKcbTxQ1UrfGjC9iFjc'
+    }
   };
 
   // if the call was succcesful then store the data gathered inside the results array;
@@ -35,6 +38,7 @@ const PageHome = () => {
       .catch((err: any) => console.error('error:' + err));
 
   }
+  /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 
   // movieCards element maps the collected elements from the array collected
   // by the API and is used in return code through <Card> element

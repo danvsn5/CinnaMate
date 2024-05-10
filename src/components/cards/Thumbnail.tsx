@@ -5,7 +5,8 @@ const Thumbnail = ({ movie }: any) => {
   // id for the title of the movie so that it can be referenced properly
   const id1: any = movie.id - 1000000;
 
-  // js logic so that when the user hovers over the title, the thumbnail hover effect is applied as well; vice versa
+  /* ————————————————————————————————————————— Hover Logic ———————————————————————————————————————— */
+
   const setHoverChangeThumb = () => {
     let id: any = movie.id;
     const thumb = document.getElementById(id)
