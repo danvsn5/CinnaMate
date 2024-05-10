@@ -565,6 +565,20 @@ body {
   display: flex;
   margin-bottom: 30px;
   width: 80%;
+  height:0px;
+  animation-name: height;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes height {
+  0% {
+    height:0px;
+  }
+
+  100%{
+    height:535px;
+  }
 }
 
 .search-card-result {
