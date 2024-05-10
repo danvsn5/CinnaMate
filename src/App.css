@@ -575,6 +575,10 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 83.5%;
+  border-bottom: 3px solid var(--dark-purple);
+  border-top: 3px solid var(--dark-purple);
+  border-right: 3px solid var(--dark-purple);
+  border-radius: 10px;
 }
 
 .thumbnail-and-title {
@@ -589,11 +593,13 @@ body {
   padding-left: 5%;
   font-family: Land;
   font-size: 36px;
+  color: #ffffff;
 }
 
 .search-card-date {
   font-size: 36px;
   color: #787878;
+  padding-right: 25px;
 }
 
 .search-card-result .actual-thumb {

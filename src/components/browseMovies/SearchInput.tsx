@@ -32,7 +32,6 @@ const SearchInput = () => {
         fetch(urlTrending, options)
             .then((res: any) => res.json())
             .then((data: any) => {
-                console.log(data);
                 setResults(data.results);
             })
             .catch((err: any) => console.error('error:' + err));
@@ -62,7 +61,7 @@ const SearchInput = () => {
     let searchMovieCards = results.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
     (
         <li key={movie.id} className="search-card-list">
-            <SearchMovieCard movie={movie} />
+                <SearchMovieCard movie={movie} />
         </li>
     ))
 
@@ -123,7 +122,6 @@ const SearchInput = () => {
         fetch(urlSpecific, options)
             .then((res: any) => res.json())
             .then((data: any) => {
-                console.log(data);
                 if (data.total_results != 0) {
                     // TODO create filter so that only movies WITH a poster path and and a backdrop path
                     // are returned to reduce the possibility of returning a garbage results
