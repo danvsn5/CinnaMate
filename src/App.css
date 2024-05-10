@@ -85,7 +85,7 @@ body {
   transition: 200ms box-shadow cubic-bezier(1, 0, 1, 1);
 }
 
-.navbar-button:hover:active{
+.navbar-button:hover:active {
   box-shadow: unset;
   transition: 50ms;
 }
@@ -451,12 +451,12 @@ body {
   animation-fill-mode: forwards;
 }
 
-.exp-return-button{
+.exp-return-button {
   height: 100%;
-  width:200px;
+  width: 200px;
   max-width: 200px;
   color: #ffffff;
-background-color: #131313;
+  background-color: #131313;
   border-radius: 10px;
   transition: 250ms;
   font-family: Land;
@@ -466,7 +466,7 @@ background-color: #131313;
 
 }
 
-.exp-return-button:hover:active{
+.exp-return-button:hover:active {
   box-shadow: unset;
   transition: 50ms;
 }
@@ -529,12 +529,12 @@ background-color: #131313;
   color: #ffffff;
 }
 
-.exp-tooltip{
-  font-size: 12px!important;
-  padding: 5px 0px 5px 0px!important;
+.exp-tooltip {
+  font-size: 12px !important;
+  padding: 5px 0px 5px 0px !important;
   margin-left: auto;
   margin-right: auto;
-  width:80px!important;
+  width: 80px !important;
   scale: 2;
 }
 
@@ -557,14 +557,53 @@ background-color: #131313;
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   width: 90%;
 }
 
-.search-wrapper-list{
+.search-wrapper-list {
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  width: 80%;
 }
+
+.search-card-result {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 83.5%;
+}
+
+.thumbnail-and-title {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.search-card-title {
+  padding-left: 5%;
+  font-family: Land;
+  font-size: 36px;
+}
+
+.search-card-date {
+  font-size: 36px;
+  color: #787878;
+}
+
+.search-card-result .actual-thumb {
+  width: 100px;
+}
+
+.unordered-list {
+  width: 100%;
+}
+
 
 .search-input-editor {
   height: 80px;
@@ -607,7 +646,7 @@ background-color: #131313;
   box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
 }
 
-.search-input-button:active{
+.search-input-button:active {
   box-shadow: unset;
   transition: 50ms;
 }
@@ -623,6 +662,7 @@ background-color: #131313;
   border-radius: 5px;
   border: unset;
 }
+
 .browsing-subheader-title {
   color: #ffffff;
   padding-left: 75px;
@@ -631,7 +671,7 @@ background-color: #131313;
   font-family: Land;
 }
 
-.browsing-main-content{
+.browsing-main-content {
   display: flex;
   justify-items: center;
   justify-content: space-around;

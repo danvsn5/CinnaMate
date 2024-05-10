@@ -2,6 +2,7 @@ import { KeyboardEvent, useState } from "react"
 import Card from "../cards/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 import movieType from "../utils/movieType";
+import SearchMovieCard from "./SearchMovieCard";
 
 const SearchInput = () => {
 
@@ -57,6 +58,14 @@ const SearchInput = () => {
         </li>
 
     ))
+
+    let searchMovieCards = results.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
+        (
+            <li key={movie.id} className="search-card-list">
+                <SearchMovieCard movie={movie}/>
+            </li>
+    
+        ))
 
     /* -------------------------- - ------------------------- */
 
@@ -151,12 +160,8 @@ const SearchInput = () => {
                     </button>
                 </div>
                 <div className="search-wrapper-list">
-                    <ul>
-                        <h1>
-                            <li>Sample Movie One</li>
-                            <li>Sample Movie Two</li>
-                            <li>Sample Movie Three</li>
-                        </h1>
+                    <ul className="unordered-list">
+                    {searchMovieCards}
                     </ul>
                 </div>
             </div>
