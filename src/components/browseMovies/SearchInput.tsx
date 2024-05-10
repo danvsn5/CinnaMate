@@ -60,12 +60,11 @@ const SearchInput = () => {
     ))
 
     let searchMovieCards = results.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
-        (
-            <li key={movie.id} className="search-card-list">
-                <SearchMovieCard movie={movie}/>
-            </li>
-    
-        ))
+    (
+        <li key={movie.id} className="search-card-list">
+            <SearchMovieCard movie={movie} />
+        </li>
+    ))
 
     /* -------------------------- - ------------------------- */
 
@@ -159,11 +158,16 @@ const SearchInput = () => {
                         <i className="icon fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
-                <div className="search-wrapper-list">
-                    <ul className="unordered-list">
-                    {searchMovieCards}
-                    </ul>
-                </div>
+
+                {inputValue ? (
+                    <div className="search-wrapper-list">
+                        <ul className="unordered-list">
+                            {searchMovieCards}
+                        </ul>
+                    </div>
+                ) : (
+                    <span />
+                )}
             </div>
 
             <hr className="browsing-break" />
