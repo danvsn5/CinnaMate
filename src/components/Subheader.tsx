@@ -1,5 +1,4 @@
 function Subheader(props: any) {
-
     return (
         <div className="subheader-container">
             <div className="subheader">
@@ -9,8 +8,6 @@ function Subheader(props: any) {
             </div>
             <hr className="break" />
         </div>
-
-
     )
 }
 

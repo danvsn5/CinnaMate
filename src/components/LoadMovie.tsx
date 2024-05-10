@@ -4,13 +4,13 @@ import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
 import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
 
 
-const LoadMovie = ({ movie }: any) => {
+const LoadMovie = ({ movie }:any) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path
     let [title, setTitle] = useState();
     let [overview, setOverview] = useState();
-    let [release, setRelease] = useState();
+    //let [release, setRelease] = useState();
     let [tagline, setTagline] = useState();
     let [posterPath, setPosterPath] = useState();
 
@@ -31,23 +31,34 @@ const LoadMovie = ({ movie }: any) => {
         .then((data: any) => {
             setTitle(data.title)
             setOverview(data.overview)
-            setRelease(data.release_date)
+            //setRelease(data.release_date)
             setTagline(data.tagline)
             setPosterPath(data.poster_path)
         })
         .catch((err: any) => console.error('error:' + err));
 
-    // returns as a list of items inside the page for dev viewing 
+    // result from API call is used either:
+    // individually through HTML elements
+    // conditional rendering
+    // props to other subfile components 
     return (
         <div className="main-content">
 
-            <ExpandedSubheader subheaderTitle={title}/>
+            <ExpandedSubheader subheaderTitle={title} />
             <div className='expanded-main-content'>
                 <ExpandedThumbnail path={posterPath} />
                 <div className='right-thumbnail-content'>
-                    <h1 className='main-tagline'>{tagline}</h1>
-                    <h2 className='overview-text'>{overview}</h2>
-                    <ExpandedAddButtons/>
+                    {tagline ? (
+                        <h1 className='main-tagline'>{tagline}</h1>
+                    ) : (
+                        <h2 className='overview-text'>{overview}</h2>
+                    )}
+                    {tagline ? (
+                        <h2 className='overview-text'>{overview}</h2>
+                    ) : (
+                        <span></span>
+                    )}
+                    <ExpandedAddButtons />
                 </div>
             </div>
         </div>

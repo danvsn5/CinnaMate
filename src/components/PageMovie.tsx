@@ -1,15 +1,14 @@
 import { useLocation } from "react-router-dom"
 import LoadMovie from "./LoadMovie"
-
-//TODO - create return button that returns users to the page they were on previously
-// based on a globally accessible variable; users should be able to transition between
-// the home page, browsing page, and then each individual sub page of the MyMovies page
+import movieType from "./utils/movieType";
 
 const PageMovie = () => {
-
+    // initialise movie prop based on input movie through React State
     const location = useLocation()
+    const movie: movieType = location.state.movie;
+    // initialise page variable
+    PageID.onMovie = true
 
-    const movie = location.state.movie;
     return (
         <LoadMovie movie={movie} />
     )
