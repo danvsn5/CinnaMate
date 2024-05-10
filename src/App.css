@@ -484,7 +484,7 @@ body {
 .overview-text {
   text-align: justify;
   text-align-last: center;
-  font-size: 30px;
+  font-size: 26px;
   font-family: Land;
   opacity: 0;
   animation-name: card-appear;
