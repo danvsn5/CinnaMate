@@ -150,6 +150,15 @@ const SearchInput = () => {
                         <i className="icon fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
+                <div className="search-wrapper-list">
+                    <ul>
+                        <h1>
+                            <li>Sample Movie One</li>
+                            <li>Sample Movie Two</li>
+                            <li>Sample Movie Three</li>
+                        </h1>
+                    </ul>
+                </div>
             </div>
 
             <hr className="browsing-break" />

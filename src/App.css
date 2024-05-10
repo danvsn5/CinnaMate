@@ -544,6 +544,8 @@ background-color: #131313;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .search-input-editor::placeholder {
@@ -557,6 +559,11 @@ background-color: #131313;
   margin-top: 50px;
   margin-bottom: 50px;
   width: 90%;
+}
+
+.search-wrapper-list{
+  display: flex;
+  margin-bottom: 50px;
 }
 
 .search-input-editor {
