@@ -1,0 +1,162 @@
+/* ———————————————————————————————————— Individual Movie Page ——————————————————————————————————— */
+
+.main-tagline {
+    font-family: Land;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    animation-name: card-appear;
+    animation-duration: 0.5s;
+    animation-delay: 1.75s;
+    animation-fill-mode: forwards;
+  }
+  
+  .main-tagline::first-line {
+    text-decoration: underline var(--light-purple) 3px;
+    text-underline-offset: -50px;
+  }
+  
+  .expanded-thumbnail {
+    opacity: 0;
+    animation-name: card-appear;
+    animation-duration: 0.5s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+  
+  .actual-expanded-thumb {
+    width: 300px;
+    border-radius: 10px;
+    cursor: none;
+    box-shadow: 0px 0px 0px 3px var(--dark-purple);
+  }
+  
+  @keyframes hover-glow {
+    0% {
+      box-shadow: 0px 0px 24px 12px var(--light-purple);
+    }
+  
+    50% {
+      box-shadow: 0px 0px 24px 12px var(--dark-purple);
+    }
+  
+    100% {
+      box-shadow: 0px 0px 24px 12px var(--light-purple);
+    }
+  }
+  
+  @keyframes hover-off-glow {
+    from {
+      box-shadow: 0px 0px 24px 12px var(--dark-purple);
+    }
+  
+    to {
+      box-shadow: 0px 0px 0px 3px var(--dark-purple);
+    }
+  }
+  
+  .exp-subheader-title {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-top: 25px;
+    font-weight: 1000;
+    text-decoration: underline var(--dark-purple) 3px;
+    text-underline-offset: -50px;
+    opacity: 0;
+    animation-name: card-appear;
+    animation-duration: 0.5s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .exp-return-button {
+    height: 100%;
+    width: 200px;
+    max-width: 200px;
+    color: #ffffff;
+    background-color: #131313;
+    border-radius: 10px;
+    transition: 250ms;
+    font-family: Land;
+    font-size: 24px;
+    padding: unset;
+    border: 3px solid var(--dark-purple);
+  
+  }
+  
+  .exp-return-button:hover:active {
+    box-shadow: unset;
+    transition: 50ms;
+  }
+  
+  .exp-return-button:hover {
+    box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+  }
+  
+  .actual-expanded-thumb:hover {
+    box-shadow: 0px 0px 24px 12px var(--light-purple);
+    transition: 150ms ease-out;
+    animation: hover-glow 3s ease-out 150ms infinite;
+  }
+  
+  .overview-text {
+    text-align: justify;
+    text-align-last: center;
+    font-size: 26px;
+    font-family: Land;
+    opacity: 0;
+    animation-name: card-appear;
+    animation-duration: 0.5s;
+    animation-delay: 2.25s;
+    animation-fill-mode: forwards;
+  }
+  
+  .overview-text::first-line {
+    text-decoration: underline var(--dark-purple) 3px;
+    text-underline-offset: -40px;
+  }
+  
+/* ————————————————————————————————————— Expanded Button Row ———————————————————————————————————— */
+
+  .exp-button-row {
+    display: flex;
+    justify-content: space-between;
+    min-width: max-content;
+    width: 90%;
+    opacity: 0;
+    animation-name: card-appear;
+    animation-duration: 0.5s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .exp-thumb-button {
+    width: 200px;
+    height: 80px;
+    transition: 250ms;
+    background-color: #131313;
+    border: 3px solid var(--light-purple);
+  }
+  
+  .exp-thumb-button:hover {
+    box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+  }
+  
+  .exp-icon {
+    scale: 2;
+    color: #ffffff;
+  }
+  
+  .exp-tooltip {
+    font-size: 12px !important;
+    padding: 5px 0px 5px 0px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px !important;
+    scale: 2;
+  }
+  
