@@ -15,7 +15,7 @@ describe('web-page initialisation', () => {
   })
 
   it('displays 20 movie cards', () => {
-
+    // generates query for trending cards and then
     // counts number of display cards are on the trending page; 
     // 20 results are expected
     cy.get('.page-card').should('have.length', 20)
