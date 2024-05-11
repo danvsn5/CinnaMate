@@ -81,17 +81,69 @@
     font-family: Land;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    min-width: 436px;
 }
 
 .footer-bar-contents {
     display: flex;
     bottom: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+}
+
+@media (min-width:938px) and (max-width: 1136px) {
+    
+    .footer-title{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: #000000;
+    }
+    .attribution{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .github{
+        padding-top: 30px;
+    }
+}
+
+@media (min-width:375px) and (max-width:938px) {
+
+    .site-title{
+        font-size: 16px!important;
+        padding: unset!important;
+    }
+
+    .navbar-contents{
+        justify-content: center!important;
+    }
+    
+    .footer-title{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-size: 16px!important;
+    }
+    .attribution{
+        padding-top: 30px;
+    }
+    .text-attribution{
+        width: 300px!important;
+    }
+    .github{
+        padding-top: 30px;
+    }
+    .github-referral{
+        width: 300px!important;
+    }
+    .footer-bar{
+        min-width: unset!important;
+    }
 }
 
 .footer-title {
