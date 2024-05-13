@@ -141,7 +141,7 @@ describe('browse-page', () => {
     it('check if the items from searching list are all the same height small phones', () => {
         // searches for pl in input box
         cy.viewport("iphone-8")
-        cy.get('.search-input-editor').type("pl")
+        cy.get('.search-input-editor').type("harry potter")
         cy.get('.search-card-title:first').then((element) => {
             // gets the height of the text in the first box, assuming no wrapping
             let height = element.height();

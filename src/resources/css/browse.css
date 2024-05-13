@@ -228,9 +228,11 @@
 
     .search-card-title{
       font-size:24px!important;
-      padding-left: 10px!important;
+      padding-left: 5px!important;
       padding-right: 10px!important;
       text-align: left;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
     .search-card-date{
       font-size:24px!important
