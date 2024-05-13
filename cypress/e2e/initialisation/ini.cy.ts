@@ -20,7 +20,5 @@ describe('web-page initialisation', () => {
     // 20 results are expected
     cy.get('.page-card').should('have.length', 20)
     cy.get('.page-card').should('be.visible', 20)
-
-
   })
 })
