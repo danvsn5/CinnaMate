@@ -167,7 +167,11 @@
     margin-right: auto !important;
     flex-direction: column !important;
     align-items: center;
-    min-height: unset !important;
+    min-height: 800px !important;
+  }
+
+  .subheader-title{
+    padding-left: 0px!important;
   }
 
   .exp-thumb-button {
@@ -195,6 +199,12 @@
   .right-thumbnail-content {
     padding-top: 75px;
     max-height: unset !important;
+  }
+
+  .exp-subheader-title{
+    justify-content: center;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
   }
 
 }
