@@ -64,7 +64,7 @@ body {
   min-height: 2000px;
 }
 
-@media (max-width: 670px) {
+@media (min-width:375px) and (max-width: 1000px) {
   .subheader {
     justify-content: center !important;
     text-align: center !important;

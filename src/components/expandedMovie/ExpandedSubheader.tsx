@@ -6,7 +6,7 @@ function ExpandedSubheader(props: any) {
     return (
         <div className="subheader-container">
             <div className="subheader">
-                <div className="exp-subheader-title">
+                <div id='exp-subheader'className="exp-subheader-title">
                     <h1> <span>&#x200B;</span> {props.subheaderTitle}</h1>
                     {(PageID.pageIdentifier == "Home" && PageID.onMovie == true && window.innerWidth > 1000) && <Link to="/">
                         <button className="exp-return-button">Return</button>
