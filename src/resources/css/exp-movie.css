@@ -171,6 +171,9 @@
     }
     .exp-thumb-button{
       width: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 50px;
     }
     .exp-thumb-button .icon{
       scale: 1.75!important;
@@ -187,7 +190,7 @@
     }
     .right-thumbnail-content{
       padding-top: 75px;
-      margin-bottom: 0px;
+      max-height: unset!important;
     }
 
   }
