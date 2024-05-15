@@ -14,5 +14,4 @@ export default defineConfig({
     },
     downloadsFolder: 'cypress/downloads'
   },
-  defaultCommandTimeout: 20000
 });

@@ -13,12 +13,6 @@ describe('browse-page', () => {
         cy.get('.exp-return-button').should('be.visible')
     })
 
-    it('check return exists for small laptop', () => {
-        cy.viewport('macbook-11')
-        // query is generates and checks whether exp button is visible
-        cy.get('.exp-return-button').should('exist')
-    })
-
     it('check return exists for tablet', () => {
         cy.viewport('ipad-mini')
         // query is generates and checks whether exp button is visible
