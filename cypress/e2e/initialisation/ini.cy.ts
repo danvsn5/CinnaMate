@@ -2,7 +2,7 @@ describe('web-page initialisation', () => {
   beforeEach(() => {
 
     // opens up dev webpage 
-    cy.visit('http://localhost:5173/')
+    cy.visit('http://localhost:4173/')
 
   })
 

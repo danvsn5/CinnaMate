@@ -2,7 +2,7 @@ describe('browse-page', () => {
     beforeEach(() => {
 
         // opens up dev webpage 
-        cy.visit('http://localhost:5173')
+        cy.visit('http://localhost:4173/')
         cy.get('.actual-thumb:first').click()
     })
 
