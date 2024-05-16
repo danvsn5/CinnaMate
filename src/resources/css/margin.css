@@ -98,7 +98,7 @@
     width: 100%;
 }
 
-@media (min-width:938px) and (max-width: 1136px) {
+@media (min-width:956px) and (max-width: 1136px) {
     
     .footer-title{
         padding-top: 30px;
@@ -114,7 +114,7 @@
     }
 }
 
-@media (min-width:375px) and (max-width:938px) {
+@media (min-width:375px) and (max-width:956px) {
 
     .site-title{
         font-size: 16px!important;

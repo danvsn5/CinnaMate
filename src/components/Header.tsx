@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 const Header = () => {
 
-    const [isDesktop, setDesktop] = useState(window.innerWidth < 938);
+    const [isDesktop, setDesktop] = useState(window.innerWidth < 956);
 
     const updateMedia = () => {
-        setDesktop(window.innerWidth < 938);
+        setDesktop(window.innerWidth < 956);
     };
 
     useEffect(() => {
@@ -27,26 +27,31 @@ const Header = () => {
                         <span></span>
                     ) : (
                         <div className="header-tabs">
-                        <ul className="tab-button-links">
-                            <li className="tab-button">
-                                <Link to="/">
-                                    <button className="navbar-button">Home</button>
-                                </Link>
-                            </li>
+                            <ul className="tab-button-links">
+                                <li className="tab-button">
+                                    <Link to="/">
+                                        <button className="navbar-button">Home</button>
+                                    </Link>
+                                </li>
 
-                            <li className="tab-button">
-                                <Link to="/browser">
-                                    <button className="navbar-button">Browse Movies</button>
-                                </Link>
-                            </li>
+                                <li className="tab-button">
+                                    <Link to="/browser">
+                                        <button className="navbar-button">Browse Movies</button>
+                                    </Link>
+                                </li>
 
-                            <li className="tab-button">
-                                <Link to="/movies">
-                                    <button className="navbar-button">My Movies</button>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>                    )}
+                                <li className="tab-button">
+                                    <Link to="/movies">
+                                        <button className="navbar-button">My Movies</button>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>)}
+                </div>
+                <div className="burger-bar">
+                    <div className="hambuger-icon">
+                        <h1>hamburger bar</h1>
+                    </div>
                 </div>
             </div>
         </header >
