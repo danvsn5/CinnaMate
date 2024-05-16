@@ -48,11 +48,17 @@ const Header = () => {
                             </ul>
                         </div>)}
                 </div>
-                <div className="burger-bar">
-                    <div className="hambuger-icon">
-                        <h1>hamburger bar</h1>
+
+                {isDesktop ? (
+                    <div className="burger-bar">
+                        <div className="hambuger-icon">
+                            <h1>hamburger bar</h1>
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <span></span>
+                )}
+
             </div>
         </header >
 

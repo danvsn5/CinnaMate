@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
     background: #131313;
     margin: 0px;
     padding: 0px;
