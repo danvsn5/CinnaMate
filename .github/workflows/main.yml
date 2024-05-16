@@ -15,5 +15,3 @@ jobs:
         with:
           build: npm run build
           start: npm run preview        
-          name: cypress-screenshots
-          path: cypress/screenshots
