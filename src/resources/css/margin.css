@@ -100,51 +100,58 @@
 }
 
 @media (min-width:956px) and (max-width: 1136px) {
-    
-    .footer-title{
+
+    .footer-title {
         padding-top: 30px;
         padding-bottom: 30px;
         background: #000000;
     }
-    .attribution{
+
+    .attribution {
         padding-top: 30px;
         padding-bottom: 30px;
     }
-    .github{
+
+    .github {
         padding-top: 30px;
     }
 }
 
 @media (min-width:375px) and (max-width:956px) {
 
-    .site-title{
-        font-size: 16px!important;
-        padding: unset!important;
+    .site-title {
+        font-size: 16px !important;
+        padding: unset !important;
     }
 
-    .navbar-contents{
-        justify-content: center!important;
+    .navbar-contents {
+        justify-content: center !important;
     }
-    
-    .footer-title{
+
+    .footer-title {
         padding-top: 30px;
         padding-bottom: 30px;
-        font-size: 16px!important;
+        font-size: 16px !important;
     }
-    .attribution{
+
+    .attribution {
         padding-top: 30px;
     }
-    .text-attribution{
-        width: 300px!important;
+
+    .text-attribution {
+        width: 300px !important;
     }
-    .github{
+
+    .github {
         padding-top: 30px;
     }
-    .github-referral{
-        width: 300px!important;
+
+    .github-referral {
+        width: 300px !important;
     }
-    .footer-bar{
-        min-width: unset!important;
+
+    .footer-bar {
+        min-width: unset !important;
     }
 }
 
@@ -256,4 +263,61 @@
     margin-right: 75px;
     border-radius: 5px;
     border: unset;
+}
+
+/* ————————————————————————————————————————— Burger Bar ————————————————————————————————————————— */
+
+.burger-bar {
+    display: flex;
+    width: 90%;
+    padding-bottom: 10px;
+}
+
+.hamburger-icon {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.burger-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 0px;
+    background: transparent;
+    padding: unset;
+}
+
+.top-burger {
+    display: block;
+    width: 35px;
+    height: 4px !important;
+    margin-bottom: 7px;
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.mid-burger {
+    display: block;
+    width: 35px;
+    height: 4px !important;
+    margin-bottom: 7px;
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.bot-burger {
+    display: block;
+    width: 35px;
+    height: 4px !important;
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.hamburger-icon:hover .top-burger,
+.hamburger-icon:hover .bot-burger,
+.hamburger-icon:hover .mid-burger {
+    background: var(--light-purple);
 }

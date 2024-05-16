@@ -51,8 +51,17 @@ const Header = () => {
 
                 {isDesktop ? (
                     <div className="burger-bar">
-                        <div className="hambuger-icon">
-                            <h1>hamburger bar</h1>
+                        <div className="hamburger-icon">
+                        <button className="burger-button">
+                            <span className="top-burger"/>
+                            <span className="mid-burger"/>
+                            <span className="bot-burger"/>
+                        </button>
+                        <button className="burger-button">
+                            <span className="top-burger"/>
+                            <span className="mid-burger"/>
+                            <span className="bot-burger"/>
+                        </button>
                         </div>
                     </div>
                 ) : (
