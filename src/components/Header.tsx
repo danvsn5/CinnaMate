@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import dispBurger from "./burgerComponents/dispBurger";
+import hideBurger from "./burgerComponents/hideBurger";
 
 const Header = () => {
-
-    var topB = document.getElementById("topB");
-    var topBA = document.getElementById("topBA");
-
-    var midB = document.getElementById("midB");
-    var midBA = document.getElementById("midBA");
-
-    var botB = document.getElementById("botB");
-    var botBA = document.getElementById("botBA");
 
     const [isDesktop, setDesktop] = useState(window.innerWidth < 956);
 
@@ -23,41 +16,8 @@ const Header = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-    function dispBurgerStyle() {
-        if (topB) topB.style.width = "100%"
-        if (topBA) topBA.style.width = "100%"
-        if (midB) midB.style.width = "100%"
-        if (midBA) midBA.style.width = "100%"
-        if (botB) botB.style.width = "100%"
-        if (botBA) botBA.style.width = "100%"
-
-        if (topB) topB.style.background = "var(--light-purple)"
-        if (topBA) topBA.style.background = "var(--light-purple)"
-        if (midB) midB.style.background = "var(--light-purple)"
-        if (midBA) midBA.style.background = "var(--light-purple)"
-        if (botB) botB.style.background = "var(--light-purple)"
-        if (botBA) botBA.style.background = "var(--light-purple)"
-    }
-
-    function hideBurgerStyle() {
-        if (topB) topB.style.width = "35px"
-        if (topBA) topBA.style.width = "35px"
-        if (midB) midB.style.width = "30px"
-        if (midBA) midBA.style.width = "30px"
-        if (botB) botB.style.width = "35px"
-        if (botBA) botBA.style.width = "35px"
-
-        if (topB) topB.style.background = "#ffffff"
-        if (topBA) topBA.style.background = "#ffffff"
-        if (midB) midB.style.background = "#ffffff"
-        if (midBA) midBA.style.background = "#ffffff"
-        if (botB) botB.style.background = "#ffffff"
-        if (botBA) botBA.style.background = "#ffffff"
-
-    }
-
     const [isburgerOpen, setBurger] = useState(true);
-    
+
     function displayBurger() {
         //sets variables for ID elements
         var burgerItems = document.getElementById("burger-list-ID");
@@ -65,8 +25,8 @@ const Header = () => {
         var buttonB = document.getElementById("itm-btn-B");
         var buttonC = document.getElementById("itm-btn-C");
 
-        if(isburgerOpen == false){
-            hideBurgerStyle()
+        if (isburgerOpen == false) {
+            hideBurger()
         }
 
         if (isburgerOpen == false) {
@@ -74,7 +34,7 @@ const Header = () => {
             // through animation, set the display style to block and then set the opacity to 1 after the 
             // burger bar has been opened with animation
 
-            dispBurgerStyle()
+            dispBurger()
 
             if (burgerItems) burgerItems.style.height = "240px"
             if (buttonA) buttonA.style.display = "block"
@@ -91,7 +51,7 @@ const Header = () => {
         } else {
             // closes buttons with fade out animation; once animation is complete, closes the rest of the 
             // burger bar
-            hideBurgerStyle()
+            hideBurger()
 
 
             if (buttonA) buttonA.style.opacity = "0"
