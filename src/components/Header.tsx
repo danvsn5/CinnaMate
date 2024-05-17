@@ -19,16 +19,14 @@ const Header = () => {
     function displayBurger() {
         var burgerItems = document.getElementById("burger-list-ID");
 
-        if (isburgerOpen == false){
-        if (burgerItems) burgerItems.style.display = "block"
-        setBurger(true);
+        if (isburgerOpen == false) {
+            if (burgerItems) burgerItems.style.display = "block"
+            setBurger(true);
         } else {
             if (burgerItems) burgerItems.style.display = "none"
             setBurger(false)
-
         }
-
-      }
+    }
 
     return (
 
@@ -83,11 +81,23 @@ const Header = () => {
                     <span />
                 )}
                 <ul className="list-items" id="burger-list-ID">
-                    <h1>
-                        <li>button One</li>
-                        <li>button Two</li>
-                        <li>button Three</li>
-                    </h1>
+
+                    <li>
+                        <Link to="/">
+                            <button className="burger-item-button" onClick={displayBurger}>Home</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/browser">
+                            <button className="burger-item-button" onClick={displayBurger}>Browse Movies</button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/movies">
+                            <button className="burger-item-button" onClick={displayBurger}>My Movies</button>
+                        </Link>
+                    </li>
+
                 </ul>
             </div>
         </header >

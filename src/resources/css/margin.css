@@ -11,6 +11,7 @@
     font-family: Land;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    transition: 300ms;
 }
 
 .navbar-contents {
@@ -357,4 +358,17 @@
 
 .list-items{
     display: none;
+    width: 60%;
+    height: 240px;
+    transition: 400ms ease-out;
+}
+
+.burger-item-button{
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    border: 3px solid var(--light-purple);
+    background-color: #131313;
+    color: #fff;
 }
