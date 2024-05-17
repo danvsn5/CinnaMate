@@ -14,6 +14,22 @@ const Header = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
+    const [isburgerOpen, setBurger] = useState(false);
+
+    function displayBurger() {
+        var burgerItems = document.getElementById("burger-list-ID");
+
+        if (isburgerOpen == false){
+        if (burgerItems) burgerItems.style.display = "block"
+        setBurger(true);
+        } else {
+            if (burgerItems) burgerItems.style.display = "none"
+            setBurger(false)
+
+        }
+
+      }
+
     return (
 
         <header>
@@ -49,14 +65,14 @@ const Header = () => {
                 {isDesktop ? (
                     <div className="burger-bar">
                         <div className="hamburger-icon-A">
-                            <button className="burger-button-A">
+                            <button className="burger-button-A" onClick={displayBurger}>
                                 <span className="top-burger left" />
                                 <span className="mid-burger left" />
                                 <span className="bot-burger left" />
                             </button>
                         </div>
                         <div className="hamburger-icon-B">
-                            <button className="burger-button-B">
+                            <button className="burger-button-B" onClick={displayBurger}>
                                 <span className="top-burger right" />
                                 <span className="mid-burger right" />
                                 <span className="bot-burger right" />
@@ -64,8 +80,15 @@ const Header = () => {
                         </div>
                     </div>
                 ) : (
-                    <span/>
+                    <span />
                 )}
+                <ul className="list-items" id="burger-list-ID">
+                    <h1>
+                        <li>button One</li>
+                        <li>button Two</li>
+                        <li>button Three</li>
+                    </h1>
+                </ul>
             </div>
         </header >
     )
