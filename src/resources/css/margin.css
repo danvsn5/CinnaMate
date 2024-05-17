@@ -339,13 +339,6 @@
     transition: 350ms ease-out;
 }
 
-.burger-bar:hover .top-burger,
-.burger-bar:hover .bot-burger,
-.burger-bar:hover .mid-burger {
-    background: var(--light-purple);
-    width: 100%;
-}
-
 .burger-bar:hover .left {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
