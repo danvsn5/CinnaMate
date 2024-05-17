@@ -314,7 +314,6 @@
     margin-bottom: 7px;
     position: relative;
     background: #fff;
-    border-radius: 3px;
     transition: 350ms ease-out;
 }
 
@@ -325,7 +324,6 @@
     margin-bottom: 7px;
     position: relative;
     background: #fff;
-    border-radius: 3px;
     transition: 350ms ease-out;
 }
 
@@ -335,32 +333,22 @@
     height: 4px !important;
     position: relative;
     background: #fff;
-    border-radius: 3px;
     transition: 350ms ease-out;
 }
 
-.burger-bar:hover .left {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-.burger-bar:hover .right {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-.list-items{
+.list-items {
     display: block;
     width: 60%;
     height: 0px;
     transition: 350ms;
 }
-.list-height{
+
+.list-height {
     height: 240px;
 }
 
-.burger-item-button{
-    display:none;
+.burger-item-button {
+    display: none;
     opacity: 0;
     width: 100%;
     margin-bottom: 20px;
@@ -369,5 +357,34 @@
     border: 3px solid var(--light-purple);
     background-color: #131313;
     color: #fff;
-    transition:250ms ease-in;
+    transition: 250ms ease-in;
+}
+
+.burger-item-button:hover .top-burger {
+    width: 100%!important;
+    background: var(--light-purple)!important;
+}
+
+#topB {
+    border-radius: 3px 0px 0px 3px;
+}
+
+#midB {
+    border-radius: 3px 0px 0px 3px;
+}
+
+#botB {
+    border-radius: 3px 0px 0px 3px;
+}
+
+#topBA {
+    border-radius: 0px 3px 3px 0px;
+}
+
+#midBA {
+    border-radius: 0px 3px 3px 0px;
+}
+
+#botBA {
+    border-radius: 0px 3px 3px 0px;
 }

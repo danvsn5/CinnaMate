@@ -37,7 +37,6 @@ const Header = () => {
         if (midBA) midBA.style.background = "var(--light-purple)"
         if (botB) botB.style.background = "var(--light-purple)"
         if (botBA) botBA.style.background = "var(--light-purple)"
-
     }
 
     function hideBurgerStyle() {
@@ -57,8 +56,8 @@ const Header = () => {
 
     }
 
-    const [isburgerOpen, setBurger] = useState(false);
-
+    const [isburgerOpen, setBurger] = useState(true);
+    
     function displayBurger() {
         //sets variables for ID elements
         var burgerItems = document.getElementById("burger-list-ID");
@@ -66,7 +65,9 @@ const Header = () => {
         var buttonB = document.getElementById("itm-btn-B");
         var buttonC = document.getElementById("itm-btn-C");
 
-
+        if(isburgerOpen == false){
+            hideBurgerStyle()
+        }
 
         if (isburgerOpen == false) {
             // if the burger bar is currently closed, open the bar by setting the constant height which functions
