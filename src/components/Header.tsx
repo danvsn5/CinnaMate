@@ -22,7 +22,6 @@ const Header = () => {
                     <div className="site-title">
                         <h1>CinnaMate</h1>
                     </div>
-
                     {isDesktop ? (
                         <span></span>
                     ) : (
@@ -33,13 +32,11 @@ const Header = () => {
                                         <button className="navbar-button">Home</button>
                                     </Link>
                                 </li>
-
                                 <li className="tab-button">
                                     <Link to="/browser">
                                         <button className="navbar-button">Browse Movies</button>
                                     </Link>
                                 </li>
-
                                 <li className="tab-button">
                                     <Link to="/movies">
                                         <button className="navbar-button">My Movies</button>
@@ -51,29 +48,27 @@ const Header = () => {
 
                 {isDesktop ? (
                     <div className="burger-bar">
-                        <div className="hamburger-icon">
-                        <button className="burger-button">
-                            <span className="top-burger"/>
-                            <span className="mid-burger"/>
-                            <span className="bot-burger"/>
-                        </button>
-                        <button className="burger-button">
-                            <span className="top-burger"/>
-                            <span className="mid-burger"/>
-                            <span className="bot-burger"/>
-                        </button>
+                        <div className="hamburger-icon-A">
+                            <button className="burger-button-A">
+                                <span className="top-burger left" />
+                                <span className="mid-burger left" />
+                                <span className="bot-burger left" />
+                            </button>
+                        </div>
+                        <div className="hamburger-icon-B">
+                            <button className="burger-button-B">
+                                <span className="top-burger right" />
+                                <span className="mid-burger right" />
+                                <span className="bot-burger right" />
+                            </button>
                         </div>
                     </div>
                 ) : (
-                    <span></span>
+                    <span/>
                 )}
-
             </div>
         </header >
-
     )
-
-
 }
 
 export default Header;
