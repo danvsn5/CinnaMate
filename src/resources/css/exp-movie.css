@@ -229,7 +229,6 @@
     margin-right: auto !important;
     flex-direction: column !important;
     align-items: center;
-    min-height: 800px !important;
   }
 
   #exp-subheader .subheader-title {
@@ -259,4 +258,46 @@
     margin-bottom: 50px;
   }
 
+}
+
+@media (min-width: 1400px) {
+
+  .break-tag{
+    margin-top: 50px;
+  }
+  
+}
+
+/* ————————————————————————————————————————— Movie Tags ————————————————————————————————————————— */
+
+.movie-tag{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.zingus {
+  resize: none;
+  width: 80%;
+  font-size: 30px;
+}
+
+.break-tag{
+  color: #000000;
+  background: radial-gradient(circle, var(--dark-purple) 0%, var(--light-purple) 100%);
+  height: 5px;
+  border-radius: 5px;
+  border: unset;
+  width: 90%;
+}
+
+.tag{
+margin-top: 20px; 
+margin-bottom: 20px;  
+
+}
+.tag::first-line {
+  text-decoration: none;
 }

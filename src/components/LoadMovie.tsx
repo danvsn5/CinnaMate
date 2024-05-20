@@ -63,6 +63,11 @@ const LoadMovie = ({ movie }: any) => {
                     )}
                     <ExpandedAddButtons />
                 </div>
+                <div className='movie-tag'>
+                    <hr className="break-tag" />
+                    <h1 className='main-tagline tag'>Tags</h1>
+                    <textarea className='zingus'></textarea>
+                </div>
             </div>
         </div>
     )
