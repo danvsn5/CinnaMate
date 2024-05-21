@@ -229,7 +229,7 @@
     margin-right: auto !important;
     flex-direction: column !important;
     align-items: center;
-  }
+    }
 
   #exp-subheader .subheader-title {
     padding-left: 0px !important;
@@ -265,6 +265,9 @@
   .break-tag{
     margin-top: 50px;
   }
+  .right-thumbnail-content{
+    min-height: 450px!important;
+  }
   
 }
 
@@ -276,6 +279,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
 }
 
 .break-tag{
