@@ -342,3 +342,7 @@ margin-bottom: 20px;
   opacity: 1;
   color: var(--light-purple);
 }
+
+.add-tag-button{
+  margin-bottom: 50px;
+}
