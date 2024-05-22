@@ -308,6 +308,7 @@ span {
   animation-duration: 1s;
   animation-delay: 3s;
   animation-fill-mode: forwards;
+  margin-top: 40px;
 }
 
 .break-tag {
