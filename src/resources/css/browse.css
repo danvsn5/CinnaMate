@@ -123,7 +123,6 @@
 .search-input-editor:hover {
   box-shadow: 0px 0px 8px 4px var(--light-purple);
   transition: 250ms;
-
 }
 
 .search-input-editor:focus-visible {
@@ -131,7 +130,6 @@
   border: unset;
   outline: unset;
   transition: 250ms;
-
 }
 
 .search-input-button {
