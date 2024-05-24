@@ -2,7 +2,7 @@ import { Tooltip } from "react-tooltip"
 
 const MovieTag = ({ movieID }: any) => {
 
-movieID = movieID;
+    movieID = movieID;
     return (
         <div className='movie-tag'>
             <hr className="break-tag" />

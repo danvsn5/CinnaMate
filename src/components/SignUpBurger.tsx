@@ -5,7 +5,7 @@ Modal.setAppElement('#root');
 
 
 
-const SignUp = () => {
+const SignUpBurger = () => {
 
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
@@ -37,11 +37,10 @@ const SignUp = () => {
     return (
         <div>
             {isDesktop ? (
-                <span></span>
+                <button className="burger-item-button" id="itm-btn-D" onClick={openModal}>Sign Up or Log In</button>
+
             ) : (
-                <button className="navbar-button sign-up-button" onClick={openModal}>
-                    <i className="icon fa-solid fa-user-plus exp-icon"></i>
-                </button>
+                <span></span>
             )}
             <Modal
                 isOpen={modalIsOpen}
@@ -73,4 +72,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignUpBurger

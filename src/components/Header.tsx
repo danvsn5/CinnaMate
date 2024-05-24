@@ -3,13 +3,15 @@ import { useState, useEffect } from "react";
 import dispBurger from "./burgerComponents/dispBurger";
 import hideBurger from "./burgerComponents/hideBurger";
 import SignUp from "./SignUp";
+import SignUpBurger from "./SignUpBurger";
+
 
 const Header = () => {
 
-    const [isDesktop, setDesktop] = useState(window.innerWidth < 956);
+    const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
     const updateMedia = () => {
-        setDesktop(window.innerWidth < 956);
+        setDesktop(window.innerWidth < 1059);
     };
 
     useEffect(() => {
@@ -25,6 +27,8 @@ const Header = () => {
         var buttonA = document.getElementById("itm-btn-A");
         var buttonB = document.getElementById("itm-btn-B");
         var buttonC = document.getElementById("itm-btn-C");
+        var buttonD = document.getElementById("itm-btn-D");
+
 
         if (isburgerOpen == false) {
             hideBurger()
@@ -37,15 +41,18 @@ const Header = () => {
 
             dispBurger()
 
-            if (burgerItems) burgerItems.style.height = "240px"
+            if (burgerItems) burgerItems.style.height = "320px"
             if (buttonA) buttonA.style.display = "block"
             if (buttonB) buttonB.style.display = "block"
             if (buttonC) buttonC.style.display = "block"
+            if (buttonD) buttonD.style.display = "block"
+
 
             setTimeout(function () {
                 if (buttonA) buttonA.style.opacity = "1"
                 if (buttonB) buttonB.style.opacity = "1"
                 if (buttonC) buttonC.style.opacity = "1"
+                if (buttonD) buttonD.style.opacity = "1"
             }, 350);
 
             setBurger(true);
@@ -58,12 +65,14 @@ const Header = () => {
             if (buttonA) buttonA.style.opacity = "0"
             if (buttonB) buttonB.style.opacity = "0"
             if (buttonC) buttonC.style.opacity = "0"
+            if (buttonD) buttonD.style.opacity = "0"
+
 
             setTimeout(function () {
                 if (burgerItems) burgerItems.style.height = "0px"
                 if (buttonA) buttonA.style.display = "none"
                 if (buttonB) buttonB.style.display = "none"
-                if (buttonC) buttonC.style.display = "none"
+                if (buttonD) buttonD.style.display = "none"
             }, 350);
 
             setBurger(false)
@@ -140,6 +149,9 @@ const Header = () => {
                         <Link to="/movies">
                             <button className="burger-item-button" id="itm-btn-C" onClick={displayBurger}>My Movies</button>
                         </Link>
+                    </li>
+                    <li>
+                        <SignUpBurger/>
                     </li>
                 </ul>
             </div>
