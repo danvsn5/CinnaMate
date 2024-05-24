@@ -6,7 +6,7 @@ Modal.setAppElement('#root');
 
 const SignUp = () => {
 
-    let subtitle: any;
+    //let subtitle: any;
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -15,7 +15,6 @@ const SignUp = () => {
 
     function afterOpenModal() {
         // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
     }
 
     function closeModal() {
@@ -34,7 +33,15 @@ const SignUp = () => {
                 onRequestClose={closeModal}
                 className="sign-up-modal"
                 overlayClassName="modal-overlay"
-                contentLabel="Example Modal">
+                contentLabel="Sign Up or Log In">
+                <div className="sign-up-content">
+
+
+                    <h1 className="text-tag-label">Your Email</h1>
+                    <input className="editor sign-up-user" type="text" spellCheck={false} placeholder="Email..."></input>
+                    <h1 className="text-tag-label">Your Password</h1>
+                    <input className="editor sign-up-password" type="password" maxLength={200} placeholder="Password..."></input>
+                </div>
             </Modal>
 
         </div>
