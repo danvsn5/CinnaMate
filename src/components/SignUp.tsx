@@ -46,6 +46,7 @@ const SignUp = () => {
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
+                closeTimeoutMS={300}
                 onRequestClose={closeModal}
                 className="sign-up-modal"
                 overlayClassName="modal-overlay"

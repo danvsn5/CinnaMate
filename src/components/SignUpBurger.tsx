@@ -46,6 +46,7 @@ const SignUpBurger = () => {
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
+                closeTimeoutMS={300}
                 className="sign-up-modal"
                 overlayClassName="modal-overlay"
                 contentLabel="Sign Up or Log In">
