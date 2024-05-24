@@ -2,12 +2,23 @@ import Modal from "react-modal"
 import { useState } from "react";
 import { useEffect } from "react";
 Modal.setAppElement('#root');
-
-
+import db from "./utils/firebaseini";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
 
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
+
+    let [Email, setEmail] = useState("")
+    let [Password, setPassword] = useState("")
+
+    const inputEChange = (e: any) => {
+        setEmail(e.currentTarget.value)
+    }
+
+    const inputPChange = (e: any) => {
+        setPassword(e.currentTarget.value)
+    }
 
     const updateMedia = () => {
         setDesktop(window.innerWidth < 1059);
@@ -19,7 +30,6 @@ const SignUp = () => {
     });
 
 
-    //let subtitle: any;
     const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
@@ -31,6 +41,18 @@ const SignUp = () => {
     }
 
     function closeModal() {
+        setIsOpen(false);
+    }
+
+    async function addUser() {
+
+        const data = {
+            email: Email,
+            password: Password
+        };
+
+        // Add a new document in collection "cities" with ID 'LA'
+        await setDoc(doc(db, "users", `${Email}`), data);
         setIsOpen(false);
     }
 
@@ -58,13 +80,13 @@ const SignUp = () => {
                     </div>
                     <div className="inputs">
                         <h1 className="text-tag-label">Your Email</h1>
-                        <input className="editor sign-up-user" type="text" spellCheck={false} placeholder="Email..."></input>
+                        <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
                         <h1 className="text-tag-label">Your Password</h1>
-                        <input className="editor sign-up-password" type="password" maxLength={200} placeholder="Password..."></input>
+                        <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
                     </div>
                     <div className="sign-up-buttons">
                         <button className="switch-buttons">Log In Instead</button>
-                        <button className="submit">Submit</button>
+                        <button className="submit" onClick={addUser}>Submit</button>
                     </div>
 
                 </div>
