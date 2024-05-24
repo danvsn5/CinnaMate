@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import dispBurger from "./burgerComponents/dispBurger";
 import hideBurger from "./burgerComponents/hideBurger";
+import SignUp from "./SignUp";
 
 const Header = () => {
 
@@ -96,6 +97,9 @@ const Header = () => {
                                     <Link to="/movies">
                                         <button className="navbar-button">My Movies</button>
                                     </Link>
+                                </li>
+                                <li className="tab-button">
+                                    <SignUp />
                                 </li>
                             </ul>
                         </div>)}

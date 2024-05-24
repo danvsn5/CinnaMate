@@ -376,3 +376,29 @@ span {
   margin-bottom: 50px;
   width: 200px;
 }
+
+/* ———————————————————————————————————————— Sign Up Modal ——————————————————————————————————————— */
+
+.modal-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(3px);
+}
+
+.sign-up-modal {
+  display: flex;
+  width: 320px;
+  height: 500px;
+  margin: auto;
+  background-color: papayawhip;
+}
+
+.sign-up-button {
+  height: 70.8px;
+  width: 70.8px;
+  font-size: 16px;
+}
