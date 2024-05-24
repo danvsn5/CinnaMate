@@ -36,11 +36,20 @@ const SignUp = () => {
                 contentLabel="Sign Up or Log In">
                 <div className="sign-up-content">
 
+                    <div className="modal-title">
+                        <h1>Sign Up</h1>
+                    </div>
+                    <div className="inputs">
+                        <h1 className="text-tag-label">Your Email</h1>
+                        <input className="editor sign-up-user" type="text" spellCheck={false} placeholder="Email..."></input>
+                        <h1 className="text-tag-label">Your Password</h1>
+                        <input className="editor sign-up-password" type="password" maxLength={200} placeholder="Password..."></input>
+                    </div>
+                    <div className="sign-up-buttons">
+                    <button className="switch-buttons">Log In Instead</button>
+                    <button className="submit">Submit</button>
+                    </div>
 
-                    <h1 className="text-tag-label">Your Email</h1>
-                    <input className="editor sign-up-user" type="text" spellCheck={false} placeholder="Email..."></input>
-                    <h1 className="text-tag-label">Your Password</h1>
-                    <input className="editor sign-up-password" type="password" maxLength={200} placeholder="Password..."></input>
                 </div>
             </Modal>
 
