@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 Modal.setAppElement('#root');
 import db from "./utils/firebaseini";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
 
@@ -51,10 +51,40 @@ const SignUp = () => {
             password: Password
         };
 
-        // Add a new document in collection "cities" with ID 'LA'
-        await setDoc(doc(db, "users", `${Email}`), data);
-        setIsOpen(false);
+        const userRef = await getDoc(doc(db, "users", `${Email}`))
+
+        const docRef = doc(db, "users", `${Email}`);
+        const docSnap = await getDoc(docRef);
+
+        let dbPassword
+
+        if (docSnap.exists()) {
+            dbPassword = docSnap.get("password")
+        }
+
+
+
+
+
+
+
+        if (!!userRef.exists() && Password != dbPassword) {
+            alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
+
+
+            // if user exists and password is correct, you are now logged in and the log in button changes
+        } else if (!!userRef.exists() && Password == dbPassword) {
+            alert("Logged in successfully!")
+            setIsOpen(false);
+
+        } else if (!userRef.exists()) {
+            // Add a new user to collection named as their email, containing their email and their password
+            await setDoc(doc(db, "users", `${Email}`), data);
+            alert("Signed up successfully!")
+            setIsOpen(false);
+        }
     }
+
 
     return (
         <div>
@@ -65,6 +95,9 @@ const SignUp = () => {
                     <i className="icon fa-solid fa-user-plus exp-icon"></i>
                 </button>
             )}
+
+
+
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
@@ -76,7 +109,7 @@ const SignUp = () => {
                 <div className="sign-up-content">
 
                     <div className="modal-title">
-                        <h1>Sign Up</h1>
+                        <h1>Sign Up or Log In</h1>
                     </div>
                     <div className="inputs">
                         <h1 className="text-tag-label">Your Email</h1>
@@ -85,7 +118,6 @@ const SignUp = () => {
                         <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
                     </div>
                     <div className="sign-up-buttons">
-                        <button className="switch-buttons">Log In Instead</button>
                         <button className="submit" onClick={addUser}>Submit</button>
                     </div>
 
