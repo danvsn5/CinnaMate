@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './components/utils/PageVariables.tsx'
 
 /* ————————————————————————————————————————————— CSS ———————————————————————————————————————————— */
+
 import './resources/css/browse.css'
 import './resources/css/exp-movie.css'
 import './resources/css/margin.css'
