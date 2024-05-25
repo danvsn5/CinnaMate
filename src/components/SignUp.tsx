@@ -61,13 +61,7 @@ const SignUp = () => {
         if (docSnap.exists()) {
             dbPassword = docSnap.get("password")
         }
-
-
-
-
-
-
-
+        
         if (!!userRef.exists() && Password != dbPassword) {
             alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
 
