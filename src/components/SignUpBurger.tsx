@@ -9,12 +9,12 @@ const SignUpBurger = () => {
 
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
-    
-    let [Email, setEmail] = useState("")
+
+    let [Username, setUsername] = useState("")
     let [Password, setPassword] = useState("")
 
     const inputEChange = (e: any) => {
-        setEmail(e.currentTarget.value)
+        setUsername(e.currentTarget.value)
     }
 
     const inputPChange = (e: any) => {
@@ -31,32 +31,31 @@ const SignUpBurger = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-
-    //let subtitle: any;
+    /* ———————————————————————————————————————— Modal Methods ——————————————————————————————————————— */
     const [modalIsOpen, setIsOpen] = useState(false);
-
     function openModal() {
         setIsOpen(true);
     }
-
     function afterOpenModal() {
         // references are now sync'd and can be accessed.
     }
-
     function closeModal() {
         setIsOpen(false);
     }
 
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
+    /*                                         Add User Method                                        */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     async function addUser() {
 
         const data = {
-            email: Email,
+            username: Username,
             password: Password
         };
 
-        const userRef = await getDoc(doc(db, "users", `${Email}`))
+        const userRef = await getDoc(doc(db, "users", `${Username}`))
 
-        const docRef = doc(db, "users", `${Email}`);
+        const docRef = doc(db, "users", `${Username}`);
         const docSnap = await getDoc(docRef);
 
         let dbPassword
@@ -65,56 +64,124 @@ const SignUpBurger = () => {
             dbPassword = docSnap.get("password")
         }
 
-        if (!!userRef.exists() && Password != dbPassword) {
-            alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
+        if (Username != "" && Password != "") {
+            if (!!userRef.exists() && Password != dbPassword) {
+                alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
 
 
-            // if user exists and password is correct, you are now logged in and the log in button changes
-        } else if (!!userRef.exists() && Password == dbPassword) {
-            alert("Logged in successfully!")
-            setIsOpen(false);
+                // if user exists and password is correct, you are now logged in and the log in button changes
+            } else if (!!userRef.exists() && Password == dbPassword) {
+                alert("Logged in successfully!")
+                setIsOpen(false);
+                // set the logged in status to true
+                setLoggedIn(true)
 
-        } else if (!userRef.exists()) {
-            // Add a new user to collection named as their email, containing their email and their password
-            await setDoc(doc(db, "users", `${Email}`), data);
-            alert("Signed up successfully!")
-            setIsOpen(false);
+            } else if (!userRef.exists()) {
+                // Add a new user to collection named as their username, containing their username and their password
+                await setDoc(doc(db, "users", `${Username}`), data);
+                alert("Signed up successfully!")
+                setIsOpen(false);
+                // set the logges in status to true
+                setLoggedIn(true)
+            }
         }
+    }
+
+    /* —————————————————————————————————— Change Rendered Elements —————————————————————————————————— */
+
+    // based on whether or not the user is logged in, change the visual style of the log in
+    // button to log out symbol
+
+    const [isLoggedIn, setLoggedIn] = useState(false)
+
+    async function logOut() {
+
+        setIsOpen(false)
+
+        setTimeout(() => {
+
+            setLoggedIn(false)
+            setUsername("")
+            setPassword("")
+
+        }, 350);
+
     }
 
     return (
         <div>
             {isDesktop ? (
-                <button className="burger-item-button" id="itm-btn-D" onClick={openModal}>Sign Up or Log In</button>
+
+                <div>
+                    {isLoggedIn ? (
+                        <button className="burger-item-button" id="itm-btn-D" onClick={openModal}>Sign Out</button>
+
+                    ) : (
+                        <button className="burger-item-button" id="itm-btn-D" onClick={openModal}>Sign Up or Log In</button>
+                    )}
+                </div>
 
             ) : (
+
                 <span></span>
+
             )}
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                closeTimeoutMS={300}
-                className="sign-up-modal"
-                overlayClassName="modal-overlay"
-                contentLabel="Sign Up or Log In">
-                <div className="sign-up-content">
 
-                    <div className="modal-title">
-                        <h1>Sign Up or Log In</h1>
-                    </div>
-                    <div className="inputs">
-                        <h1 className="text-tag-label">Your Email</h1>
-                        <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
-                        <h1 className="text-tag-label">Your Password</h1>
-                        <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
-                    </div>
-                    <div className="sign-up-buttons">
-                        <button className="submit" onClick={addUser}>Submit</button>
-                    </div>
 
-                </div>
-            </Modal>
+            {isLoggedIn ? (
+                /* ——————————————————————————————————————— Logged In Modal —————————————————————————————————————— */
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    closeTimeoutMS={300}
+                    onRequestClose={closeModal}
+                    className="sign-up-modal"
+                    overlayClassName="modal-overlay"
+                    contentLabel="Sign Up or Log In">
+                    <div className="sign-up-content">
+                        <div className="modal-title">
+                            <h1>Log Out</h1>
+                        </div>
+                        <div className="inputs">
+                            <h1 className="text-tag-label">Your Username Details</h1>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
+                            <h1 className="text-tag-label">Your Password Details</h1>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder="Password..."></input>
+                        </div>
+                        <div className="sign-up-buttons">
+                            <button className="submit" onClick={logOut}>Log Out</button>
+                        </div>
+                    </div>
+                </Modal>
+
+            ) : (
+                /* ——————————————————————————————————————— Sign Out Modal ——————————————————————————————————————— */
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    closeTimeoutMS={300}
+                    onRequestClose={closeModal}
+                    className="sign-up-modal"
+                    overlayClassName="modal-overlay"
+                    contentLabel="Sign Up or Log In">
+                    <div className="sign-up-content">
+
+                        <div className="modal-title">
+                            <h1>Sign Up or Log In</h1>
+                        </div>
+                        <div className="inputs">
+                            <h1 className="text-tag-label">Your Username</h1>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
+                            <h1 className="text-tag-label">Your Password</h1>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
+                        </div>
+                        <div className="sign-up-buttons">
+                            <button className="submit" onClick={addUser}>Submit</button>
+                        </div>
+
+                    </div>
+                </Modal>
+            )}
 
         </div>
     )
