@@ -11,10 +11,10 @@ const SignUp = () => {
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
 
-    let [Email, setEmail] = useState("")
+    let [Username, setUsername] = useState("")
     let [Password, setPassword] = useState("")
     const inputEChange = (e: any) => {
-        setEmail(e.currentTarget.value)
+        setUsername(e.currentTarget.value)
     }
     const inputPChange = (e: any) => {
         setPassword(e.currentTarget.value)
@@ -45,13 +45,13 @@ const SignUp = () => {
     async function addUser() {
 
         const data = {
-            email: Email,
+            username: Username,
             password: Password
         };
 
-        const userRef = await getDoc(doc(db, "users", `${Email}`))
+        const userRef = await getDoc(doc(db, "users", `${Username}`))
 
-        const docRef = doc(db, "users", `${Email}`);
+        const docRef = doc(db, "users", `${Username}`);
         const docSnap = await getDoc(docRef);
 
         let dbPassword
@@ -60,24 +60,26 @@ const SignUp = () => {
             dbPassword = docSnap.get("password")
         }
 
-        if (!!userRef.exists() && Password != dbPassword) {
-            alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
+        if (Username != "" && Password != "") {
+            if (!!userRef.exists() && Password != dbPassword) {
+                alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
 
 
-            // if user exists and password is correct, you are now logged in and the log in button changes
-        } else if (!!userRef.exists() && Password == dbPassword) {
-            alert("Logged in successfully!")
-            setIsOpen(false);
-            // set the logged in status to true
-            setLoggedIn(true)
+                // if user exists and password is correct, you are now logged in and the log in button changes
+            } else if (!!userRef.exists() && Password == dbPassword) {
+                alert("Logged in successfully!")
+                setIsOpen(false);
+                // set the logged in status to true
+                setLoggedIn(true)
 
-        } else if (!userRef.exists()) {
-            // Add a new user to collection named as their email, containing their email and their password
-            await setDoc(doc(db, "users", `${Email}`), data);
-            alert("Signed up successfully!")
-            setIsOpen(false);
-            // set the logges in status to true
-            setLoggedIn(true)
+            } else if (!userRef.exists()) {
+                // Add a new user to collection named as their username, containing their username and their password
+                await setDoc(doc(db, "users", `${Username}`), data);
+                alert("Signed up successfully!")
+                setIsOpen(false);
+                // set the logges in status to true
+                setLoggedIn(true)
+            }
         }
     }
 
@@ -95,7 +97,7 @@ const SignUp = () => {
         setTimeout(() => {
 
             setLoggedIn(false)
-            setEmail("")
+            setUsername("")
             setPassword("")
 
         }, 350);
@@ -133,8 +135,8 @@ const SignUp = () => {
                             <h1>Log Out</h1>
                         </div>
                         <div className="inputs">
-                            <h1 className="text-tag-label">Your Email Details</h1>
-                            <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
+                            <h1 className="text-tag-label">Your Username Details</h1>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
                             <h1 className="text-tag-label">Your Password Details</h1>
                             <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder="Password..."></input>
                         </div>
@@ -160,8 +162,8 @@ const SignUp = () => {
                             <h1>Sign Up or Log In</h1>
                         </div>
                         <div className="inputs">
-                            <h1 className="text-tag-label">Your Email</h1>
-                            <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
+                            <h1 className="text-tag-label">Your Username</h1>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
                             <h1 className="text-tag-label">Your Password</h1>
                             <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
                         </div>
