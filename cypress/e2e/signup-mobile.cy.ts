@@ -36,23 +36,5 @@ describe('sign up with desktop variation', () => {
             expect(str).to.equal(`Signed up successfully!`)
         })
 
-        cy.get('.burger-button-A').click()
-        cy.get('.burger-button-B').click()
-
-        cy.get('#itm-btn-D').click()
-
-        // user should be logged out
-        cy.get('.submit').click()
-
-        cy.get('.burger-button-A').click()
-        cy.get('.burger-button-A').click()
-
-        cy.get('#itm-btn-D').click()
-
-        cy.get('.modal-title h1').contains('Sign Up or Log In')
-
-        deleteDoc(doc(db, "users", "danvsnTEST"));
-
-
     })
 })

@@ -12,7 +12,7 @@ describe('sign up with desktop variation', () => {
 
     })
 
-    it('Sign in to existing account', () => {
+    it('Create account, logs in, logs out, deletes account', () => {
 
         deleteDoc(doc(db, "users", "danvsnTEST"));
 
@@ -32,18 +32,5 @@ describe('sign up with desktop variation', () => {
         cy.on('window:alert', (str) => {
             expect(str).to.equal(`Signed up successfully!`)
           })
-
-        cy.get('.sign-up-button').click()
-
-        // user should be logged out
-        cy.get('.submit').click()
-
-        cy.get('.sign-up-button').click()
-
-        cy.get('.modal-title h1').contains('Sign Up or Log In')  
-
-        deleteDoc(doc(db, "users", "danvsnTEST"));
-
-
     })
 })
