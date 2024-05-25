@@ -7,43 +7,41 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
 
+    // sets the desktop useState
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
+
 
     let [Email, setEmail] = useState("")
     let [Password, setPassword] = useState("")
-
     const inputEChange = (e: any) => {
         setEmail(e.currentTarget.value)
     }
-
     const inputPChange = (e: any) => {
         setPassword(e.currentTarget.value)
     }
-
     const updateMedia = () => {
         setDesktop(window.innerWidth < 1059);
     };
-
     useEffect(() => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-
+    /* ———————————————————————————————————————— Modal Methods ——————————————————————————————————————— */
     const [modalIsOpen, setIsOpen] = useState(false);
-
     function openModal() {
         setIsOpen(true);
     }
-
     function afterOpenModal() {
         // references are now sync'd and can be accessed.
     }
-
     function closeModal() {
         setIsOpen(false);
     }
 
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
+    /*                                         Add User Method                                        */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     async function addUser() {
 
         const data = {
@@ -61,7 +59,7 @@ const SignUp = () => {
         if (docSnap.exists()) {
             dbPassword = docSnap.get("password")
         }
-        
+
         if (!!userRef.exists() && Password != dbPassword) {
             alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
 
@@ -70,15 +68,39 @@ const SignUp = () => {
         } else if (!!userRef.exists() && Password == dbPassword) {
             alert("Logged in successfully!")
             setIsOpen(false);
+            // set the logged in status to true
+            setLoggedIn(true)
 
         } else if (!userRef.exists()) {
             // Add a new user to collection named as their email, containing their email and their password
             await setDoc(doc(db, "users", `${Email}`), data);
             alert("Signed up successfully!")
             setIsOpen(false);
+            // set the logges in status to true
+            setLoggedIn(true)
         }
     }
 
+    /* —————————————————————————————————— Change Rendered Elements —————————————————————————————————— */
+
+    // based on whether or not the user is logged in, change the visual style of the log in
+    // button to log out symbol
+
+    const [isLoggedIn, setLoggedIn] = useState(false)
+
+    async function logOut() {
+
+        setIsOpen(false)
+
+        setTimeout(() => {
+
+            setLoggedIn(false)
+            setEmail("")
+            setPassword("")
+
+        }, 350);
+
+    }
 
     return (
         <div>
@@ -86,37 +108,71 @@ const SignUp = () => {
                 <span></span>
             ) : (
                 <button className="navbar-button sign-up-button" onClick={openModal}>
-                    <i className="icon fa-solid fa-user-plus exp-icon"></i>
+
+                    {isLoggedIn ? (
+                        <i id="sign-up-icon" className="icon fa-solid fa-right-from-bracket exp-icon"></i>
+                    ) : (
+                        <i id="sign-up-icon" className="icon fa-solid fa-user-plus exp-icon"></i>
+                    )}
                 </button>
             )}
 
 
-
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                closeTimeoutMS={300}
-                onRequestClose={closeModal}
-                className="sign-up-modal"
-                overlayClassName="modal-overlay"
-                contentLabel="Sign Up or Log In">
-                <div className="sign-up-content">
-
-                    <div className="modal-title">
-                        <h1>Sign Up or Log In</h1>
+            {isLoggedIn ? (
+                /* ——————————————————————————————————————— Logged In Modal —————————————————————————————————————— */
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    closeTimeoutMS={300}
+                    onRequestClose={closeModal}
+                    className="sign-up-modal"
+                    overlayClassName="modal-overlay"
+                    contentLabel="Sign Up or Log In">
+                    <div className="sign-up-content">
+                        <div className="modal-title">
+                            <h1>Log Out</h1>
+                        </div>
+                        <div className="inputs">
+                            <h1 className="text-tag-label">Your Email Details</h1>
+                            <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
+                            <h1 className="text-tag-label">Your Password Details</h1>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder="Password..."></input>
+                        </div>
+                        <div className="sign-up-buttons">
+                            <button className="submit" onClick={logOut}>Log Out</button>
+                        </div>
                     </div>
-                    <div className="inputs">
-                        <h1 className="text-tag-label">Your Email</h1>
-                        <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
-                        <h1 className="text-tag-label">Your Password</h1>
-                        <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
-                    </div>
-                    <div className="sign-up-buttons">
-                        <button className="submit" onClick={addUser}>Submit</button>
-                    </div>
+                </Modal>
 
-                </div>
-            </Modal>
+            ) : (
+                /* ——————————————————————————————————————— Sign Out Modal ——————————————————————————————————————— */
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    closeTimeoutMS={300}
+                    onRequestClose={closeModal}
+                    className="sign-up-modal"
+                    overlayClassName="modal-overlay"
+                    contentLabel="Sign Up or Log In">
+                    <div className="sign-up-content">
+
+                        <div className="modal-title">
+                            <h1>Sign Up or Log In</h1>
+                        </div>
+                        <div className="inputs">
+                            <h1 className="text-tag-label">Your Email</h1>
+                            <input className="editor sign-up-user" value={Email} onChange={inputEChange} type="text" spellCheck={false} placeholder="Email..."></input>
+                            <h1 className="text-tag-label">Your Password</h1>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
+                        </div>
+                        <div className="sign-up-buttons">
+                            <button className="submit" onClick={addUser}>Submit</button>
+                        </div>
+
+                    </div>
+                </Modal>
+            )}
+
 
         </div>
     )
