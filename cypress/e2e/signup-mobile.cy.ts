@@ -45,7 +45,7 @@ describe('sign up with desktop variation', () => {
         cy.get('.submit').click()
 
         cy.get('.burger-button-A').click()
-        cy.get('.burger-button-B').click()
+        cy.get('.burger-button-A').click()
 
         cy.get('#itm-btn-D').click()
 
