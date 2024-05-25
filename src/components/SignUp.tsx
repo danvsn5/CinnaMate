@@ -116,7 +116,7 @@ const SignUp = () => {
                     ) : (
                         <i id="sign-up-icon" className="icon fa-solid fa-user-plus exp-icon"></i>
                     )}
-                    
+
                 </button>
             )}
 
