@@ -71,6 +71,9 @@ const SignUp = () => {
                 setIsOpen(false);
                 // set the logged in status to true
                 setLoggedIn(true)
+                // sets the logged in GLOBAL STATE to true
+                loggedInState.isLoggedIn = true;
+                loggedInState.username = `${Username}`
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -79,6 +82,9 @@ const SignUp = () => {
                 setIsOpen(false);
                 // set the logges in status to true
                 setLoggedIn(true)
+                // sets the logged in GLOBAL STATE to true
+                loggedInState.isLoggedIn = true;
+                loggedInState.username = `${Username}`
             }
         }
     }
@@ -102,6 +108,9 @@ const SignUp = () => {
 
         }, 350);
 
+        // sets the logged in GLOBAL STATE to false and resets the username
+        loggedInState.isLoggedIn = false;
+        loggedInState.username = ""
     }
 
     return (
