@@ -75,6 +75,8 @@ const SignUpBurger = () => {
                 setIsOpen(false);
                 // set the logged in status to true
                 setLoggedIn(true)
+                loggedInState.isLoggedIn = true;
+                loggedInState.username = `${Username}`
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -83,6 +85,8 @@ const SignUpBurger = () => {
                 setIsOpen(false);
                 // set the logges in status to true
                 setLoggedIn(true)
+                loggedInState.isLoggedIn = true;
+                loggedInState.username = `${Username}`
             }
         }
     }
@@ -105,7 +109,8 @@ const SignUpBurger = () => {
             setPassword("")
 
         }, 350);
-
+        loggedInState.isLoggedIn = false;
+        loggedInState.username = ""
     }
 
     return (
