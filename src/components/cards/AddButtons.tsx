@@ -26,28 +26,47 @@ const AddButtons = ({ movie }: any) => {
                 };
 
                 await updateDoc(doc(db, "users", loggedInState.username), data);
-
             }
-
-
         }
     }
 
-    function addToSeen() {
+    async function addToSeen() {
 
-        const id = movie.id;
-        console.log(id)
-        console.log(loggedInState.isLoggedIn)
-        console.log(loggedInState.username)
+
+        if (loggedInState.isLoggedIn == true) {
+
+            const id: string = movie.id;
+
+            if (await checkIfExistsDB(id, loggedInState.username, "seen") == false) {
+                // if the item is not inside the database, add it to database
+
+                const data = {
+                    seen: { id: id }
+                };
+
+                await updateDoc(doc(db, "users", loggedInState.username), data);
+            }
+        }
 
     }
 
-    function addToWatchlist() {
+    async function addToWatchlist() {
 
-        const id = movie.id;
-        console.log(id)
-        console.log(loggedInState.isLoggedIn)
-        console.log(loggedInState.username)
+
+        if (loggedInState.isLoggedIn == true) {
+
+            const id: string = movie.id;
+
+            if (await checkIfExistsDB(id, loggedInState.username, "watchlist") == false) {
+                // if the item is not inside the database, add it to database
+
+                const data = {
+                    watchlist: { id: id }
+                };
+
+                await updateDoc(doc(db, "users", loggedInState.username), data);
+            }
+        }
 
     }
 
