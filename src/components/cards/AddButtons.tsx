@@ -1,5 +1,5 @@
 import checkIfExistsDB from "../utils/queryCheck";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import db from "../utils/firebaseini";
 
 const AddButtons = ({ movie }: any) => {
@@ -18,14 +18,18 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "favourites") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
-                    favourites: { id: id }
+                    movies: {
+                        favourties: {
+                            [id]: true
+                        }
+                    }
                 };
 
-                await updateDoc(doc(db, "users", loggedInState.username), data);
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
             }
         }
     }
@@ -37,14 +41,18 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "seen") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
-                    seen: { id: id }
+                    movies: {
+                        seen: {
+                            [id]: true
+                        }
+                    }
                 };
 
-                await updateDoc(doc(db, "users", loggedInState.username), data);
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
             }
         }
 
@@ -57,22 +65,22 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "watchlist") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
-                    watchlist: { id: id }
+                    movies: {
+                        watchlist: {
+                            [id]: true
+                        }
+                    }
                 };
 
-                await updateDoc(doc(db, "users", loggedInState.username), data);
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
             }
         }
 
     }
-
-    // TODO: implement helper query functions to check whether or not an item is inside
-    // the database and whether it is under favourites, seen or watchlist. Refactor functions
-    // to utils folder with inputs as movie.id 
 
     return (
         <div className='button-row'>

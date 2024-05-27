@@ -51,9 +51,7 @@ const SignUpBurger = () => {
         const data = {
             username: Username,
             password: Password,
-            favourites: {},
-            seen: {},
-            watchlist: {}
+            movies: {}
         };
 
         const userRef = await getDoc(doc(db, "users", `${Username}`))
