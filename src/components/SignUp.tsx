@@ -46,7 +46,10 @@ const SignUp = () => {
 
         const data = {
             username: Username,
-            password: Password
+            password: Password,
+            favourites: {},
+            seen: {},
+            watchlist: {}
         };
 
         const userRef = await getDoc(doc(db, "users", `${Username}`))
