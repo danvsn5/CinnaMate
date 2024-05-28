@@ -48,7 +48,7 @@ const SignUp = () => {
             username: Username,
             password: Password,
             movies: {
-                favourties: {},
+                favourites: {},
                 seen: {},
                 watchlist: {},
                 tags: {}

@@ -18,13 +18,25 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "favourites") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
                     movies: {
-                        favourties: {
+                        favourites: {
                             [id]: true
+                        }
+                    }
+                };
+
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
+            } else {
+                // if the item is inside the database, change the field value to false.
+
+                const data = {
+                    movies: {
+                        favourites: {
+                            [id]: false
                         }
                     }
                 };
@@ -41,7 +53,7 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "seen") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
@@ -65,7 +77,7 @@ const AddButtons = ({ movie }: any) => {
 
             const id: string = movie.id;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "movies") == false) {
+            if (await checkIfExistsDB(id, loggedInState.username, "watchlist") == false) {
                 // if the item is not inside the database, add it to database
 
                 const data = {
