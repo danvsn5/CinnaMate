@@ -186,7 +186,10 @@ body {
   transition: 250ms;
   background-color: #131313;
   border: 3px solid var(--light-purple);
+}
 
+.thumb-button:hover:active {
+  box-shadow: none;
 }
 
 .thumb-button:hover {
@@ -204,10 +207,10 @@ body {
   transition: opacity 300ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
   opacity: 1;
 }
 
-.ReactModal__Overlay--before-close{
+.ReactModal__Overlay--before-close {
   opacity: 0;
 }

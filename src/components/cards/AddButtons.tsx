@@ -48,7 +48,6 @@ const AddButtons = ({ movie }: any) => {
 
     async function addToSeen() {
 
-
         if (loggedInState.isLoggedIn == true) {
 
             const id: string = movie.id;
@@ -65,13 +64,24 @@ const AddButtons = ({ movie }: any) => {
                 };
 
                 await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
+            } else {
+                // if the item is inside the database, change the field value to false.
+
+                const data = {
+                    movies: {
+                        seen: {
+                            [id]: false
+                        }
+                    }
+                };
+
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
             }
         }
 
     }
 
     async function addToWatchlist() {
-
 
         if (loggedInState.isLoggedIn == true) {
 
@@ -84,6 +94,18 @@ const AddButtons = ({ movie }: any) => {
                     movies: {
                         watchlist: {
                             [id]: true
+                        }
+                    }
+                };
+
+                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
+            } else {
+                // if the item is inside the database, change the field value to false.
+
+                const data = {
+                    movies: {
+                        watchlist: {
+                            [id]: false
                         }
                     }
                 };

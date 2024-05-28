@@ -38,30 +38,48 @@ async function checkIfExistsDB(movieId: string, username: string, list: string) 
 
         } else if (list == "seen") {
 
-            // looks inside the favourites list and checks whether or not the movie is in seen
+            // looks inside the favourites list and checks whether or not the movie is in favs
             if (movies.seen.hasOwnProperty(movieId)) {
-                console.log("This element is inside the database for SEEN")
+
+
+                if (movies.seen[movieId] == false) {
+                    // if the movie is inside favourites, but the field value is false, return false, which will
+                    // set the field value to true
+                    return false;
+                }
+
+                // if the movie is inside favourites, return true, changing field value to false.
+                return true
+
+            } else {
+
                 // if the element is not inside the database, return false, so the item will get
                 // added to the database
+
                 return false
-            } else {
-                // if the element is inside the database, return true, so the item will get
-                // changed to false inside the database
-                return true
             }
 
         } else {
 
-            // looks inside the favourites list and checks whether or not the movie is in watchlist
+            // looks inside the favourites list and checks whether or not the movie is in favs
             if (movies.watchlist.hasOwnProperty(movieId)) {
-                console.log("This element is inside the database for WATCHLIST")
+
+
+                if (movies.watchlist[movieId] == false) {
+                    // if the movie is inside favourites, but the field value is false, return false, which will
+                    // set the field value to true
+                    return false;
+                }
+
+                // if the movie is inside favourites, return true, changing field value to false.
+                return true
+
+            } else {
+
                 // if the element is not inside the database, return false, so the item will get
                 // added to the database
+
                 return false
-            } else {
-                // if the element is inside the database, return true, so the item will get
-                // changed to false inside the database
-                return true
             }
 
         }
