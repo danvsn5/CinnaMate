@@ -188,6 +188,10 @@ body {
   border: 3px solid var(--light-purple);
 }
 
+.thumb-button.active .icon{
+  color: var(--dark-purple)
+}
+
 .thumb-button:hover:active {
   box-shadow: none;
 }

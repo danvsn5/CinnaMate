@@ -1,134 +1,62 @@
+import React, { useEffect, useState } from 'react';
 import checkIfExistsDB from "../utils/queryCheck";
 import { doc, setDoc } from "firebase/firestore";
 import db from "../utils/firebaseini";
 
 const AddButtons = ({ movie }: any) => {
+    const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
+    const [seenState, setSeenState] = useState<boolean | null>(null);
+    const [watchlistState, setWatchlistState] = useState<boolean | null>(null);
 
-    /* ——————————————————————————————————————— Add to Database —————————————————————————————————————— */
+    useEffect(() => {
+        const fetchInitialState = async () => {
+            const isFavourite = await checkIfExistsDB(movie.id, loggedInState.username, "favourites");
+            const isSeen = await checkIfExistsDB(movie.id, loggedInState.username, "seen");
+            const isWatchlist = await checkIfExistsDB(movie.id, loggedInState.username, "watchlist");
 
-    async function addToFavourites() {
-        // when clicking on the favourites button AND the user is logged in (based on a global
-        // state variable), that movie is added to the database under a favourites field
-        // 
-        // if the item is already inside the database, determined by a pre-query, then the 
-        // button will have a different appearence, and clicking on the button will reset the
-        // appearence and remove it from the database 
+            setFavouritesState(isFavourite);
+            setSeenState(isSeen);
+            setWatchlistState(isWatchlist);
+        };
 
-        if (loggedInState.isLoggedIn == true) {
+        fetchInitialState();
+    }, [movie.id]);
 
+    const handleUpdate = async (list: string, currentState: boolean | null, setState: React.Dispatch<React.SetStateAction<boolean | null>>) => {
+        if (loggedInState.isLoggedIn) {
             const id: string = movie.id;
+            const newValue = !currentState;
 
-            if (await checkIfExistsDB(id, loggedInState.username, "favourites") == false) {
-                // if the item is not inside the database, add it to database
-
-                const data = {
-                    movies: {
-                        favourites: {
-                            [id]: true
-                        }
+            const data = {
+                movies: {
+                    [list]: {
+                        [id]: newValue
                     }
-                };
+                }
+            };
 
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            } else {
-                // if the item is inside the database, change the field value to false.
-
-                const data = {
-                    movies: {
-                        favourites: {
-                            [id]: false
-                        }
-                    }
-                };
-
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            }
+            await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
+            setState(newValue);
         }
-    }
+    };
 
-    async function addToSeen() {
-
-        if (loggedInState.isLoggedIn == true) {
-
-            const id: string = movie.id;
-
-            if (await checkIfExistsDB(id, loggedInState.username, "seen") == false) {
-                // if the item is not inside the database, add it to database
-
-                const data = {
-                    movies: {
-                        seen: {
-                            [id]: true
-                        }
-                    }
-                };
-
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            } else {
-                // if the item is inside the database, change the field value to false.
-
-                const data = {
-                    movies: {
-                        seen: {
-                            [id]: false
-                        }
-                    }
-                };
-
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            }
-        }
-
-    }
-
-    async function addToWatchlist() {
-
-        if (loggedInState.isLoggedIn == true) {
-
-            const id: string = movie.id;
-
-            if (await checkIfExistsDB(id, loggedInState.username, "watchlist") == false) {
-                // if the item is not inside the database, add it to database
-
-                const data = {
-                    movies: {
-                        watchlist: {
-                            [id]: true
-                        }
-                    }
-                };
-
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            } else {
-                // if the item is inside the database, change the field value to false.
-
-                const data = {
-                    movies: {
-                        watchlist: {
-                            [id]: false
-                        }
-                    }
-                };
-
-                await setDoc(doc(db, "users", loggedInState.username), data, { merge: true });
-            }
-        }
-
-    }
+    const addToFavourites = () => handleUpdate("favourites", favouritesState, setFavouritesState);
+    const addToSeen = () => handleUpdate("seen", seenState, setSeenState);
+    const addToWatchlist = () => handleUpdate("watchlist", watchlistState, setWatchlistState);
 
     return (
         <div className='button-row'>
-            <button className='thumb-button fav-button' onClick={addToFavourites}>
+            <button className={`thumb-button fav-button ${favouritesState ? 'active' : ''}`} onClick={addToFavourites}>
                 <i className="icon fa-solid fa-star"></i>
             </button>
-            <button className='thumb-button watched-button' onClick={addToSeen}>
+            <button className={`thumb-button watched-button ${seenState ? 'active' : ''}`} onClick={addToSeen}>
                 <i className="icon fa-solid fa-eye"></i>
             </button>
-            <button className='thumb-button watchlist-button' onClick={addToWatchlist}>
+            <button className={`thumb-button watchlist-button ${watchlistState ? 'active' : ''}`} onClick={addToWatchlist}>
                 <i className="icon fa-solid fa-list"></i>
             </button>
         </div>
-    )
-}
+    );
+};
 
-export default AddButtons
+export default AddButtons;
