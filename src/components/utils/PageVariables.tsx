@@ -25,13 +25,14 @@ type globalAppVariables = {
 type globalUserVariables = {
   isLoggedIn: boolean
   username: string
+  password: string
 };
 
 globalThis.loggedInState = {
 
   isLoggedIn: false,
-  username: ""
-
+  username: "",
+  password: ""
 }
 
 // set the values.

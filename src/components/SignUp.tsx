@@ -76,10 +76,11 @@ const SignUp = () => {
                 alert("Logged in successfully!")
                 setIsOpen(false);
                 // set the logged in status to true
-                setLoggedIn(true)
                 // sets the logged in GLOBAL STATE to true
                 loggedInState.isLoggedIn = true;
                 loggedInState.username = `${Username}`
+                loggedInState.password = `${Password}`
+
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -87,10 +88,11 @@ const SignUp = () => {
                 alert("Signed up successfully!")
                 setIsOpen(false);
                 // set the logges in status to true
-                setLoggedIn(true)
                 // sets the logged in GLOBAL STATE to true
                 loggedInState.isLoggedIn = true;
                 loggedInState.username = `${Username}`
+                loggedInState.password = `${Password}`
+
             }
         }
     }
@@ -100,7 +102,6 @@ const SignUp = () => {
     // based on whether or not the user is logged in, change the visual style of the log in
     // button to log out symbol
 
-    const [isLoggedIn, setLoggedIn] = useState(false)
 
     async function logOut() {
 
@@ -108,7 +109,6 @@ const SignUp = () => {
 
         setTimeout(() => {
 
-            setLoggedIn(false)
             setUsername("")
             setPassword("")
 
@@ -117,6 +117,8 @@ const SignUp = () => {
         // sets the logged in GLOBAL STATE to false and resets the username
         loggedInState.isLoggedIn = false;
         loggedInState.username = ""
+        loggedInState.password = ""
+
     }
 
     return (
@@ -126,7 +128,7 @@ const SignUp = () => {
             ) : (
                 <button className="navbar-button sign-up-button" onClick={openModal}>
 
-                    {isLoggedIn ? (
+                    {loggedInState.isLoggedIn ? (
                         <i id="sign-up-icon" className="icon fa-solid fa-right-from-bracket exp-icon"></i>
                     ) : (
                         <i id="sign-up-icon" className="icon fa-solid fa-user-plus exp-icon"></i>
@@ -136,7 +138,7 @@ const SignUp = () => {
             )}
 
 
-            {isLoggedIn ? (
+            {loggedInState.isLoggedIn ? (
                 /* ——————————————————————————————————————— Logged In Modal —————————————————————————————————————— */
                 <Modal
                     isOpen={modalIsOpen}
@@ -152,9 +154,9 @@ const SignUp = () => {
                         </div>
                         <div className="inputs">
                             <h1 className="text-tag-label">Your Username Details</h1>
-                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder={loggedInState.username}readOnly={true}></input>
                             <h1 className="text-tag-label">Your Password Details</h1>
-                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder="Password..."></input>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder={loggedInState.password} readOnly={true}></input>
                         </div>
                         <div className="sign-up-buttons">
                             <button className="submit" onClick={logOut}>Log Out</button>
