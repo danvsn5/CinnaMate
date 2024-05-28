@@ -1,4 +1,4 @@
-import db from "../../src/components/utils/firebaseini"
+import db from "../../firebase.config"
 import { doc, deleteDoc } from "firebase/firestore";
 
 

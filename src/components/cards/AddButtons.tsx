@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import checkIfExistsDB from "../utils/queryCheck";
 import { doc, setDoc } from "firebase/firestore";
-import db from "../utils/firebaseini";
+import db from "../../../firebase.config";
 
 const AddButtons = ({ movie }: any) => {
 

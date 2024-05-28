@@ -1,4 +1,4 @@
-import db from "./firebaseini";
+import db from "../../../firebase.config";
 import { doc, getDoc } from "firebase/firestore";
 
 async function checkIfExistsDB(movieId: string, username: string, list: string) {
