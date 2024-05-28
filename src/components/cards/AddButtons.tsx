@@ -4,19 +4,27 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../utils/firebaseini";
 
 const AddButtons = ({ movie }: any) => {
+
     const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
     const [seenState, setSeenState] = useState<boolean | null>(null);
     const [watchlistState, setWatchlistState] = useState<boolean | null>(null);
 
     useEffect(() => {
         const fetchInitialState = async () => {
-            const isFavourite = await checkIfExistsDB(movie.id, loggedInState.username, "favourites");
-            const isSeen = await checkIfExistsDB(movie.id, loggedInState.username, "seen");
-            const isWatchlist = await checkIfExistsDB(movie.id, loggedInState.username, "watchlist");
 
-            setFavouritesState(isFavourite);
-            setSeenState(isSeen);
-            setWatchlistState(isWatchlist);
+            if (loggedInState.isLoggedIn == true) {
+                
+                const isFavourite = await checkIfExistsDB(movie.id, loggedInState.username, "favourites");
+                const isSeen = await checkIfExistsDB(movie.id, loggedInState.username, "seen");
+                const isWatchlist = await checkIfExistsDB(movie.id, loggedInState.username, "watchlist");
+
+
+                setFavouritesState(isFavourite);
+                setSeenState(isSeen);
+                setWatchlistState(isWatchlist);
+            }
+
+
         };
 
         fetchInitialState();
