@@ -61,7 +61,7 @@ const LoadMovie = ({ movie }: any) => {
                     ) : (
                         <span></span>
                     )}
-                    <ExpandedAddButtons />
+                    <ExpandedAddButtons movie={movie} />
                 </div>
                 <MovieTag movieID={movie.id} />
             </div>
