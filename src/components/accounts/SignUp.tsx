@@ -2,7 +2,7 @@ import Modal from "react-modal"
 import { useState } from "react";
 import { useEffect } from "react";
 Modal.setAppElement('#root');
-import db from "../../firebase.config";
+import db from "../../../firebase.config";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
