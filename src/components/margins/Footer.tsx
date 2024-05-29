@@ -1,6 +1,6 @@
-import tmdb from '../resources/images/tmdb.svg'
-import github from '../resources/images/github.svg'
-import linkedin from '../resources/images/linkedin.svg'
+import tmdb from '../../resources/images/tmdb.svg'
+import github from '../../resources/images/github.svg'
+import linkedin from '../../resources/images/linkedin.svg'
 
 const Footer = () => {
   return (

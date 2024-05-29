@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ExpandedThumbnail from './expandedMovie/ExpandedThumbnail';
-import ExpandedAddButtons from './expandedMovie/ExpandedAddButtons';
-import ExpandedSubheader from './expandedMovie/ExpandedSubheader';
-import MovieTag from './expandedMovie/MovieTag';
+import ExpandedThumbnail from '../expandedMovie/ExpandedThumbnail';
+import ExpandedAddButtons from '../expandedMovie/ExpandedAddButtons';
+import ExpandedSubheader from '../expandedMovie/ExpandedSubheader';
+import MovieTag from '../expandedMovie/MovieTag';
 
 const LoadMovie = ({ movie }: any) => {
 
