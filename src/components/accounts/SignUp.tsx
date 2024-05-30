@@ -4,9 +4,9 @@ import { useEffect } from "react";
 Modal.setAppElement('#root');
 import db from "../../../firebase.config";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { updateGlobalState } from "../utils/AccountHook";
 
 const SignUp = () => {
-
     // sets the desktop useState
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
@@ -77,10 +77,9 @@ const SignUp = () => {
                 setIsOpen(false);
                 // set the logged in status to true
                 // sets the logged in GLOBAL STATE to true
-                loggedInState.isLoggedIn = true;
-                loggedInState.username = `${Username}`
-                loggedInState.password = `${Password}`
-
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
+                
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -92,7 +91,8 @@ const SignUp = () => {
                 loggedInState.isLoggedIn = true;
                 loggedInState.username = `${Username}`
                 loggedInState.password = `${Password}`
-
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
             }
         }
     }
@@ -115,10 +115,8 @@ const SignUp = () => {
         }, 350);
 
         // sets the logged in GLOBAL STATE to false and resets the username
-        loggedInState.isLoggedIn = false;
-        loggedInState.username = ""
-        loggedInState.password = ""
-
+        globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
+        updateGlobalState();
     }
 
     return (

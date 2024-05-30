@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import checkIfExistsDB from "../utils/queryCheck";
 import { doc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
+import { useGlobalState } from '../utils/AccountHook';
 
-const AddButtons = ({ movie }: any) => {
+
+const AddButtons = ({ movie }:any) => {
+    const loggedInState = useGlobalState(globalThis.loggedInState);
 
     const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
     const [seenState, setSeenState] = useState<boolean | null>(null);
@@ -11,28 +14,23 @@ const AddButtons = ({ movie }: any) => {
 
     useEffect(() => {
         const fetchInitialState = async () => {
-
-            if (loggedInState.isLoggedIn == true) {
-                
+            if (loggedInState.isLoggedIn) {
                 const isFavourite = await checkIfExistsDB(movie.id, loggedInState.username, "favourites");
                 const isSeen = await checkIfExistsDB(movie.id, loggedInState.username, "seen");
                 const isWatchlist = await checkIfExistsDB(movie.id, loggedInState.username, "watchlist");
-
 
                 setFavouritesState(isFavourite);
                 setSeenState(isSeen);
                 setWatchlistState(isWatchlist);
             }
-
-
         };
 
         fetchInitialState();
-    }, [movie.id]);
+    }, [movie.id, loggedInState]);
 
     const handleUpdate = async (list: string, currentState: boolean | null, setState: React.Dispatch<React.SetStateAction<boolean | null>>) => {
         if (loggedInState.isLoggedIn) {
-            const id: string = movie.id;
+            const id = movie.id;
             const newValue = !currentState;
 
             const data = {
