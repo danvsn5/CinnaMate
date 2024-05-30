@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
-import LoadMovie from "./LoadMovie"
-import movieType from "./utils/movieType";
+import LoadMovie from "../utils/LoadMovie";
+import movieType from "../utils/movieType";
 
 const PageMovie = () => {
     // initialise movie prop based on input movie through React State

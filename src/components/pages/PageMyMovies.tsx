@@ -1,4 +1,4 @@
-import Subheader from "./Subheader"
+import Subheader from "../margins/Subheader"
 
 const PageMyMovies = () => {
   return (

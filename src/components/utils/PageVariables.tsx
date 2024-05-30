@@ -1,5 +1,7 @@
 var PageID: globalAppVariables;
 
+var loggedInState: globalUserVariables
+
 /**
  * Contains two variables:
  * pageIdentifier: string value that is associated with the page the user has previously been on; variable is set
@@ -9,13 +11,34 @@ var PageID: globalAppVariables;
  */
 type globalAppVariables = {
   pageIdentifier: string;
-  onMovie:boolean
+  onMovie: boolean
 };
 
+
+/**
+ * Contains two variables:
+ * isLoggedIn: boolean value that is associated with whether no the the user user currently logged in;
+ * variable is used throughout app for accessing individual database elements and rendering
+ * username: string value that will be used when querying the Firestore database so that items can be 
+ * added, editied and removed from the correct user
+ */
+type globalUserVariables = {
+  isLoggedIn: boolean
+  username: string
+  password: string
+};
+
+globalThis.loggedInState = {
+
+  isLoggedIn: false,
+  username: "",
+  password: ""
+}
+
 // set the values.
-globalThis.PageID= {
+globalThis.PageID = {
 
   pageIdentifier: "",
   onMovie: false
-  
+
 };

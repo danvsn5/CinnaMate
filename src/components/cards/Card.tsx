@@ -34,7 +34,7 @@ const Card = ({ movie }: any) => {
 
     <div className="page-card">
       <Thumbnail movie={movie} />
-      <AddButtons />
+      <AddButtons movie={movie}/>
       <Link to='/yourmovie' state={{ movie }}>
         <h2 id={id1} onMouseOver={setHoverChangeThumb} onMouseLeave={setHoverChangeOffThumb} className="thumbnail-title">{movie.title}</h2>
       </Link>

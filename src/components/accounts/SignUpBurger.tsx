@@ -2,8 +2,9 @@ import Modal from "react-modal"
 import { useState } from "react";
 import { useEffect } from "react";
 Modal.setAppElement('#root');
-import db from "./utils/firebaseini";
+import db from "../../../firebase.config";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { updateGlobalState } from "../utils/AccountHook";
 
 const SignUpBurger = () => {
 
@@ -50,7 +51,13 @@ const SignUpBurger = () => {
 
         const data = {
             username: Username,
-            password: Password
+            password: Password,
+            movies: {
+                favourites: {},
+                seen: {},
+                watchlist: {},
+                tags: {}
+            },
         };
 
         const userRef = await getDoc(doc(db, "users", `${Username}`))
@@ -74,7 +81,9 @@ const SignUpBurger = () => {
                 alert("Logged in successfully!")
                 setIsOpen(false);
                 // set the logged in status to true
-                setLoggedIn(true)
+                // sets the logged in GLOBAL STATE to true
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -82,7 +91,10 @@ const SignUpBurger = () => {
                 alert("Signed up successfully!")
                 setIsOpen(false);
                 // set the logges in status to true
-                setLoggedIn(true)
+                // sets the logged in GLOBAL STATE to true
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
+
             }
         }
     }
@@ -92,7 +104,6 @@ const SignUpBurger = () => {
     // based on whether or not the user is logged in, change the visual style of the log in
     // button to log out symbol
 
-    const [isLoggedIn, setLoggedIn] = useState(false)
 
     async function logOut() {
 
@@ -100,11 +111,13 @@ const SignUpBurger = () => {
 
         setTimeout(() => {
 
-            setLoggedIn(false)
             setUsername("")
             setPassword("")
 
         }, 350);
+        globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
+        updateGlobalState();
+        window.location.reload()
 
     }
 
@@ -113,7 +126,7 @@ const SignUpBurger = () => {
             {isDesktop ? (
 
                 <div>
-                    {isLoggedIn ? (
+                    {loggedInState.isLoggedIn ? (
                         <button className="burger-item-button" id="itm-btn-D" onClick={openModal}>Sign Out</button>
 
                     ) : (
@@ -128,7 +141,7 @@ const SignUpBurger = () => {
             )}
 
 
-            {isLoggedIn ? (
+            {loggedInState.isLoggedIn ? (
                 /* ——————————————————————————————————————— Logged In Modal —————————————————————————————————————— */
                 <Modal
                     isOpen={modalIsOpen}
@@ -144,9 +157,9 @@ const SignUpBurger = () => {
                         </div>
                         <div className="inputs">
                             <h1 className="text-tag-label">Your Username Details</h1>
-                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder={loggedInState.username} readOnly={true}></input>
                             <h1 className="text-tag-label">Your Password Details</h1>
-                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder="Password..."></input>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder={loggedInState.password} readOnly={true}></input>
                         </div>
                         <div className="sign-up-buttons">
                             <button className="submit" onClick={logOut}>Log Out</button>

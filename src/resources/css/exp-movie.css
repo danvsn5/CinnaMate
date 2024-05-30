@@ -142,6 +142,14 @@
   border: 3px solid var(--light-purple);
 }
 
+.exp-thumb-button.active .icon{
+  color: var(--dark-purple)
+}
+
+.exp-thumb-button:hover:active {
+  box-shadow: none;
+}
+
 .exp-thumb-button:hover {
   box-shadow: inset 101px 0px 0px 0px var(--light-purple), inset -101px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
 }
@@ -152,7 +160,7 @@
 }
 
 .exp-tooltip {
-  font-size: 12px !important;
+  font-size: 11px !important;
   padding: 5px 0px 5px 0px !important;
   margin-left: auto;
   margin-right: auto;
@@ -230,7 +238,7 @@ span {
 @media (max-width:450px) {
 
   .exp-tooltip {
-    font-size: 10px !important;
+    font-size: 9px !important;
     width: 60px !important;
   }
 
