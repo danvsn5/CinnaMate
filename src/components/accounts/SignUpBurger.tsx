@@ -4,6 +4,7 @@ import { useEffect } from "react";
 Modal.setAppElement('#root');
 import db from "../../../firebase.config";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { updateGlobalState } from "../utils/AccountHook";
 
 const SignUpBurger = () => {
 
@@ -81,9 +82,8 @@ const SignUpBurger = () => {
                 setIsOpen(false);
                 // set the logged in status to true
                 // sets the logged in GLOBAL STATE to true
-                loggedInState.isLoggedIn = true;
-                loggedInState.username = `${Username}`
-                loggedInState.password = `${Password}`
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
@@ -92,9 +92,8 @@ const SignUpBurger = () => {
                 setIsOpen(false);
                 // set the logges in status to true
                 // sets the logged in GLOBAL STATE to true
-                loggedInState.isLoggedIn = true;
-                loggedInState.username = `${Username}`
-                loggedInState.password = `${Password}`
+                globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                updateGlobalState();
 
             }
         }
@@ -116,9 +115,9 @@ const SignUpBurger = () => {
             setPassword("")
 
         }, 350);
-        loggedInState.isLoggedIn = false;
-        loggedInState.username = ""
-        loggedInState.password = ""
+        globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
+        updateGlobalState();
+        window.location.reload()
 
     }
 
