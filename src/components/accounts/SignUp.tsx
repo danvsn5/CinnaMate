@@ -117,6 +117,7 @@ const SignUp = () => {
         // sets the logged in GLOBAL STATE to false and resets the username
         globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
         updateGlobalState();
+        window.location.reload()
     }
 
     return (
