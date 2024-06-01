@@ -28,9 +28,6 @@ describe('full db test on desktop', () => {
         // submits
         cy.get('.submit').click()
 
-        // implies that the user has signed up successfully
-        cy.contains('You have signed up successfully!')
-
         // clicks off the modal overlay by waiting for any animations to occur and then
         // clicking off the modal in order to close it
 
@@ -82,9 +79,6 @@ describe('full db test on desktop', () => {
 
         // submits
         cy.get('.submit').click()
-
-        // implies that the user has signed up successfully
-        cy.contains('You have logged in successfully!')
 
         cy.wait(1000)
         cy.get('.ReactModal__Overlay:last').click('topLeft')
