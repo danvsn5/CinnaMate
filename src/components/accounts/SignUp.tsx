@@ -67,6 +67,18 @@ const SignUp = () => {
         setSignSuccess(false);
     }
 
+    const [openLogFail, setLogFail] = useState(false);
+
+    function openLogFailFunction() {
+        setLogFail(true);
+    }
+    function afterLog() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeLogFailFunction() {
+        setLogFail(false);
+    }
+
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                         Add User Method                                        */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -96,9 +108,7 @@ const SignUp = () => {
 
         if (Username != "" && Password != "") {
             if (!!userRef.exists() && Password != dbPassword) {
-                alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
-
-
+                openLogFailFunction()
                 // if user exists and password is correct, you are now logged in and the log in button changes
             } else if (!!userRef.exists() && Password == dbPassword) {
                 setIsOpen(false);
@@ -247,6 +257,21 @@ const SignUp = () => {
                 <div className="sign-up-content">
                     <div className="modal-title">
                         <h1>Signed Up Modal</h1>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal
+                isOpen={openLogFail}
+                onAfterOpen={afterLog}
+                closeTimeoutMS={300}
+                onRequestClose={closeLogFailFunction}
+                className="sign-up-modal"
+                overlayClassName="modal-overlay"
+                contentLabel="Sign Up or Log In">
+                <div className="sign-up-content">
+                    <div className="modal-title">
+                        <h1>Log In Failed</h1>
                     </div>
                 </div>
             </Modal>
