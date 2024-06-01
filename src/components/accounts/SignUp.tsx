@@ -27,7 +27,9 @@ const SignUp = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-    /* ———————————————————————————————————————— Modal Methods ——————————————————————————————————————— */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
+    /*                                          Modal Methods                                         */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
@@ -37,6 +39,20 @@ const SignUp = () => {
     }
     function closeModal() {
         setIsOpen(false);
+    }
+
+    /* ———————————————————————————————————————— Alert Modals ———————————————————————————————————————— */
+
+    const [openLogSuccess, setLogSuccess] = useState(false);
+
+    function openLogSuccessFunction() {
+        setLogSuccess(true);
+    }
+    function afterOpen() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeLogSuccessFunction() {
+        setLogSuccess(false);
     }
 
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -73,18 +89,17 @@ const SignUp = () => {
 
                 // if user exists and password is correct, you are now logged in and the log in button changes
             } else if (!!userRef.exists() && Password == dbPassword) {
-                alert("Logged in successfully!")
                 setIsOpen(false);
                 // set the logged in status to true
                 // sets the logged in GLOBAL STATE to true
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
                 updateGlobalState();
-                
+                // shows the successfully logged in modal
+                openLogSuccessFunction()
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
                 await setDoc(doc(db, "users", `${Username}`), data);
-                alert("Signed up successfully!")
                 setIsOpen(false);
                 // set the logges in status to true
                 // sets the logged in GLOBAL STATE to true
@@ -139,6 +154,7 @@ const SignUp = () => {
 
             {loggedInState.isLoggedIn ? (
                 /* ——————————————————————————————————————— Logged In Modal —————————————————————————————————————— */
+
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
@@ -153,7 +169,7 @@ const SignUp = () => {
                         </div>
                         <div className="inputs">
                             <h1 className="text-tag-label">Your Username Details</h1>
-                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder={loggedInState.username}readOnly={true}></input>
+                            <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder={loggedInState.username} readOnly={true}></input>
                             <h1 className="text-tag-label">Your Password Details</h1>
                             <input className="editor sign-up-password" value={Password} onChange={inputPChange} maxLength={200} placeholder={loggedInState.password} readOnly={true}></input>
                         </div>
@@ -162,7 +178,6 @@ const SignUp = () => {
                         </div>
                     </div>
                 </Modal>
-
             ) : (
                 /* ——————————————————————————————————————— Sign Out Modal ——————————————————————————————————————— */
                 <Modal
@@ -192,6 +207,21 @@ const SignUp = () => {
                 </Modal>
             )}
 
+
+            <Modal
+                isOpen={openLogSuccess}
+                onAfterOpen={afterOpen}
+                closeTimeoutMS={300}
+                onRequestClose={closeLogSuccessFunction}
+                className="sign-up-modal"
+                overlayClassName="modal-overlay"
+                contentLabel="Sign Up or Log In">
+                <div className="sign-up-content">
+                    <div className="modal-title">
+                        <h1>Logged In Modal</h1>
+                    </div>
+                </div>
+            </Modal>
 
         </div>
     )
