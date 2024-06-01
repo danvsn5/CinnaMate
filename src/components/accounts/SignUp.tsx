@@ -236,12 +236,15 @@ const SignUp = () => {
                 onAfterOpen={afterOpen}
                 closeTimeoutMS={300}
                 onRequestClose={closeLogSuccessFunction}
-                className="sign-up-modal"
+                className="after-input"
                 overlayClassName="modal-overlay"
-                contentLabel="Sign Up or Log In">
-                <div className="sign-up-content">
+                contentLabel="Log In Successful">
+                <div className="sign-up-content after">
                     <div className="modal-title">
-                        <h1>Logged In Modal</h1>
+                        <h1>Success!</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">You have logged in successfully!</h1>
                     </div>
                 </div>
             </Modal>
@@ -251,12 +254,15 @@ const SignUp = () => {
                 onAfterOpen={afterSign}
                 closeTimeoutMS={300}
                 onRequestClose={closeSignSuccessFunction}
-                className="sign-up-modal"
+                className="after-input"
                 overlayClassName="modal-overlay"
-                contentLabel="Sign Up or Log In">
-                <div className="sign-up-content">
+                contentLabel="Sign Up Successful">
+                <div className="sign-up-content after">
                     <div className="modal-title">
-                        <h1>Signed Up Modal</h1>
+                        <h1>Success</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">You have signed up successfully!</h1>
                     </div>
                 </div>
             </Modal>
@@ -266,12 +272,15 @@ const SignUp = () => {
                 onAfterOpen={afterLog}
                 closeTimeoutMS={300}
                 onRequestClose={closeLogFailFunction}
-                className="sign-up-modal"
+                className="after-input"
                 overlayClassName="modal-overlay"
-                contentLabel="Sign Up or Log In">
-                <div className="sign-up-content">
+                contentLabel="Account Failure">
+                <div className="sign-up-content after">
                     <div className="modal-title">
-                        <h1>Log In Failed</h1>
+                        <h1>Failure</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">Either your password was incorrect or an account already exists with this username</h1>
                     </div>
                 </div>
             </Modal>
