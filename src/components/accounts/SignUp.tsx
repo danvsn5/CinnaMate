@@ -230,7 +230,6 @@ const SignUp = () => {
                 </Modal>
             )}
 
-
             <Modal
                 isOpen={openLogSuccess}
                 onAfterOpen={afterOpen}
