@@ -26,7 +26,11 @@ const SignUp = () => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
     });
-
+    const searchEnter = (e?: any) => {
+        if (Password != "" && Username != "" && e?.key == "Enter") {
+            addUser();
+        }
+    }
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                          Modal Methods                                         */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -220,7 +224,7 @@ const SignUp = () => {
                             <h1 className="text-tag-label">Your Username</h1>
                             <input className="editor sign-up-user" value={Username} onChange={inputEChange} type="text" spellCheck={false} placeholder="Username..."></input>
                             <h1 className="text-tag-label">Your Password</h1>
-                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..."></input>
+                            <input className="editor sign-up-password" value={Password} onChange={inputPChange} type="password" maxLength={200} placeholder="Password..." onKeyDown={searchEnter}></input>
                         </div>
                         <div className="sign-up-buttons">
                             <button className="submit" onClick={addUser}>Submit</button>
