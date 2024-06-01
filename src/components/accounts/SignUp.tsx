@@ -55,6 +55,18 @@ const SignUp = () => {
         setLogSuccess(false);
     }
 
+    const [openSignSuccess, setSignSuccess] = useState(false);
+
+    function openSignSuccessFunction() {
+        setSignSuccess(true);
+    }
+    function afterSign() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeSignSuccessFunction() {
+        setSignSuccess(false);
+    }
+
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                         Add User Method                                        */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -108,6 +120,7 @@ const SignUp = () => {
                 loggedInState.password = `${Password}`
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
                 updateGlobalState();
+                openSignSuccessFunction();
             }
         }
     }
@@ -219,6 +232,21 @@ const SignUp = () => {
                 <div className="sign-up-content">
                     <div className="modal-title">
                         <h1>Logged In Modal</h1>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal
+                isOpen={openSignSuccess}
+                onAfterOpen={afterSign}
+                closeTimeoutMS={300}
+                onRequestClose={closeSignSuccessFunction}
+                className="sign-up-modal"
+                overlayClassName="modal-overlay"
+                contentLabel="Sign Up or Log In">
+                <div className="sign-up-content">
+                    <div className="modal-title">
+                        <h1>Signed Up Modal</h1>
                     </div>
                 </div>
             </Modal>
