@@ -31,6 +31,19 @@ const SignUp = () => {
             addUser();
         }
     }
+
+    useEffect(() => {
+        // Load logged-in state from localStorage
+        const savedState = localStorage.getItem("loggedInState");
+        if (savedState) {
+            const parsedState: globalUserVariables = JSON.parse(savedState);
+            globalThis.loggedInState = parsedState;
+            setUsername(parsedState.username);
+            setPassword(parsedState.password);
+            updateGlobalState();
+        }
+    }, []);
+
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                          Modal Methods                                         */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -121,6 +134,7 @@ const SignUp = () => {
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
                 updateGlobalState();
                 // shows the successfully logged in modal
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 openLogSuccessFunction()
 
             } else if (!userRef.exists()) {
@@ -129,10 +143,8 @@ const SignUp = () => {
                 setIsOpen(false);
                 // set the logges in status to true
                 // sets the logged in GLOBAL STATE to true
-                loggedInState.isLoggedIn = true;
-                loggedInState.username = `${Username}`
-                loggedInState.password = `${Password}`
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 updateGlobalState();
                 openSignSuccessFunction();
             }
@@ -159,6 +171,7 @@ const SignUp = () => {
         // sets the logged in GLOBAL STATE to false and resets the username
         globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
         updateGlobalState();
+        localStorage.removeItem("loggedInState");
         window.location.reload()
     }
 
