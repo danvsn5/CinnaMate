@@ -32,7 +32,9 @@ const SignUpBurger = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-    /* ———————————————————————————————————————— Modal Methods ——————————————————————————————————————— */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
+    /*                                          Modal Methods                                         */
+    /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     const [modalIsOpen, setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
@@ -43,6 +45,58 @@ const SignUpBurger = () => {
     function closeModal() {
         setIsOpen(false);
     }
+
+    /* ———————————————————————————————————————— Alert Modals ———————————————————————————————————————— */
+
+    const [openLogSuccess, setLogSuccess] = useState(false);
+
+    function openLogSuccessFunction() {
+        setLogSuccess(true);
+    }
+    function afterOpen() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeLogSuccessFunction() {
+        setLogSuccess(false);
+    }
+
+    const [openSignSuccess, setSignSuccess] = useState(false);
+
+    function openSignSuccessFunction() {
+        setSignSuccess(true);
+    }
+    function afterSign() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeSignSuccessFunction() {
+        setSignSuccess(false);
+    }
+
+    const [openLogFail, setLogFail] = useState(false);
+
+    function openLogFailFunction() {
+        setLogFail(true);
+    }
+    function afterLog() {
+        // references are now sync'd and can be accessed.
+    }
+    function closeLogFailFunction() {
+        setLogFail(false);
+    }
+
+    /* ———————————————————————————————————————— Local Storage ——————————————————————————————————————— */
+
+    useEffect(() => {
+        // Load logged-in state from localStorage
+        const savedState = localStorage.getItem("loggedInState");
+        if (savedState) {
+            const parsedState: globalUserVariables = JSON.parse(savedState);
+            globalThis.loggedInState = parsedState;
+            setUsername(parsedState.username);
+            setPassword(parsedState.password);
+            updateGlobalState();
+        }
+    }, []);
 
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                         Add User Method                                        */
@@ -73,26 +127,27 @@ const SignUpBurger = () => {
 
         if (Username != "" && Password != "") {
             if (!!userRef.exists() && Password != dbPassword) {
-                alert("User already exists. Try alternate password or new credentials if you do not already have an account.")
 
-
+                openLogFailFunction();
                 // if user exists and password is correct, you are now logged in and the log in button changes
             } else if (!!userRef.exists() && Password == dbPassword) {
-                alert("Logged in successfully!")
                 setIsOpen(false);
                 // set the logged in status to true
                 // sets the logged in GLOBAL STATE to true
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                openLogSuccessFunction();
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 updateGlobalState();
 
             } else if (!userRef.exists()) {
                 // Add a new user to collection named as their username, containing their username and their password
                 await setDoc(doc(db, "users", `${Username}`), data);
-                alert("Signed up successfully!")
                 setIsOpen(false);
                 // set the logges in status to true
                 // sets the logged in GLOBAL STATE to true
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
+                openSignSuccessFunction();
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 updateGlobalState();
 
             }
@@ -117,6 +172,7 @@ const SignUpBurger = () => {
         }, 350);
         globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
         updateGlobalState();
+        localStorage.removeItem("loggedInState");
         window.location.reload()
 
     }
@@ -195,6 +251,61 @@ const SignUpBurger = () => {
                     </div>
                 </Modal>
             )}
+
+
+            <Modal
+                isOpen={openLogSuccess}
+                onAfterOpen={afterOpen}
+                closeTimeoutMS={300}
+                onRequestClose={closeLogSuccessFunction}
+                className="after-input"
+                overlayClassName="modal-overlay"
+                contentLabel="Log In Successful">
+                <div className="sign-up-content after">
+                    <div className="modal-title">
+                        <h1>Success!</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">You have logged in successfully!</h1>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal
+                isOpen={openSignSuccess}
+                onAfterOpen={afterSign}
+                closeTimeoutMS={300}
+                onRequestClose={closeSignSuccessFunction}
+                className="after-input"
+                overlayClassName="modal-overlay"
+                contentLabel="Sign Up Successful">
+                <div className="sign-up-content after">
+                    <div className="modal-title">
+                        <h1>Success</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">You have signed up successfully!</h1>
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal
+                isOpen={openLogFail}
+                onAfterOpen={afterLog}
+                closeTimeoutMS={300}
+                onRequestClose={closeLogFailFunction}
+                className="after-input"
+                overlayClassName="modal-overlay"
+                contentLabel="Account Failure">
+                <div className="sign-up-content after">
+                    <div className="modal-title">
+                        <h1>Failure</h1>
+                    </div>
+                    <div className="after-content">
+                        <h1 className="text-tag-label after-label">Either your password was incorrect or an account already exists with this username</h1>
+                    </div>
+                </div>
+            </Modal>
 
         </div>
     )

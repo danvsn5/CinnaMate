@@ -218,3 +218,7 @@ body {
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+:focus-visible{
+  outline: none;
+}

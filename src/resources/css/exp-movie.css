@@ -427,6 +427,31 @@ span {
   margin: auto;
 }
 
+.after-input{
+  display: flex;
+  width: 320px;
+  height: 320px;
+  margin: auto;
+  background-color: #131313;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 4px var(--dark-purple), 0px 0px 32px 16px var(--light-purple);
+  opacity: 1;
+  transition: 250ms ease-out;
+}
+
+.after-content{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+}
+
+.after-label{
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .modal-title {
   border-radius: 10px;
   box-shadow: 0px 0px 0px 4px var(--dark-purple);
