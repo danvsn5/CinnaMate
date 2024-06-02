@@ -32,6 +32,8 @@ const SignUp = () => {
         }
     }
 
+    /* ———————————————————————————————————————— Local Storage ——————————————————————————————————————— */
+
     useEffect(() => {
         // Load logged-in state from localStorage
         const savedState = localStorage.getItem("loggedInState");

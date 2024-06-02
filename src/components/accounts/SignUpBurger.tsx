@@ -84,6 +84,20 @@ const SignUpBurger = () => {
         setLogFail(false);
     }
 
+    /* ———————————————————————————————————————— Local Storage ——————————————————————————————————————— */
+
+    useEffect(() => {
+        // Load logged-in state from localStorage
+        const savedState = localStorage.getItem("loggedInState");
+        if (savedState) {
+            const parsedState: globalUserVariables = JSON.parse(savedState);
+            globalThis.loggedInState = parsedState;
+            setUsername(parsedState.username);
+            setPassword(parsedState.password);
+            updateGlobalState();
+        }
+    }, []);
+
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
     /*                                         Add User Method                                        */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
@@ -122,6 +136,7 @@ const SignUpBurger = () => {
                 // sets the logged in GLOBAL STATE to true
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
                 openLogSuccessFunction();
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 updateGlobalState();
 
             } else if (!userRef.exists()) {
@@ -132,6 +147,7 @@ const SignUpBurger = () => {
                 // sets the logged in GLOBAL STATE to true
                 globalThis.loggedInState = { isLoggedIn: true, username: `${Username}`, password: `${Password}` };
                 openSignSuccessFunction();
+                localStorage.setItem("loggedInState", JSON.stringify(globalThis.loggedInState));
                 updateGlobalState();
 
             }
@@ -156,6 +172,7 @@ const SignUpBurger = () => {
         }, 350);
         globalThis.loggedInState = { isLoggedIn: false, username: "", password: "" };
         updateGlobalState();
+        localStorage.removeItem("loggedInState");
         window.location.reload()
 
     }
