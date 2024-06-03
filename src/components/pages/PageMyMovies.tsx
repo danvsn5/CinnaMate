@@ -6,7 +6,7 @@ const PageMyMovies = () => {
 
     <div className="main-content">
       <Subheader subheaderTitle="My Movies" />
-      <Tabs/>
+        <Tabs />
     </div>
 
   )

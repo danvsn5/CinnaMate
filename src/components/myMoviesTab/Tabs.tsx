@@ -1,15 +1,15 @@
 const Tabs = () => {
     return (
-        <div>
+        <div className="tabs-container">
             <ul className="tabs-list">
-                <li className="movie-tab-button">
-                    <button>Favourites</button>
+                <li className="tab-list-item">
+                    <button  className="movie-tab-button">Favourites</button>
                 </li>
-                <li className="movie-tab-button">
-                    <button>Seen</button>
+                <li className="tab-list-item">
+                    <button className="movie-tab-button">Seen</button>
                 </li>
-                <li className="movie-tab-button">
-                    <button>Watchlist</button>
+                <li className="tab-list-item">
+                    <button  className="movie-tab-button">Watchlist</button>
                 </li>
             </ul>
         </div>
