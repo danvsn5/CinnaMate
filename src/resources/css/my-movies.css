@@ -67,8 +67,12 @@
 /* —————————————————————————————————————— Tab Inner Content ————————————————————————————————————— */
 
 .tab-main-content{
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+    justify-content: space-evenly;
+    min-height: 800px;
 }

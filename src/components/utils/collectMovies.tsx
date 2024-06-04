@@ -102,11 +102,10 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
     ));
 
     return (
-        <div>
-            <ul>
-                {movieCards}
-            </ul>
+        <div className="tab-main-content">
+            {movieCards}
         </div>
+
     );
 };
 

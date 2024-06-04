@@ -10,9 +10,8 @@ const TabContent = () => {
 
 
     return (
-        <div className="tab-main-content">
-            <h1>Placeholder for movie cards</h1>
-            <MovieList dbCategory="watchlist"/>
+        <div className="">
+            <MovieList dbCategory="favourites"/>
         </div>
     )
 }

@@ -3,7 +3,7 @@ const Tabs = () => {
         <div className="tabs-container">
             <ul className="tabs-list">
                 <li className="tab-list-item">
-                    <button  className="movie-tab-button">Favourites</button>
+                    <button  className="movie-tab-button active-tab">Favourites</button>
                 </li>
                 <li className="tab-list-item">
                     <button className="movie-tab-button">Seen</button>
