@@ -13,6 +13,7 @@ const Tabs = () => {
                 </li>
             </ul>
         </div>
+        
     )
 }
 

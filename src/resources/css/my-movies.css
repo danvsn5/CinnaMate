@@ -1,9 +1,11 @@
+/* ————————————————————————————————————————— Tab Buttons ———————————————————————————————————————— */
+
 .tabs-container {
     display: flex;
     margin-left: 75px;
     margin-right: 75px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .tabs-list {
@@ -60,4 +62,13 @@
         padding-top: 10px;
     }
 
+}
+
+/* —————————————————————————————————————— Tab Inner Content ————————————————————————————————————— */
+
+.tab-main-content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
