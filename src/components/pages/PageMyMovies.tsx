@@ -9,7 +9,7 @@ const PageMyMovies = () => {
       <Subheader subheaderTitle="My Movies" />
       <Tabs />
       <hr className="browsing-break" />
-      <TabContent/>
+      <TabContent />
     </div>
 
   )

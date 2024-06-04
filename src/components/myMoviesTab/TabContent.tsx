@@ -1,4 +1,4 @@
-
+import collectMovieIdDatabase from "../utils/collectMovies"
 
 const TabContent = () => {
 
@@ -7,6 +7,7 @@ const TabContent = () => {
     // add the result of these queries to a result array map and then parse that 
     // parse this through via a list of cards and display under the tab-main-content
 
+    collectMovieIdDatabase("watchlist")
 
   return (
     <div className="tab-main-content">
