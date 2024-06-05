@@ -5,16 +5,29 @@ const Tabs = () => {
 
     const [currentTabContent, setTabContent] = useState("favourites")
 
+    const favButton = document.getElementById("fav-tab");
+    const seenButton = document.getElementById("seen-tab");
+    const watchlistButton = document.getElementById("watchlist-tab");
+
     function setFavourites() {
         setTabContent("favourites")
+        if (favButton) favButton.classList.add("active-tab")
+        if (seenButton) seenButton.classList.remove("active-tab");
+        if (watchlistButton) watchlistButton.classList.remove("active-tab")
     }
 
     function setSeen() {
         setTabContent("seen")
+        if (seenButton) seenButton.classList.add("active-tab");
+        if (favButton) favButton.classList.remove("active-tab")
+        if (watchlistButton) watchlistButton.classList.remove("active-tab")
     }
 
     function setWatchlist() {
         setTabContent("watchlist")
+        if (watchlistButton) watchlistButton.classList.add("active-tab")
+        if (favButton) favButton.classList.remove("active-tab")
+        if (seenButton) seenButton.classList.remove("active-tab");
     }
 
     return (
