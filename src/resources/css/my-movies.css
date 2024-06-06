@@ -85,10 +85,19 @@
     animation: spinner 1.1s infinite;
     border-radius: 50%;
     box-shadow: 24px 0 0 6px var(--light-purple), -24px 0 0 6px var(--dark-purple);
-   }
-   
-   @keyframes spinner {
+}
+
+@keyframes spinner {
     to {
-     transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-   }
+}
+
+@media (max-width: 530px) {
+
+    .tab-main-content{
+        margin-right: auto;
+        margin-left: auto;
+    }
+  
+  }
