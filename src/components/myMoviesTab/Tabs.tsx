@@ -8,12 +8,21 @@ const Tabs = () => {
     const favButton = document.getElementById("fav-tab");
     const seenButton = document.getElementById("seen-tab");
     const watchlistButton = document.getElementById("watchlist-tab");
+    const content = document.getElementById("content-display")
 
     function setFavourites() {
         setTabContent("favourites")
         if (favButton) favButton.classList.add("active-tab")
         if (seenButton) seenButton.classList.remove("active-tab");
         if (watchlistButton) watchlistButton.classList.remove("active-tab")
+
+        if (content) content.style.opacity = "0"
+
+        setTimeout(() => {
+            if (content) content.style.opacity = "1"
+
+        }, 2000);
+
     }
 
     function setSeen() {
@@ -21,6 +30,13 @@ const Tabs = () => {
         if (seenButton) seenButton.classList.add("active-tab");
         if (favButton) favButton.classList.remove("active-tab")
         if (watchlistButton) watchlistButton.classList.remove("active-tab")
+
+        if (content) content.style.opacity = "0"
+
+        setTimeout(() => {
+            if (content) content.style.opacity = "1"
+
+        }, 2000);
     }
 
     function setWatchlist() {
@@ -28,6 +44,13 @@ const Tabs = () => {
         if (watchlistButton) watchlistButton.classList.add("active-tab")
         if (favButton) favButton.classList.remove("active-tab")
         if (seenButton) seenButton.classList.remove("active-tab");
+
+        if (content) content.style.opacity = "0"
+
+        setTimeout(() => {
+            if (content) content.style.opacity = "1"
+
+        }, 2000);
     }
 
     return (

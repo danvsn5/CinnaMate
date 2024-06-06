@@ -89,7 +89,9 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
             if (loggedInState.isLoggedIn) {
                 const movieIds = await getMovieIds(dbCategory, loggedInState.username);
                 const fetchedMovies = await fetchMovieDetails(movieIds);
-                setMovies(fetchedMovies);
+                setTimeout(() => {
+                    setMovies(fetchedMovies);
+                }, 250);
                 setLoading(false)
             }
         }
@@ -97,6 +99,7 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
     }, [dbCategory]);
 
     // maps the movie cards as a list of items
+
     const movieCards = movies.map((movie) => (
         <li key={movie.id} className="trending-list">
             <Card movie={movie} />
@@ -106,13 +109,13 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
     if (isLoading) {
         return (
             <div className="tab-main-content">
-                <div className="spinner"/>
+                <div className="spinner" />
             </div>
         )
     }
 
     return (
-        <div className="tab-main-content">
+        <div id="content-display" className="tab-main-content">
             {movieCards}
         </div>
 

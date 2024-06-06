@@ -75,6 +75,7 @@
     margin-right: 200px;
     justify-content: space-evenly;
     min-height: 800px;
+    transition: 250ms ease-out;
 }
 
 .spinner {
