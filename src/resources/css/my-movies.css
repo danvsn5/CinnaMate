@@ -46,7 +46,7 @@
 
 @media (max-width: 800px) {
 
-    .movie-tab-button{
+    .movie-tab-button {
         font-size: 16px;
     }
 
@@ -54,11 +54,11 @@
 
 @media (max-width: 500px) {
 
-    .tabs-list{
+    .tabs-list {
         flex-direction: column;
     }
 
-    .tab-list-item{
+    .tab-list-item {
         padding-top: 10px;
     }
 
@@ -66,7 +66,7 @@
 
 /* —————————————————————————————————————— Tab Inner Content ————————————————————————————————————— */
 
-.tab-main-content{
+.tab-main-content {
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
@@ -76,3 +76,18 @@
     justify-content: space-evenly;
     min-height: 800px;
 }
+
+.spinner {
+    margin-top: 50px;
+    width: 6px;
+    height: 6px;
+    animation: spinner 1.1s infinite;
+    border-radius: 50%;
+    box-shadow: 24px 0 0 6px var(--light-purple), -24px 0 0 6px var(--dark-purple);
+   }
+   
+   @keyframes spinner {
+    to {
+     transform: rotate(360deg);
+    }
+   }

@@ -82,6 +82,7 @@ async function getMovieIds(dbCategory: string, username: string): Promise<number
 
 const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
     const [movies, setMovies] = useState<movieTypeTab[]>([]);
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         async function fetchAndSetMovies() {
@@ -89,6 +90,7 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
                 const movieIds = await getMovieIds(dbCategory, loggedInState.username);
                 const fetchedMovies = await fetchMovieDetails(movieIds);
                 setMovies(fetchedMovies);
+                setLoading(false)
             }
         }
         fetchAndSetMovies();
@@ -100,6 +102,14 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
             <Card movie={movie} />
         </li>
     ));
+
+    if (isLoading) {
+        return (
+            <div className="tab-main-content">
+                <div className="spinner"/>
+            </div>
+        )
+    }
 
     return (
         <div className="tab-main-content">
