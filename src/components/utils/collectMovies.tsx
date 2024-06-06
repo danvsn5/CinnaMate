@@ -106,20 +106,30 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
         </li>
     ));
 
-    if (isLoading) {
+    if (!loggedInState.isLoggedIn) {
         return (
             <div className="tab-main-content">
-                <div className="spinner" />
+                <h1 className="my-movie-error">You are not currently logged in. Log in to add movies to your lists</h1>
             </div>
         )
+    } else {
+
+        if (isLoading) {
+            return (
+                <div className="tab-main-content">
+                    <div className="spinner" />
+                </div>
+            )
+        }
+
+        return (
+            <div id="content-display" className="tab-main-content">
+                {movieCards}
+            </div>
+
+        );
     }
 
-    return (
-        <div id="content-display" className="tab-main-content">
-            {movieCards}
-        </div>
-
-    );
 };
 
 export default MovieList;

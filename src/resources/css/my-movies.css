@@ -95,9 +95,19 @@
 
 @media (max-width: 530px) {
 
-    .tab-main-content{
+    .tab-main-content {
         margin-right: auto;
         margin-left: auto;
     }
-  
-  }
+
+    .my-movie-error{
+        font-size: 32px;
+    }
+
+}
+
+.my-movie-error {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
