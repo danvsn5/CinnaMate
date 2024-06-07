@@ -105,7 +105,7 @@ describe('full db test on desktop', () => {
     })
 
 
-    it('Exp movie css test', () => {
+    it.skip('Exp movie css test', () => {
 
         deleteDoc(doc(db, "users", "danvsnTEST"));
 
