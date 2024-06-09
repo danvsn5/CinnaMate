@@ -157,6 +157,21 @@
 }
 
 
+@media (max-width: 680px) and (min-width: 531px) {
+
+    .tab-main-content {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .my-movie-error {
+        font-size: 32px;
+    }
+
+}
+
 @media (max-width: 530px) {
 
     .tab-main-content {
@@ -169,6 +184,7 @@
     }
 
 }
+
 
 .my-movie-error {
     text-align: center;
