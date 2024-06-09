@@ -1,9 +1,10 @@
 import { useState } from "react"
-import MovieList from "../utils/collectMovies"
+import MovieList from "./collectMovies"
 
 const Tabs = () => {
 
     const [currentTabContent, setTabContent] = useState("favourites")
+    const [isLoading, setLoadingStatus] = useState(false)
 
     const favButton = document.getElementById("fav-tab");
     const seenButton = document.getElementById("seen-tab");
@@ -11,6 +12,7 @@ const Tabs = () => {
     const content = document.getElementById("content-display")
 
     function setFavourites() {
+        setLoadingStatus(true)
         setTabContent("favourites")
         if (favButton) favButton.classList.add("active-tab")
         if (seenButton) seenButton.classList.remove("active-tab");
@@ -20,12 +22,13 @@ const Tabs = () => {
 
         setTimeout(() => {
             if (content) content.style.opacity = "1"
-
+            setLoadingStatus(false)
         }, 2000);
 
     }
 
     function setSeen() {
+        setLoadingStatus(true)
         setTabContent("seen")
         if (seenButton) seenButton.classList.add("active-tab");
         if (favButton) favButton.classList.remove("active-tab")
@@ -35,11 +38,12 @@ const Tabs = () => {
 
         setTimeout(() => {
             if (content) content.style.opacity = "1"
-
+            setLoadingStatus(false)
         }, 2000);
     }
 
     function setWatchlist() {
+        setLoadingStatus(true)
         setTabContent("watchlist")
         if (watchlistButton) watchlistButton.classList.add("active-tab")
         if (favButton) favButton.classList.remove("active-tab")
@@ -49,7 +53,7 @@ const Tabs = () => {
 
         setTimeout(() => {
             if (content) content.style.opacity = "1"
-
+            setLoadingStatus(false)
         }, 2000);
     }
 
@@ -69,10 +73,15 @@ const Tabs = () => {
                 </ul>
             </div>
             <hr className="browsing-break" />
-            <MovieList dbCategory={currentTabContent} />
+
+            {isLoading ? (
+                <div className="tab-main-content">
+                    <div className="spinner" />
+                </div>
+            ) : (
+                <MovieList dbCategory={currentTabContent} />
+            )}
         </div>
-
-
     )
 }
 
