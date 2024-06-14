@@ -65,6 +65,24 @@ const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
             </div>
         )
     }
+    if (category == "seen") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button watched-button ${seenState ? 'active' : ''}`} onClick={addToSeen}>
+                    <i className="icon fa-solid fa-eye"></i>
+                </button>
+            </div>
+        )
+    }
+    if (category == "watchlist") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button watchlist-button ${watchlistState ? 'active' : ''}`} onClick={addToWatchlist}>
+                    <i className="icon fa-solid fa-list"></i>
+                </button>
+            </div>
+        )
+    }
 
     return (
         <div className='button-row'>

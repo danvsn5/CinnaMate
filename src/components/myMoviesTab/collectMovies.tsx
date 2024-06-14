@@ -102,7 +102,7 @@ const MovieList: React.FC<{ dbCategory: string }> = ({ dbCategory }) => {
 
     const movieCards = movies.map((movie) => (
         <li key={movie.id} className="trending-list">
-            <Card movie={movie} category="favourites"/>
+            <Card movie={movie} category={dbCategory} />
         </li>
     ));
 
