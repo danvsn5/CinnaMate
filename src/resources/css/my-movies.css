@@ -185,9 +185,17 @@
 
 }
 
-
 .my-movie-error {
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.wide {
+    width: 150px;
+}
+
+.wide:hover {
+    box-shadow: inset 76px 0px 0px 0px var(--light-purple), inset -76px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+
 }

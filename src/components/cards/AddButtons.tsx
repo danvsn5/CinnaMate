@@ -54,12 +54,10 @@ const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
     const addToSeen = () => handleUpdate("seen", seenState, setSeenState);
     const addToWatchlist = () => handleUpdate("watchlist", watchlistState, setWatchlistState);
 
-    console.log(category)
-
     if (category == "favourites") {
         return (
             <div className='button-row'>
-                <button className={`thumb-button fav-button ${favouritesState ? 'active' : ''}`} onClick={addToFavourites}>
+                <button className={`thumb-button fav-button ${favouritesState ? 'active' : ''} wide`} onClick={addToFavourites}>
                     <i className="icon fa-solid fa-star"></i>
                 </button>
             </div>
@@ -68,7 +66,7 @@ const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
     if (category == "seen") {
         return (
             <div className='button-row'>
-                <button className={`thumb-button watched-button ${seenState ? 'active' : ''}`} onClick={addToSeen}>
+                <button className={`thumb-button watched-button ${seenState ? 'active' : ''} wide`} onClick={addToSeen}>
                     <i className="icon fa-solid fa-eye"></i>
                 </button>
             </div>
@@ -77,7 +75,7 @@ const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
     if (category == "watchlist") {
         return (
             <div className='button-row'>
-                <button className={`thumb-button watchlist-button ${watchlistState ? 'active' : ''}`} onClick={addToWatchlist}>
+                <button className={`thumb-button watchlist-button ${watchlistState ? 'active' : ''} wide`} onClick={addToWatchlist}>
                     <i className="icon fa-solid fa-list"></i>
                 </button>
             </div>
