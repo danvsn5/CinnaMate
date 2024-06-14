@@ -45,7 +45,7 @@ const PageHome = () => {
   let movieCards = results.map((movie: movieType) =>
   (
     <li key={movie.id} className="trending-list">
-      <Card movie={movie} />
+      <Card movie={movie} category="null"/>
     </li>
   )
   )
