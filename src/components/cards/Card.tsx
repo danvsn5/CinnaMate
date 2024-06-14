@@ -4,7 +4,13 @@ import { Link } from "react-router-dom"
 
 // card wrapper that will contain the wrapped elements for each movie
 // including title, thumbnail, date released (smaller font) and buttons for adding to MyMovies
-const Card = ({ movie }: any) => {
+
+interface CardProps {
+  movie: any;
+  category: string;
+}
+
+const Card: React.FC<CardProps> = ({ movie, category }) => {
 
   const id1: any = movie.id - 1000000;
 
@@ -34,7 +40,7 @@ const Card = ({ movie }: any) => {
 
     <div className="page-card">
       <Thumbnail movie={movie} />
-      <AddButtons movie={movie}/>
+      <AddButtons movie={movie} category={category} />
       <Link to='/yourmovie' state={{ movie }}>
         <h2 id={id1} onMouseOver={setHoverChangeThumb} onMouseLeave={setHoverChangeOffThumb} className="thumbnail-title">{movie.title}</h2>
       </Link>

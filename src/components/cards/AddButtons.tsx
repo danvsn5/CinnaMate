@@ -4,8 +4,12 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useGlobalState } from '../utils/AccountHook';
 
+interface AddButtonsProps {
+    movie: any;
+    category: string;
+}
 
-const AddButtons = ({ movie }:any) => {
+const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
     const loggedInState = useGlobalState(globalThis.loggedInState);
 
     const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
@@ -49,6 +53,18 @@ const AddButtons = ({ movie }:any) => {
     const addToFavourites = () => handleUpdate("favourites", favouritesState, setFavouritesState);
     const addToSeen = () => handleUpdate("seen", seenState, setSeenState);
     const addToWatchlist = () => handleUpdate("watchlist", watchlistState, setWatchlistState);
+
+    console.log(category)
+
+    if (category == "favourites") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button fav-button ${favouritesState ? 'active' : ''}`} onClick={addToFavourites}>
+                    <i className="icon fa-solid fa-star"></i>
+                </button>
+            </div>
+        )
+    }
 
     return (
         <div className='button-row'>
