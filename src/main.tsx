@@ -9,6 +9,7 @@ import './resources/css/browse.css'
 import './resources/css/exp-movie.css'
 import './resources/css/margin.css'
 import './App.css'
+import './resources/css/my-movies.css'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

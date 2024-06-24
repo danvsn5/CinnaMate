@@ -1,9 +1,13 @@
 import Subheader from "../margins/Subheader"
+import Tabs from "../myMoviesTab/Tabs"
 
 const PageMyMovies = () => {
   return (
 
-    <Subheader subheaderTitle="My Movies" />
+    <div className="main-content">
+      <Subheader subheaderTitle="My Movies" />
+      <Tabs />
+    </div>
 
   )
 }

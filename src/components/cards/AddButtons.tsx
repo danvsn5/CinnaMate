@@ -4,8 +4,12 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useGlobalState } from '../utils/AccountHook';
 
+interface AddButtonsProps {
+    movie: any;
+    category: string;
+}
 
-const AddButtons = ({ movie }:any) => {
+const AddButtons: React.FC<AddButtonsProps> = ({ movie, category }) => {
     const loggedInState = useGlobalState(globalThis.loggedInState);
 
     const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
@@ -49,6 +53,34 @@ const AddButtons = ({ movie }:any) => {
     const addToFavourites = () => handleUpdate("favourites", favouritesState, setFavouritesState);
     const addToSeen = () => handleUpdate("seen", seenState, setSeenState);
     const addToWatchlist = () => handleUpdate("watchlist", watchlistState, setWatchlistState);
+
+    if (category == "favourites") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button fav-button ${favouritesState ? 'active' : ''} wide`} onClick={addToFavourites}>
+                    <i className="icon fa-solid fa-star"></i>
+                </button>
+            </div>
+        )
+    }
+    if (category == "seen") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button watched-button ${seenState ? 'active' : ''} wide`} onClick={addToSeen}>
+                    <i className="icon fa-solid fa-eye"></i>
+                </button>
+            </div>
+        )
+    }
+    if (category == "watchlist") {
+        return (
+            <div className='button-row'>
+                <button className={`thumb-button watchlist-button ${watchlistState ? 'active' : ''} wide`} onClick={addToWatchlist}>
+                    <i className="icon fa-solid fa-list"></i>
+                </button>
+            </div>
+        )
+    }
 
     return (
         <div className='button-row'>

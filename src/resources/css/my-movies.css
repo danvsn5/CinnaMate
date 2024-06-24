@@ -1,0 +1,201 @@
+/* ————————————————————————————————————————— Tab Buttons ———————————————————————————————————————— */
+
+.tabs-container {
+    display: flex;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tabs-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.tab-list-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-tab-button {
+    width: 80%;
+    font-family: Land;
+    font-size: 24px;
+    border-radius: 10px;
+    background-color: #131313;
+    color: var(--light-purple);
+    box-shadow: inset 0px 0px 0px 0px var(--light-purple), inset 0px 0px 0px 0px var(--light-purple), 0px 0px 0px 0px var(--dark-purple);
+    border: 3px solid var(--light-purple);
+    transition: 250ms ease-out;
+}
+
+.movie-tab-button:hover {
+    box-shadow: inset 170px 0px 0px 0px var(--light-purple), inset -170px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+    color: #ffffff
+}
+
+.active-tab {
+    background-color: var(--light-purple);
+    color: #ffffff;
+    box-shadow: 0px 0px 16px 4px var(--dark-purple);
+}
+
+@media (max-width: 800px) {
+
+    .movie-tab-button {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .tabs-list {
+        flex-direction: column;
+    }
+
+    .tab-list-item {
+        padding-top: 10px;
+    }
+
+}
+
+/* —————————————————————————————————————— Tab Inner Content ————————————————————————————————————— */
+
+.tab-main-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    justify-content: space-evenly;
+    min-height: 800px;
+    transition: 250ms ease-out;
+}
+
+.spinner {
+    --size: 35px;
+    --first-block-clr: var(--dark-purple);
+    --second-block-clr: var(--light-purple);
+    --clr: #111;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.spinner::after,
+.spinner::before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    width: var(--size);
+    height: var(--size);
+    top: 50%;
+    animation: up 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+    left: 50%;
+    background: var(--first-block-clr);
+
+}
+
+.spinner::after {
+    background: var(--second-block-clr);
+    top: calc(50% - var(--size));
+    left: calc(50% - var(--size));
+    animation: down 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+    box-shadow: 0px 0px 8px 4px var(--light-purple);
+    border-radius: 100px;
+}
+
+.spinner::before {
+    box-shadow: 0px 0px 8px 4px var(--dark-purple);
+    border-radius: 100px;
+}
+
+@keyframes down {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(100%);
+    }
+
+    50% {
+        transform: translateX(100%) translateY(100%);
+    }
+
+    75% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes up {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+
+    75% {
+        transform: translateY(-100%);
+    }
+}
+
+
+@media (max-width: 680px) and (min-width: 531px) {
+
+    .tab-main-content {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .my-movie-error {
+        font-size: 32px;
+    }
+
+}
+
+@media (max-width: 530px) {
+
+    .tab-main-content {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .my-movie-error {
+        font-size: 32px;
+    }
+
+}
+
+.my-movie-error {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wide {
+    width: 150px;
+}
+
+.wide:hover {
+    box-shadow: inset 76px 0px 0px 0px var(--light-purple), inset -76px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+
+}
