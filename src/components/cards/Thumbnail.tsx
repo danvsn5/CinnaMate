@@ -19,7 +19,7 @@ const Thumbnail = ({ movie }: any) => {
   const setHoverChangeOffThumb = () => {
     let id: any = movie.id;
     const thumb = document.getElementById(id)
-    if (thumb) thumb.style.boxShadow = "0px 0px 0px 3px var(--dark-purple)";
+    if (thumb) thumb.style.boxShadow = "0px 0px 0px 0px var(--dark-purple)";
     const title = document.getElementById(id1)
     if (title) title.style.color = "#ffffff";
     if (title) title.style.textDecoration = "none";
