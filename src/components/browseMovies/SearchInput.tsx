@@ -37,7 +37,7 @@ const SearchInput = () => {
     let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: movieType) =>
     (
         <li key={movie.id} className="trending-list">
-            <Card movie={movie} />
+            <Card movie={movie} category="null"/>
         </li>
 
     ))
