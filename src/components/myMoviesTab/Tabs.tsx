@@ -1,74 +1,43 @@
-import { useState } from "react"
-import MovieList from "./collectMovies"
+import { useState } from "react";
+import MovieList from "./collectMovies";
 
 const Tabs = () => {
+    const [currentTabContent, setTabContent] = useState("favourites");
+    const [isLoading, setLoadingStatus] = useState(false);
 
-    const [currentTabContent, setTabContent] = useState("favourites")
-    const [isLoading, setLoadingStatus] = useState(false)
-
-    const favButton = document.getElementById("fav-tab");
-    const seenButton = document.getElementById("seen-tab");
-    const watchlistButton = document.getElementById("watchlist-tab");
-    const content = document.getElementById("content-display")
-
-    function setFavourites() {
-        setLoadingStatus(true)
-        setTabContent("favourites")
-        if (favButton) favButton.classList.add("active-tab")
-        if (seenButton) seenButton.classList.remove("active-tab");
-        if (watchlistButton) watchlistButton.classList.remove("active-tab")
-
-        if (content) content.style.opacity = "0"
+    const handleTabClick = (tab: string) => {
+        setLoadingStatus(true);
+        setTabContent(tab);
 
         setTimeout(() => {
-            if (content) content.style.opacity = "1"
-            setLoadingStatus(false)
+            setLoadingStatus(false);
         }, 2000);
-
-    }
-
-    function setSeen() {
-        setLoadingStatus(true)
-        setTabContent("seen")
-        if (seenButton) seenButton.classList.add("active-tab");
-        if (favButton) favButton.classList.remove("active-tab")
-        if (watchlistButton) watchlistButton.classList.remove("active-tab")
-
-        if (content) content.style.opacity = "0"
-
-        setTimeout(() => {
-            if (content) content.style.opacity = "1"
-            setLoadingStatus(false)
-        }, 2000);
-    }
-
-    function setWatchlist() {
-        setLoadingStatus(true)
-        setTabContent("watchlist")
-        if (watchlistButton) watchlistButton.classList.add("active-tab")
-        if (favButton) favButton.classList.remove("active-tab")
-        if (seenButton) seenButton.classList.remove("active-tab");
-
-        if (content) content.style.opacity = "0"
-
-        setTimeout(() => {
-            if (content) content.style.opacity = "1"
-            setLoadingStatus(false)
-        }, 2000);
-    }
+    };
 
     return (
         <div>
             <div className="tabs-container">
                 <ul className="tabs-list">
                     <li className="tab-list-item">
-                        <button id="fav-tab" className="movie-tab-button active-tab" onClick={setFavourites}>Favourites</button>
+                        <button
+                            className={`movie-tab-button ${currentTabContent === "favourites" ? "active-tab" : ""}`}
+                            onClick={() => handleTabClick("favourites")}>
+                            Favourites
+                        </button>
                     </li>
                     <li className="tab-list-item">
-                        <button id="seen-tab" className="movie-tab-button" onClick={setSeen}>Seen</button>
+                        <button
+                            className={`movie-tab-button ${currentTabContent === "seen" ? "active-tab" : ""}`}
+                            onClick={() => handleTabClick("seen")}>
+                            Seen
+                        </button>
                     </li>
                     <li className="tab-list-item">
-                        <button id="watchlist-tab" className="movie-tab-button" onClick={setWatchlist}>Watchlist</button>
+                        <button
+                            className={`movie-tab-button ${currentTabContent === "watchlist" ? "active-tab" : ""}`}
+                            onClick={() => handleTabClick("watchlist")}>
+                            Watchlist
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -82,7 +51,7 @@ const Tabs = () => {
                 <MovieList dbCategory={currentTabContent} />
             )}
         </div>
-    )
-}
+    );
+};
 
-export default Tabs
+export default Tabs;
