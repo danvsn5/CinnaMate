@@ -329,6 +329,16 @@ span {
   z-index: 50 !important;
 }
 
+.break-tag-small {
+  color: #000000;
+  background: var(--dark-purple);
+  height: 3px;
+  border-radius: 5px;
+  border: unset;
+  width: 90%;
+  z-index: 50 !important;
+}
+
 .tag {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -498,4 +508,15 @@ span {
 
 .switch-buttons:hover, .submit:hover{
   box-shadow: inset 151px 0px 0px 0px var(--light-purple), inset -151px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+}
+
+/* ————————————————————————————————————— Existing User Tags ————————————————————————————————————— */
+
+.user-tag-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
 }

@@ -5,8 +5,6 @@ import { useState } from "react";
 
 const MovieTag = ({ movieID }: any) => {
 
-    movieID = movieID;
-
     const [tagTitle, setTitle] = useState("")
     const [tagContent, setContent] = useState("")
 
