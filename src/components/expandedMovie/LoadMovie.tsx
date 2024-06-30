@@ -64,8 +64,8 @@ const LoadMovie = ({ movie }: any) => {
                     )}
                     <ExpandedAddButtons movie={movie} />
                 </div>
-                <MovieTag movieID={movie.id} />
                 <CurrentTags movieID={movie.id} />
+                <MovieTag movieID={movie.id} />
             </div>
         </div>
     )

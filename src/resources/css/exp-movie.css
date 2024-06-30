@@ -316,7 +316,7 @@ span {
   animation-duration: 0.5s;
   animation-delay: 4s;
   animation-fill-mode: forwards;
-  margin-top: 40px;
+  margin-top: -30px;
 }
 
 .break-tag {
@@ -524,11 +524,17 @@ span {
   align-items: center;
   width: 100%;
   margin-top: 40px;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
 }
 
 .existing-tag-list {
   margin-top: 40px;
   width: 80%;
+
 
 }
 
