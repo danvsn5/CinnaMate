@@ -53,6 +53,7 @@ const MovieTag = ({ movieID }: any) => {
             }
             else {
                 await setDoc(userDocRef, data, { merge: true });
+                window.location.reload();
             }
         };
     }
