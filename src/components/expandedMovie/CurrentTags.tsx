@@ -35,15 +35,7 @@ function CurrentTags({ movieID }: any) {
         fetchTags();
     }, [movieID]);
 
-    //console.log(tags);
 
-    // tags.forEach(element => {
-
-    //     // map each tag to a div h1 element for the tag title and 
-
-    // });
-
-    // map tag title and content to a div element with h1 as the title and h2 as the content 
 
     let tagList = tags.map((tag: any, index: number) => (
         <div className="existing-tag">
@@ -57,6 +49,10 @@ function CurrentTags({ movieID }: any) {
         </div>
 
     ));
+
+    if (tags.length === 0) {
+        return null;
+    }
 
     return (
         <div className="user-tag-content">
