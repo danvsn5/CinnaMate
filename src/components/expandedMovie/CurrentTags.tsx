@@ -34,7 +34,7 @@ function CurrentTags({ movieID }: any) {
 
         fetchTags();
     }, [movieID]);
-    
+
     //console.log(tags);
 
     // tags.forEach(element => {
@@ -46,10 +46,16 @@ function CurrentTags({ movieID }: any) {
     // map tag title and content to a div element with h1 as the title and h2 as the content 
 
     let tagList = tags.map((tag: any, index: number) => (
-        <li key={index} className="tag-content">
-            <h1 className="tag-title">{tag.title}</h1>
-            <h2 className="tag-content">{tag.content}</h2>
-        </li>
+        <div className="existing-tag">
+            <hr className="break-tag-small extra" />
+            <li key={index} className="existing-tag">
+                <h1 className="existing-title">{tag.title}</h1>
+                <h2 className="existing-content">{tag.content}</h2>
+            </li>
+            <hr className="break-tag-small extra" />
+            <br />
+        </div>
+
     ));
 
     return (
@@ -57,7 +63,9 @@ function CurrentTags({ movieID }: any) {
             <hr className="break-tag" />
             <h1 className='main-tagline tag'>My Tags</h1>
             <hr className="break-tag-small" />
-            {tagList}
+            <div className="existing-tag-list">
+                {tagList}
+            </div>
         </div>
     )
 }
