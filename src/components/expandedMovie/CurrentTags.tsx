@@ -55,7 +55,6 @@ function CurrentTags({ movieID }: any) {
 
     let tagList = tags.map((tag: any, index: number) => (
         <div className="existing-tag" key={index}>
-            <hr className="break-tag-small extra" />
             {editingTag === index ? (
                 <TagEditor
                     tag={tag}
@@ -67,7 +66,6 @@ function CurrentTags({ movieID }: any) {
                     <h2 className="existing-content">{tag.content}</h2>
                 </li>
             )}
-            <hr className="break-tag-small extra" />
             <br />
         </div>
     ));
