@@ -43,7 +43,10 @@ const MovieTag = ({ movieID }: any) => {
 
             const data = {
                 movies: {
-                    tags: updatedTags
+                    tags: updatedTags,
+                    seen: {
+                        [movieID]: true
+                    }
                 }
             };
 
