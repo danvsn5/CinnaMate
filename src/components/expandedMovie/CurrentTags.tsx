@@ -42,14 +42,12 @@ function CurrentTags({ movieID }: any) {
     };
 
     const handleTagSave = (index: number, updatedTag: any) => {
-        // Update the tag in db
-
 
         // Update the tags state with the updated tag
         const updatedTags = [...tags];
         updatedTags[index] = updatedTag;
         setTags(updatedTags);
-        setDoc(doc(db, "users", loggedInState.username), { movies: { tags: { [movieID]: updatedTags} } }, { merge: true });
+        setDoc(doc(db, "users", loggedInState.username), { movies: { tags: { [movieID]: updatedTags } } }, { merge: true });
 
         // Clear the editing state
         setEditingTag(null);
@@ -93,9 +91,11 @@ function CurrentTags({ movieID }: any) {
 
         return (
             <div className="tag-editor">
-                <textarea className="editor tag-title" value={updatedTitle} onChange={handleTitleChange} />
-                <textarea className="editor tag-content" value={updatedContent} onChange={handleContentChange} />
-                <button onClick={handleSave}>Save</button>
+                <textarea className="editor tag-title" value={updatedTitle} onChange={handleTitleChange} rows={1} />
+                <textarea className="editor tag-content" value={updatedContent} onChange={handleContentChange} rows={5} />
+                <button className='exp-thumb-button edit-tag-button' data-tooltip-id="my-tooltip3" data-tooltip-content="Update Tag" onClick={handleSave}>
+                    <i className="icon fa-solid fa-check"></i>
+                </button>
             </div>
         );
     }

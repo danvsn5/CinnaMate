@@ -69,7 +69,7 @@ const MovieTag = ({ movieID }: any) => {
             <textarea className="editor tag-title" rows={1} spellCheck={false} wrap="soft" placeholder="Write the title and/or timestamp of your tag..." onChange={inputTitleChange} />
             <h1 className="text-tag-label">Tag Content</h1>
             <textarea className="editor tag-content" spellCheck={false} rows={5} maxLength={550} placeholder="Write your tag content..." onChange={inputContentChange} />
-            <button className='exp-thumb-button add-tag-button' data-tooltip-id="my-tooltip3" data-tooltip-content="Add Tag to Taglist" onClick={handleClick}>
+            <button className='exp-thumb-button edit-tag-button' data-tooltip-id="my-tooltip3" data-tooltip-content="Add Tag to Taglist" onClick={handleClick}>
                 <Tooltip id='my-tooltip3' className='exp-tooltip' border="1px solid var(--light-purple)" delayShow={250} place='bottom' offset={30} arrowColor='var(--light-purple )' />
                 <i className="icon fa-solid fa-plus exp-icon"></i>
             </button>
