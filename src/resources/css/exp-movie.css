@@ -229,6 +229,15 @@ span {
     font-size: 16px !important;
   }
 
+  .existing-content {
+    font-size: 16px !important;
+  }
+
+  .existing-title{
+    font-size: 18px !important;
+    text-decoration: underline 2px var(--light-purple)!important;
+  }
+
   .add-tag-button {
     width: 100px !important;
   }
@@ -303,6 +312,7 @@ span {
 
 }
 
+
 /* ————————————————————————————————————————— Movie Tags ————————————————————————————————————————— */
 
 .movie-tag {
@@ -317,6 +327,14 @@ span {
   animation-delay: 4s;
   animation-fill-mode: forwards;
   margin-top: -30px;
+}
+
+@media (max-width: 1400px) {
+
+  .movie-tag {
+    margin-top: 20px;
+  }
+  
 }
 
 .break-tag {
