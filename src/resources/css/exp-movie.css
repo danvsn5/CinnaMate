@@ -326,7 +326,6 @@ span {
   animation-duration: 0.5s;
   animation-delay: 4s;
   animation-fill-mode: forwards;
-  margin-top: -30px;
 }
 
 @media (max-width: 1400px) {
