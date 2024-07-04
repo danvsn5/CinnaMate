@@ -612,3 +612,13 @@ span {
   animation-delay: 0.15s;
   animation-fill-mode: forwards;
 }
+
+.update {
+  margin-bottom: 10px;
+}
+
+.tag-edit-button-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}

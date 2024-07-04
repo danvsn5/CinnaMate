@@ -87,13 +87,26 @@ function CurrentTags({ movieID }: any) {
             onSave(updatedTag);
         };
 
+        const handleDelete = () => {
+            // delete the tag and update the database with the removed tag
+            const updatedTags = tags.filter((_t, index) => index !== editingTag);
+            setTags(updatedTags);
+            setDoc(doc(db, "users", loggedInState.username), { movies: { tags: { [movieID]: updatedTags } } }, { merge: true });
+            setEditingTag(null);
+        }
+
         return (
             <div className="tag-editor">
                 <textarea className="editor tag-title" value={updatedTitle} onChange={handleTitleChange} rows={1} />
                 <textarea className="editor tag-content" value={updatedContent} onChange={handleContentChange} rows={5} />
-                <button className='exp-thumb-button edit-tag-button' data-tooltip-id="my-tooltip3" data-tooltip-content="Update Tag" onClick={handleSave}>
-                    <i className="icon fa-solid fa-check"></i>
-                </button>
+                <div className="tag-edit-button-wrapper">
+                    <button className='exp-thumb-button edit-tag-button update' data-tooltip-id="my-tooltip3" data-tooltip-content="Delete Tag" onClick={handleDelete}>
+                        <i className="icon fa-solid fa-trash"></i>
+                    </button>
+                    <button className='exp-thumb-button edit-tag-button update' data-tooltip-id="my-tooltip3" data-tooltip-content="Update Tag" onClick={handleSave}>
+                        <i className="icon fa-solid fa-check"></i>
+                    </button>
+                </div>
             </div>
         );
     }
