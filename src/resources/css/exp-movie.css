@@ -142,7 +142,7 @@
   border: 3px solid var(--light-purple);
 }
 
-.exp-thumb-button.active .icon{
+.exp-thumb-button.active .icon {
   color: var(--dark-purple)
 }
 
@@ -229,6 +229,15 @@ span {
     font-size: 16px !important;
   }
 
+  .existing-content {
+    font-size: 16px !important;
+  }
+
+  .existing-title {
+    font-size: 18px !important;
+    text-decoration: underline 2px var(--light-purple) !important;
+  }
+
   .add-tag-button {
     width: 100px !important;
   }
@@ -303,6 +312,7 @@ span {
 
 }
 
+
 /* ————————————————————————————————————————— Movie Tags ————————————————————————————————————————— */
 
 .movie-tag {
@@ -316,7 +326,14 @@ span {
   animation-duration: 0.5s;
   animation-delay: 4s;
   animation-fill-mode: forwards;
-  margin-top: 40px;
+}
+
+@media (max-width: 1400px) {
+
+  .movie-tag {
+    margin-top: 20px;
+  }
+
 }
 
 .break-tag {
@@ -327,6 +344,20 @@ span {
   border: unset;
   width: 90%;
   z-index: 50 !important;
+}
+
+.break-tag-small {
+  color: #000000;
+  background: var(--dark-purple);
+  height: 3px;
+  border-radius: 5px;
+  border: unset;
+  width: 90%;
+  z-index: 50 !important;
+}
+
+.extra {
+  height: 1px;
 }
 
 .tag {
@@ -385,6 +416,12 @@ span {
   width: 200px;
 }
 
+.edit-tag-button {
+  margin-bottom: 50px;
+  width: 150px;
+  height: 60px;
+}
+
 /* ———————————————————————————————————————— Sign Up Modal ——————————————————————————————————————— */
 
 .sign-up-button {
@@ -427,7 +464,7 @@ span {
   margin: auto;
 }
 
-.after-input{
+.after-input {
   display: flex;
   width: 320px;
   height: 320px;
@@ -439,14 +476,14 @@ span {
   transition: 250ms ease-out;
 }
 
-.after-content{
+.after-content {
   display: flex;
   height: 100%;
   align-items: center;
   align-content: center;
 }
 
-.after-label{
+.after-label {
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
@@ -482,20 +519,105 @@ span {
   padding: 10px;
 }
 
-.switch-buttons{
+.switch-buttons {
   width: 100%;
   border: 3px solid var(--light-purple);
   font-family: Land;
   transition: 250ms ease-out;
 }
 
-.submit{
+.submit {
   width: 100%;
   border: 3px solid var(--light-purple);
   font-family: Land;
   transition: 250ms ease-out;
 }
 
-.switch-buttons:hover, .submit:hover{
+.switch-buttons:hover,
+.submit:hover {
   box-shadow: inset 151px 0px 0px 0px var(--light-purple), inset -151px 0px 0px 0px var(--light-purple), 0px 0px 16px 4px var(--dark-purple);
+}
+
+/* ————————————————————————————————————— Existing User Tags ————————————————————————————————————— */
+
+.user-tag-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+
+.existing-tag-list {
+  margin-top: 40px;
+  width: 80%;
+}
+
+.existing-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.existing-tag li {
+  border-top: 1px solid var(--dark-purple);
+  border-bottom: 1px solid var(--dark-purple);
+  box-shadow: inset 0px 0px 0px 0px var(--dark-purple), inset 0px 0px 0px 0px var(--dark-purple);
+  transition: 150ms ease-out;
+  cursor: pointer;
+}
+
+.existing-tag li:hover {
+  border-top: 1px solid var(--light-purple);
+  border-bottom: 1px solid var(--light-purple);
+  box-shadow: inset 0px 1px 0px 0px var(--light-purple), inset 0px -1px 0px 0px var(--light-purple);
+  transition: 150ms ease-out;
+
+}
+
+.existing-title {
+  font-family: Land;
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline var(--light-purple) 3px;
+  margin-bottom: 5px;
+}
+
+.existing-content {
+  font-family: Land;
+  text-align: justify;
+  text-align-last: center;
+  font-size: 25px;
+}
+
+.tag-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  animation-name: card-appear;
+  animation-duration: 0.5s;
+  animation-delay: 0.15s;
+  animation-fill-mode: forwards;
+}
+
+.update {
+  margin-bottom: 10px;
+}
+
+.tag-edit-button-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }

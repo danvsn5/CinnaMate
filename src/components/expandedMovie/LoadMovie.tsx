@@ -3,6 +3,7 @@ import ExpandedThumbnail from './ExpandedThumbnail';
 import ExpandedAddButtons from './ExpandedAddButtons';
 import ExpandedSubheader from './ExpandedSubheader';
 import MovieTag from './MovieTag';
+import CurrentTags from './CurrentTags';
 
 const LoadMovie = ({ movie }: any) => {
 
@@ -63,6 +64,7 @@ const LoadMovie = ({ movie }: any) => {
                     )}
                     <ExpandedAddButtons movie={movie} />
                 </div>
+                <CurrentTags movieID={movie.id} />
                 <MovieTag movieID={movie.id} />
             </div>
         </div>
