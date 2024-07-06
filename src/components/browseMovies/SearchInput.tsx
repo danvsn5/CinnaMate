@@ -210,7 +210,7 @@ const SearchInput = () => {
 
             <hr className="browsing-break" />
             <div className="browsing-card-container">
-                <BrowsingSubheader browsingSubheaderTitle="Currently Trending Movies" />
+                <BrowsingSubheader browsingSubheaderTitle="Current Trending Movies" />
                 <div className="browsing-main-content">
                     {movieCards}
                 </div>
