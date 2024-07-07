@@ -11,14 +11,14 @@ const SignUpBurger = () => {
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
 
-    let [Username, setUsername] = useState("")
-    let [Password, setPassword] = useState("")
+    const [Username, setUsername] = useState("")
+    const [Password, setPassword] = useState("")
 
-    const inputEChange = (e: any) => {
+    const inputEChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.currentTarget.value)
     }
 
-    const inputPChange = (e: any) => {
+    const inputPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value)
     }
 
