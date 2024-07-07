@@ -23,11 +23,11 @@ const Header = () => {
 
     function displayBurger() {
         //sets variables for ID elements
-        var burgerItems = document.getElementById("burger-list-ID");
-        var buttonA = document.getElementById("itm-btn-A");
-        var buttonB = document.getElementById("itm-btn-B");
-        var buttonC = document.getElementById("itm-btn-C");
-        var buttonD = document.getElementById("itm-btn-D");
+        const burgerItems = document.getElementById("burger-list-ID");
+        const buttonA = document.getElementById("itm-btn-A");
+        const buttonB = document.getElementById("itm-btn-B");
+        const buttonC = document.getElementById("itm-btn-C");
+        const buttonD = document.getElementById("itm-btn-D");
 
 
         if (isburgerOpen == false) {

@@ -2,16 +2,23 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useEffect, useState } from "react";
 
-const collectTags = async ({ movieID }: { movieID: string }) => {
+interface UserData {
+    movies?: {
+        tags: {
+            [key: string]: string[];
+        };
+    };
+}
 
+const collectTags = async ({ movieID }: { movieID: string }) => {
     if (loggedInState.isLoggedIn) {
         const userDocRef = doc(db, "users", loggedInState.username);
         const userDoc = await getDoc(userDocRef);
 
-        let existingTags: Record<string, any> = {};
+        let existingTags: { [key: string]: string[] } = {};
 
         if (userDoc.exists()) {
-            const userData = userDoc.data();
+            const userData = userDoc.data() as UserData;
             existingTags = userData.movies?.tags || {};
         }
 
@@ -19,32 +26,33 @@ const collectTags = async ({ movieID }: { movieID: string }) => {
 
         return movieTags;
     }
-}
+};
+
 
 
 
 function CurrentTags({ movieID }: { movieID: string }) {
 
+    const [tags, setTags] = useState<string[]>([]);
+    const [editingTag, setEditingTag] = useState<number | null>(null);
+    useEffect(() => {
+        const fetchTags = async () => {
+            const fetchedTags = await collectTags({ movieID }) || [];
+            setTags(fetchedTags);
+        };
+
+        fetchTags();
+    }, [movieID]);
+
+
     if (loggedInState.isLoggedIn) {
         // gets and displays all current tags for a movie
-        const [tags, setTags] = useState<any[]>([]);
-
-        useEffect(() => {
-            const fetchTags = async () => {
-                const fetchedTags = await collectTags({ movieID });
-                setTags(fetchedTags);
-            };
-
-            fetchTags();
-        }, [movieID]);
-
-        const [editingTag, setEditingTag] = useState<number | null>(null);
 
         const handleTagClick = (index: number) => {
             setEditingTag(index);
         };
 
-        const handleTagSave = (index: number, updatedTag: any) => {
+        const handleTagSave = (index: number, updatedTag: string) => {
 
             // Update the tags state with the updated tag
             const updatedTags = [...tags];
@@ -61,7 +69,7 @@ function CurrentTags({ movieID }: { movieID: string }) {
                 {editingTag === index ? (
                     <TagEditor
                         tag={tag}
-                        onSave={(updatedTag: any) => handleTagSave(index, updatedTag)}
+                        onSave={(updatedTag: string) => handleTagSave(index, updatedTag)}
                     />
                 ) : (
                     <li className="existing-tag" onClick={() => handleTagClick(index)}>

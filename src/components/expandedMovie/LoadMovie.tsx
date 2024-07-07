@@ -10,11 +10,10 @@ const LoadMovie = ({ movie }: { movie: movieType }) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path
-    let [title, setTitle] = useState<string>("");
-    let [overview, setOverview] = useState<string>("");
-    //let [release, setRelease] = useState();
-    let [tagline, setTagline] = useState<string>("");
-    let [posterPath, setPosterPath] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
+    const [overview, setOverview] = useState<string>("");
+    const [tagline, setTagline] = useState<string>("");
+    const [posterPath, setPosterPath] = useState<string>("");
 
     /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
 
@@ -30,15 +29,14 @@ const LoadMovie = ({ movie }: { movie: movieType }) => {
     // if the call was succcesful then store the data gathered inside each individual component
 
     fetch(url, options)
-        .then((res: any) => res.json())
-        .then((data: any) => {
+        .then((res) => res.json())
+        .then((data) => {
             setTitle(data.title)
             setOverview(data.overview)
-            //setRelease(data.release_date)
             setTagline(data.tagline)
             setPosterPath(data.poster_path)
         })
-        .catch((err: any) => console.error('error:' + err));
+        .catch((err) => console.error('error:' + err));
 
     /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 
