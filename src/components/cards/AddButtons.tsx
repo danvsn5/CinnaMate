@@ -4,9 +4,10 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useGlobalState } from '../utils/AccountHook';
 import movieType from '../utils/movieType';
+import movieTypeTab from '../utils/movieTypeTab';
 
 interface AddButtonsProps {
-    movie: movieType;
+    movie: movieType | movieTypeTab;
     category: string;
 }
 

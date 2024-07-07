@@ -23,7 +23,7 @@ const collectTags = async ({ movieID }: { movieID: string }) => {
 
 
 
-function CurrentTags({ movieID }: {movieID: string}) {
+function CurrentTags({ movieID }: { movieID: string }) {
 
     if (loggedInState.isLoggedIn) {
         // gets and displays all current tags for a movie

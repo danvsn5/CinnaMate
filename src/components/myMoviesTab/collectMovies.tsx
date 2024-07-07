@@ -2,13 +2,7 @@ import db from "../../../firebase.config";
 import { doc, getDoc } from "firebase/firestore";
 import Card from "../cards/Card";
 import { useState, useEffect } from "react";
-
-interface movieTypeTab {
-    id: number;
-    title: string;
-    poster_path: string;
-    release_date: string;
-}
+import movieTypeTab from "../utils/movieTypeTab";
 
 // based on the input array of movieIDs, creates a query to the database and collects the required data
 // for a movie card

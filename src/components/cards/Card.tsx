@@ -2,12 +2,13 @@ import Thumbnail from "./Thumbnail"
 import AddButtons from "./AddButtons"
 import { Link } from "react-router-dom"
 import movieType from "../utils/movieType";
+import movieTypeTab from "../utils/movieTypeTab";
 
 // card wrapper that will contain the wrapped elements for each movie
 // including title, thumbnail, date released (smaller font) and buttons for adding to MyMovies
 
 interface CardProps {
-  movie: movieType;
+  movie: movieType | movieTypeTab;
   category: string;
 }
 

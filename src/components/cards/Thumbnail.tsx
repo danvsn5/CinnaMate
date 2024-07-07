@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import movieType from "../utils/movieType";
+import movieTypeTab from "../utils/movieTypeTab";
 
 // thumbnail element used within cards to be displayed to user
-const Thumbnail = ({ movie }: { movie: movieType }) => {
+const Thumbnail = ({ movie }: { movie: movieType | movieTypeTab }) => {
   // id for the title of the movie so that it can be referenced properly
   const id1: string = (parseInt(movie.id) - 1000000).toString();
 
