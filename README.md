@@ -17,4 +17,4 @@ To open CinnaMate, clone the repository into a folder, type ```npm i```, wait fo
 ![Create Movie Tags](public/tag.png)
 
 ## CinnaMate also supports mobile devices, so you can use it on the run at any time you want!
-![Mobile Site](public/mobile.png)
+<img src="public/mobile.png" alt="Mobile Site" width="300"/>
