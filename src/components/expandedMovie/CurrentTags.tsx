@@ -2,7 +2,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useEffect, useState } from "react";
 
-const collectTags = async ({ movieID }: any) => {
+const collectTags = async ({ movieID }: { movieID: string }) => {
 
     if (loggedInState.isLoggedIn) {
         const userDocRef = doc(db, "users", loggedInState.username);
@@ -23,7 +23,7 @@ const collectTags = async ({ movieID }: any) => {
 
 
 
-function CurrentTags({ movieID }: any) {
+function CurrentTags({ movieID }: {movieID: string}) {
 
     if (loggedInState.isLoggedIn) {
         // gets and displays all current tags for a movie

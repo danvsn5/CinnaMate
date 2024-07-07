@@ -4,16 +4,17 @@ import ExpandedAddButtons from './ExpandedAddButtons';
 import ExpandedSubheader from './ExpandedSubheader';
 import MovieTag from './MovieTag';
 import CurrentTags from './CurrentTags';
+import movieType from '../utils/movieType';
 
-const LoadMovie = ({ movie }: any) => {
+const LoadMovie = ({ movie }: { movie: movieType }) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path
-    let [title, setTitle] = useState();
-    let [overview, setOverview] = useState();
+    let [title, setTitle] = useState<string>("");
+    let [overview, setOverview] = useState<string>("");
     //let [release, setRelease] = useState();
-    let [tagline, setTagline] = useState();
-    let [posterPath, setPosterPath] = useState();
+    let [tagline, setTagline] = useState<string>("");
+    let [posterPath, setPosterPath] = useState<string>("");
 
     /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
 

@@ -1,6 +1,6 @@
 
 // thumbnail element used within cards to be displayed to user
-const ExpandedThumbnail = ({ path }: any) => {
+const ExpandedThumbnail = ({ path }: { path: string }) => {
 
     // conditional rendering in case a movie is rendered that does not have a poster path
     return (

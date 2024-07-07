@@ -3,15 +3,15 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useState } from "react";
 
-const MovieTag = ({ movieID }: any) => {
+const MovieTag = ({ movieID }: { movieID: string }) => {
 
     const [tagTitle, setTitle] = useState("")
     const [tagContent, setContent] = useState("")
 
-    const inputTitleChange = (e: any) => {
+    const inputTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTitle(e.currentTarget.value)
     }
-    const inputContentChange = (e: any) => {
+    const inputContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContent(e.currentTarget.value)
     }
 
