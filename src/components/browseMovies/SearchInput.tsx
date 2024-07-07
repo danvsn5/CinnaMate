@@ -20,8 +20,8 @@ const SearchInput = () => {
     /*                                       Filter and Mapping                                       */
     /* —————————————————————————————————————————————————————————————————————————————————————————————— */
 
-    let [results, setResults] = useState([]);
-    let [searchCardResults, setSearchCardResults] = useState([]);
+    const [results, setResults] = useState([]);
+    const [searchCardResults, setSearchCardResults] = useState([]);
 
     // filters movies so that if they either do not have a poster, backdrop or overview, they will not be
     // displayed after the search
@@ -34,15 +34,15 @@ const SearchInput = () => {
     }
     // movieCards element maps the collected elements from the array collected
     // by the API and is used in return code through <Card> element
-    let movieCards = results.filter(movieFilter).slice(0, 8).map((movie: movieType) =>
+    const movieCards = results.filter(movieFilter).slice(0, 8).map((movie: movieType) =>
     (
         <li key={movie.id} className="trending-list">
-            <Card movie={movie} category="null"/>
+            <Card movie={movie} category="null" />
         </li>
 
     ))
 
-    let searchMovieCards = searchCardResults.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
+    const searchMovieCards = searchCardResults.filter(movieFilter).slice(0, 3).map((movie: movieType) =>
     (
         <li key={movie.id} className="search-card-list">
             <Link to='/yourmovie' state={{ movie }}>
@@ -54,10 +54,10 @@ const SearchInput = () => {
     /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 
 
-    let [inputValue, setInputValue] = useState("")
+    const [inputValue, setInputValue] = useState("")
 
     // as input changes, a query is sent out and maps to the three cards that are displayed as a result from the input query
-    const inputChange = (e: any) => {
+    const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.currentTarget.value)
         getSpecificSmallQuery()
     }
@@ -96,7 +96,7 @@ const SearchInput = () => {
     const setTextChange = () => {
 
         const text = document.getElementById("subheader-title-inner-content")
-        let initStr = "Searching for: "
+        const initStr = "Searching for: "
         if (text) text.innerHTML = initStr.concat({ inputValue }.inputValue);
 
     }
@@ -117,13 +117,13 @@ const SearchInput = () => {
     };
 
     // if the call was succcesful then store the data gathered inside the results array
-    if (results.length == 0) {
+    if (results.length === 0) {
         fetch(urlTrending, options)
-            .then((res: any) => res.json())
-            .then((data: any) => {
+            .then((res) => res.json())
+            .then((data) => {
                 setResults(data.results);
             })
-            .catch((err: any) => console.error('error:' + err));
+            .catch((err) => console.error('error:', err));
 
     }
 
@@ -144,8 +144,8 @@ const SearchInput = () => {
 
         // if the call was succcesful then store the data gathered inside the results array
         fetch(urlSpecific, options)
-            .then((res: any) => res.json())
-            .then((data: any) => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (data.total_results != 0) {
                     setResults([])
                     setResults(data.results);
@@ -155,7 +155,7 @@ const SearchInput = () => {
                     if (text) text.innerHTML = "No Movies Found. Instead Displaying Previous Search:"
                 }
             })
-            .catch((err: any) => console.error('error:' + err));
+            .catch((err) => console.error('error:' + err));
 
     }
 
@@ -174,14 +174,14 @@ const SearchInput = () => {
 
         // if the call was succcesful then store the data gathered inside the results array
         fetch(urlSpecific, options)
-            .then((res: any) => res.json())
-            .then((data: any) => {
+            .then((res) => res.json())
+            .then((data) => {
                 if (data.total_results != 0) {
                     setSearchCardResults([])
                     setSearchCardResults(data.results);
                 }
             })
-            .catch((err: any) => console.error('error:' + err));
+            .catch((err) => console.error('error:' + err));
     }
 
     /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */

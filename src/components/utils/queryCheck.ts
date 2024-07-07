@@ -16,7 +16,7 @@ async function checkIfExistsDB(movieId: string, username: string, list: string) 
         if (list == "favourites") {
 
             // looks inside the favourites list and checks whether or not the movie is in favs
-            if (movies.favourites.hasOwnProperty(movieId)) {
+            if (Object.prototype.hasOwnProperty.call(movies.favourites, movieId)) {
 
 
                 if (movies.favourites[movieId] == false) {
@@ -39,7 +39,7 @@ async function checkIfExistsDB(movieId: string, username: string, list: string) 
         } else if (list == "seen") {
 
             // looks inside the favourites list and checks whether or not the movie is in favs
-            if (movies.seen.hasOwnProperty(movieId)) {
+            if (Object.prototype.hasOwnProperty.call(movies.seen, movieId)) {
 
 
                 if (movies.seen[movieId] == false) {
@@ -62,7 +62,7 @@ async function checkIfExistsDB(movieId: string, username: string, list: string) 
         } else {
 
             // looks inside the favourites list and checks whether or not the movie is in favs
-            if (movies.watchlist.hasOwnProperty(movieId)) {
+            if (Object.prototype.hasOwnProperty.call(movies.watchlist, movieId)) {
 
 
                 if (movies.watchlist[movieId] == false) {

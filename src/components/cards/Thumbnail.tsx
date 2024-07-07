@@ -9,7 +9,7 @@ const Thumbnail = ({ movie }: { movie: movieType }) => {
   /* ————————————————————————————————————————— Hover Logic ———————————————————————————————————————— */
 
   const setHoverChangeThumb = () => {
-    let id: string = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 16px 8px var(--light-purple)";
     const title = document.getElementById(id1)
@@ -18,7 +18,7 @@ const Thumbnail = ({ movie }: { movie: movieType }) => {
   }
 
   const setHoverChangeOffThumb = () => {
-    let id: string = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 0px 0px var(--dark-purple)";
     const title = document.getElementById(id1)

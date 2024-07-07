@@ -8,7 +8,7 @@ const collectTags = async ({ movieID }: { movieID: string }) => {
         const userDocRef = doc(db, "users", loggedInState.username);
         const userDoc = await getDoc(userDocRef);
 
-        let existingTags: any = {};
+        let existingTags: Record<string, any> = {};
 
         if (userDoc.exists()) {
             const userData = userDoc.data();

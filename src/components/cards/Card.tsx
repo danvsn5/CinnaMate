@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({ movie, category }) => {
   /* ————————————————————————————————————————— Hover Logic ———————————————————————————————————————— */
 
   const setHoverChangeThumb = () => {
-    let id: string = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 16px 8px var(--light-purple)";
     const title = document.getElementById(id1)
@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({ movie, category }) => {
   }
 
   const setHoverChangeOffThumb = () => {
-    let id: string = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 0px 0px var(--dark-purple)";
     const title = document.getElementById(id1)
