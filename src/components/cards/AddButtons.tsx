@@ -3,9 +3,10 @@ import checkIfExistsDB from "../utils/queryCheck";
 import { doc, setDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
 import { useGlobalState } from '../utils/AccountHook';
+import movieType from '../utils/movieType';
 
 interface AddButtonsProps {
-    movie: any;
+    movie: movieType;
     category: string;
 }
 

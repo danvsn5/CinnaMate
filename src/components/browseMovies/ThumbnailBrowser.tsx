@@ -1,5 +1,7 @@
+import movieType from "../utils/movieType"
+
 // thumbnail element used within cards to be displayed to user
-const ThumbnailBrowser = ({ movie }: any) => {
+const ThumbnailBrowser = ({ movie }: { movie: movieType }) => {
   return (
     <div className="card-thumbnail">
       {movie.poster_path ? (

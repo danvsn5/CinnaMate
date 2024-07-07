@@ -1,23 +1,24 @@
 import Thumbnail from "./Thumbnail"
 import AddButtons from "./AddButtons"
 import { Link } from "react-router-dom"
+import movieType from "../utils/movieType";
 
 // card wrapper that will contain the wrapped elements for each movie
 // including title, thumbnail, date released (smaller font) and buttons for adding to MyMovies
 
 interface CardProps {
-  movie: any;
+  movie: movieType;
   category: string;
 }
 
 const Card: React.FC<CardProps> = ({ movie, category }) => {
 
-  const id1: any = movie.id - 1000000;
+  const id1: string = (parseInt(movie.id) - 1000000).toString();
 
   /* ————————————————————————————————————————— Hover Logic ———————————————————————————————————————— */
 
   const setHoverChangeThumb = () => {
-    let id: any = movie.id;
+    let id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 16px 8px var(--light-purple)";
     const title = document.getElementById(id1)
@@ -27,7 +28,7 @@ const Card: React.FC<CardProps> = ({ movie, category }) => {
   }
 
   const setHoverChangeOffThumb = () => {
-    let id: any = movie.id;
+    let id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 0px 0px var(--dark-purple)";
     const title = document.getElementById(id1)

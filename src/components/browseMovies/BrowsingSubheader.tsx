@@ -1,8 +1,4 @@
-type BrowsingSubheaderProps = {
-  browsingSubheaderTitle: string;
-};
-
-function BrowsingSubheader(props: BrowsingSubheaderProps) {
+function BrowsingSubheader(props: { browsingSubheaderTitle: string }) {
   return (
     <div className="browsing-subheader-container">
       <div className="browsing-subheader-title">
