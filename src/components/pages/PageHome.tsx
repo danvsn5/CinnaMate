@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Subheader from "../margins/Subheader"
-import Card from "../cards/Card"
+import Subheader from "../Margin/Subheader"
+import Card from "../Card/Card"
 import movieType from "../utils/movieType";
 
 const PageHome = () => {

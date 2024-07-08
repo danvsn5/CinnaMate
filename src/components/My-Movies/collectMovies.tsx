@@ -1,6 +1,6 @@
 import db from "../../../firebase.config";
 import { doc, getDoc } from "firebase/firestore";
-import Card from "../cards/Card";
+import Card from "../Card/Card";
 import { useState, useEffect } from "react";
 import movieTypeTab from "../utils/movieTypeTab";
 
