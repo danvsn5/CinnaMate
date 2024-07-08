@@ -4,16 +4,16 @@ import ExpandedAddButtons from './ExpandedAddButtons';
 import ExpandedSubheader from './ExpandedSubheader';
 import MovieTag from './MovieTag';
 import CurrentTags from './CurrentTags';
+import movieType from '../utils/movieType';
 
-const LoadMovie = ({ movie }: any) => {
+const LoadMovie = ({ movie }: { movie: movieType }) => {
 
     // fetches API data for current selected movie and stores important values: title, release date, overview
     // tagline and poster path
-    let [title, setTitle] = useState();
-    let [overview, setOverview] = useState();
-    //let [release, setRelease] = useState();
-    let [tagline, setTagline] = useState();
-    let [posterPath, setPosterPath] = useState();
+    const [title, setTitle] = useState<string>("");
+    const [overview, setOverview] = useState<string>("");
+    const [tagline, setTagline] = useState<string>("");
+    const [posterPath, setPosterPath] = useState<string>("");
 
     /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
 
@@ -29,15 +29,14 @@ const LoadMovie = ({ movie }: any) => {
     // if the call was succcesful then store the data gathered inside each individual component
 
     fetch(url, options)
-        .then((res: any) => res.json())
-        .then((data: any) => {
+        .then((res) => res.json())
+        .then((data) => {
             setTitle(data.title)
             setOverview(data.overview)
-            //setRelease(data.release_date)
             setTagline(data.tagline)
             setPosterPath(data.poster_path)
         })
-        .catch((err: any) => console.error('error:' + err));
+        .catch((err) => console.error('error:' + err));
 
     /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 

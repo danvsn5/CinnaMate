@@ -1,6 +1,7 @@
+import movieType from "../utils/movieType"
 import ThumbnailBrowser from "./ThumbnailBrowser"
 
-const SearchMovieCard = ({ movie }: any) => {
+const SearchMovieCard = ({ movie }: { movie: movieType }) => {
 
 
     return (

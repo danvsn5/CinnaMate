@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import movieType from "../utils/movieType";
+import movieTypeTab from "../utils/movieTypeTab";
 
 // thumbnail element used within cards to be displayed to user
-const Thumbnail = ({ movie }: any) => {
+const Thumbnail = ({ movie }: { movie: movieType | movieTypeTab }) => {
   // id for the title of the movie so that it can be referenced properly
-  const id1: any = movie.id - 1000000;
+  const id1: string = (parseInt(movie.id) - 1000000).toString();
 
   /* ————————————————————————————————————————— Hover Logic ———————————————————————————————————————— */
 
   const setHoverChangeThumb = () => {
-    let id: any = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 16px 8px var(--light-purple)";
     const title = document.getElementById(id1)
@@ -17,7 +19,7 @@ const Thumbnail = ({ movie }: any) => {
   }
 
   const setHoverChangeOffThumb = () => {
-    let id: any = movie.id;
+    const id: string = movie.id;
     const thumb = document.getElementById(id)
     if (thumb) thumb.style.boxShadow = "0px 0px 0px 0px var(--dark-purple)";
     const title = document.getElementById(id1)

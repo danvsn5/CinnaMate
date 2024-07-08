@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function ExpandedSubheader(props: any) {
+function ExpandedSubheader(props: {subheaderTitle: string}) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {

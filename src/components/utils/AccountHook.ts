@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const useGlobalState = (globalVariable: any) => {
+type globalUserVariables = {
+    isLoggedIn: boolean
+    username: string
+    password: string
+};
+
+const useGlobalState = (globalVariable: globalUserVariables) => {
     const [, setState] = useState({});
 
     useEffect(() => {

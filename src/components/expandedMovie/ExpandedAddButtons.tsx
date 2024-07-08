@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import checkIfExistsDB from '../utils/queryCheck';
 import { doc, setDoc } from 'firebase/firestore';
 import db from '../../../firebase.config';
+import movieType from '../utils/movieType';
 
-const ExpandedAddButtons = ({ movie }: any) => {
+const ExpandedAddButtons = ({ movie }: {movie: movieType}) => {
 
   const [favouritesState, setFavouritesState] = useState<boolean | null>(null);
   const [seenState, setSeenState] = useState<boolean | null>(null);

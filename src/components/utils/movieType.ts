@@ -2,7 +2,7 @@ type movieType = {
     /**
      *  Identifier for individual unique more
      */
-    id: number
+    id: string
 
     /**
      *  Title of movie

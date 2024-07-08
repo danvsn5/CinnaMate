@@ -1,4 +1,4 @@
-function Subheader(props: any) {
+function Subheader(props: { subheaderTitle: string }) {
     return (
         <div className="subheader-container">
             <div className="subheader">

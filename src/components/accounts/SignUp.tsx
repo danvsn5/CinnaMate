@@ -11,12 +11,12 @@ const SignUp = () => {
     const [isDesktop, setDesktop] = useState(window.innerWidth < 1059);
 
 
-    let [Username, setUsername] = useState("")
-    let [Password, setPassword] = useState("")
-    const inputEChange = (e: any) => {
+    const [Username, setUsername] = useState("")
+    const [Password, setPassword] = useState("")
+    const inputEChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(e.currentTarget.value)
     }
-    const inputPChange = (e: any) => {
+    const inputPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value)
     }
     const updateMedia = () => {
@@ -26,8 +26,8 @@ const SignUp = () => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
     });
-    const searchEnter = (e?: any) => {
-        if (Password != "" && Username != "" && e?.key == "Enter") {
+    const searchEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (Password != "" && Username != "" && e.key == "Enter") {
             addUser();
         }
     }

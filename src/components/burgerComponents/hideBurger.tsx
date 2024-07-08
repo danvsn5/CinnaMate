@@ -1,13 +1,13 @@
 const hideBurger = () => {
 
-    var topB = document.getElementById("topB");
-    var topBA = document.getElementById("topBA");
+    const topB = document.getElementById("topB");
+    const topBA = document.getElementById("topBA");
 
-    var midB = document.getElementById("midB");
-    var midBA = document.getElementById("midBA");
+    const midB = document.getElementById("midB");
+    const midBA = document.getElementById("midBA");
 
-    var botB = document.getElementById("botB");
-    var botBA = document.getElementById("botBA");
+    const botB = document.getElementById("botB");
+    const botBA = document.getElementById("botBA");
 
     if (topB) topB.style.width = "35px"
     if (topBA) topBA.style.width = "35px"

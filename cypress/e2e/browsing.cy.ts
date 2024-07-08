@@ -95,7 +95,7 @@ describe('browse-page', () => {
         cy.get('.search-input-editor').type("pl")
         cy.get('.search-card-title:first').then((element) => {
             // gets the height of the text in the first box, assuming no wrapping
-            let height = element.height();
+            const height = element.height();
             // height of text in last box should be equal; if they are equal, then
             // their thumbnail cards will be of the same size
             cy.get('.search-card-title:last').should('have.css', 'height', `${height}px`)
@@ -107,7 +107,7 @@ describe('browse-page', () => {
         cy.get('.search-input-editor').type("pl")
         cy.get('.search-card-title:first').then((element) => {
             // gets the height of the text in the first box, assuming no wrapping
-            let height = element.height();
+            const height = element.height();
             // height of text in last box should be equal; if they are equal, then
             // their thumbnail cards will be of the same size
             cy.get('.search-card-title:last').should('have.css', 'height', `${height}px`)
@@ -119,7 +119,7 @@ describe('browse-page', () => {
         cy.get('.search-input-editor').type("pl")
         cy.get('.search-card-title:first').then((element) => {
             // gets the height of the text in the first box, assuming no wrapping
-            let height = element.height();
+            const height = element.height();
             // height of text in last box should be equal; if they are equal, then
             // their thumbnail cards will be of the same size
             cy.get('.search-card-title:last').should('have.css', 'height', `${height}px`)
@@ -131,7 +131,7 @@ describe('browse-page', () => {
         cy.get('.search-input-editor').type("harry potter")
         cy.get('.search-card-title:first').then((element) => {
             // gets the height of the text in the first box, assuming no wrapping
-            let height = element.height();
+            const height = element.height();
             // height of text in last box should be equal; if they are equal, then
             // their thumbnail cards will be of the same size
             cy.get('.search-card-title:last').should('have.css', 'height', `${height}px`)

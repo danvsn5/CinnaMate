@@ -12,7 +12,7 @@ const PageHome = () => {
 
   // fetches API data for trending movies this week and stores data inside results array
 
-  let [results, setResults] = useState([]);
+  const [results, setResults] = useState([]);
 
   /* —————————————————————————————————————————— API Call —————————————————————————————————————————— */
 
@@ -31,18 +31,18 @@ const PageHome = () => {
   // ensures that call is made only once 
   if (results.length == 0) {
     fetch(url, options)
-      .then((res: any) => res.json())
-      .then((data: any) => {
+      .then((res) => res.json())
+      .then((data) => {
         setResults(data.results);
       })
-      .catch((err: any) => console.error('error:' + err));
+      .catch((err) => console.error('error:' + err));
 
   }
   /* —————————————————————————————————————————————— - ————————————————————————————————————————————— */
 
   // movieCards element maps the collected elements from the array collected
   // by the API and is used in return code through <Card> element
-  let movieCards = results.map((movie: movieType) =>
+  const movieCards = results.map((movie: movieType) =>
   (
     <li key={movie.id} className="trending-list">
       <Card movie={movie} category="null"/>
