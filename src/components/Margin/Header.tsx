@@ -19,7 +19,7 @@ const Header = () => {
         return () => window.removeEventListener("resize", updateMedia);
     });
 
-    const [isburgerOpen, setBurger] = useState(true);
+    const [isBurgerOpen, setBurger] = useState(false); // Initial state set to false
 
     function displayBurger() {
         //sets variables for ID elements
@@ -29,12 +29,7 @@ const Header = () => {
         const buttonC = document.getElementById("itm-btn-C");
         const buttonD = document.getElementById("itm-btn-D");
 
-
-        if (isburgerOpen == false) {
-            hideBurger()
-        }
-
-        if (isburgerOpen == false) {
+        if (isBurgerOpen == false) {
             // if the burger bar is currently closed, open the bar by setting the constant height which functions
             // through animation, set the display style to block and then set the opacity to 1 after the 
             // burger bar has been opened with animation
@@ -88,7 +83,7 @@ const Header = () => {
                         <h1>CinnaMate</h1>
                     </div>
                     {isDesktop ? (
-                        <span></span>
+                        null
                     ) : (
                         <div className="header-tabs">
                             <ul className="tab-button-links">
@@ -132,7 +127,7 @@ const Header = () => {
                         </div>
                     </div>
                 ) : (
-                    <span />
+                    null
                 )}
                 <ul className="list-items" id="burger-list-ID">
                     <li>
@@ -151,7 +146,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <SignUpBurger/>
+                        <SignUpBurger />
                     </li>
                 </ul>
             </div>
