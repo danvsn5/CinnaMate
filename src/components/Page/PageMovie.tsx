@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-import LoadMovie from "../expandedMovie/LoadMovie";
+import LoadMovie from "../Expanded-Movie/LoadMovie";
 import movieType from "../utils/movieType";
 
 const PageMovie = () => {

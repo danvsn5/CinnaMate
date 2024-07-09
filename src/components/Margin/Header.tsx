@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import dispBurger from "../burgerComponents/dispBurger";
-import hideBurger from "../burgerComponents/hideBurger";
-import SignUp from "../accounts/SignUp";
-import SignUpBurger from "../accounts/SignUpBurger";
+import dispBurger from "../utils/Burger/dispBurger";
+import hideBurger from "../utils/Burger/hideBurger";
+import SignUp from "../Account/SignUp";
+import SignUpBurger from "../Account/SignUpBurger";
 
 
 const Header = () => {

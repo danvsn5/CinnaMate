@@ -1,5 +1,5 @@
-import Subheader from "../margins/Subheader"
-import SearchInput from "../browseMovies/SearchInput"
+import Subheader from "../Margin/Subheader"
+import SearchInput from "../Browse/SearchInput"
 const PageBrowser = () => {
   // initialise page variable
   PageID.pageIdentifier = "Browse"

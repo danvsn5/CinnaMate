@@ -1,5 +1,5 @@
-import Subheader from "../margins/Subheader"
-import Tabs from "../myMoviesTab/Tabs"
+import Subheader from "../Margin/Subheader"
+import Tabs from "../My-Movies/Tabs"
 
 const PageMyMovies = () => {
 

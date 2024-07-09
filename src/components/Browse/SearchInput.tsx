@@ -1,5 +1,5 @@
 import { KeyboardEvent, useState } from "react"
-import Card from "../cards/Card"
+import Card from "../Card/Card"
 import BrowsingSubheader from "./BrowsingSubheader";
 import movieType from "../utils/movieType";
 import SearchMovieCard from "./SearchMovieCard";
