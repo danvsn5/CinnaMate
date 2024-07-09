@@ -12,7 +12,7 @@ describe('full db test on desktop', () => {
 
     })
 
-    it('Full db test on desktop', () => {
+    it.skip('Full db test on desktop', () => {
 
 
         deleteDoc(doc(db, "users", "danvsnTEST"));

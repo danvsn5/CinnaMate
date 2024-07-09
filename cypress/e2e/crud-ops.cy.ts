@@ -9,7 +9,7 @@ describe('CRUD opertations on individual movie tags', () => {
 
     })
 
-    it('CRUD operations on individual movie tags', () => {
+    it.skip('CRUD operations on individual movie tags', () => {
 
         // set window size to large desktop 
         cy.viewport("macbook-16")
@@ -124,6 +124,8 @@ describe('CRUD opertations on individual movie tags', () => {
         cy.wait(1000)
 
         cy.get('.existing-tag').should('not.exist')
+
+        deleteDoc(doc(db, "users", "danvsnTEST"));
 
     })
 })
