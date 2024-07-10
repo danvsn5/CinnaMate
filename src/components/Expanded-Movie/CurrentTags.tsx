@@ -127,7 +127,7 @@ function CurrentTags({ movieID }: { movieID: string }) {
             // get movie-tag element and set margin-top to 0px important, otherwise set margin-top to -30px important
             const tagElement = document.querySelector('.movie-tag');
             if (tagElement) {
-                tagElement.setAttribute('style', 'margin-top: 0px !important');
+                tagElement.setAttribute('style', 'margin-top: 30px !important');
             }
             return null;
         } else {

@@ -12,7 +12,6 @@ describe('mobile e2e with full navigation', () => {
         cy.viewport('iphone-8')
 
         // open the burger menu
-        cy.get('.burger-button-A').click()
         cy.get('.burger-button-B').click()
 
         // open the browse page menu
@@ -52,7 +51,6 @@ describe('mobile e2e with full navigation', () => {
         cy.viewport('ipad-mini')
 
         // open the burger menu
-        cy.get('.burger-button-A').click()
         cy.get('.burger-button-B').click()
 
         // open the browse page menu
