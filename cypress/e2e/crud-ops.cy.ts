@@ -5,7 +5,7 @@ describe('CRUD opertations on individual movie tags', () => {
     beforeEach(() => {
 
         // opens up dev webpage 
-        cy.visit('http://localhost:4173/browser')
+        cy.visit('http://localhost:8080/browser')
 
     })
 
