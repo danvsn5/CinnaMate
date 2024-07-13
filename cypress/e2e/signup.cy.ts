@@ -6,7 +6,7 @@ describe('sign up with desktop variation', () => {
     beforeEach(() => {
 
         // opens up build webpage 
-        cy.visit('http://localhost:4173/')
+        cy.visit('http://localhost:8080/')
 
         cy.viewport("macbook-16")
 

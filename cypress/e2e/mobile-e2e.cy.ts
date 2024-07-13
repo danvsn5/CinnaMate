@@ -2,7 +2,7 @@ describe('mobile e2e with full navigation', () => {
     beforeEach(() => {
 
         // opens up build webpage 
-        cy.visit('http://localhost:4173/')
+        cy.visit('http://localhost:8080/')
 
     })
 
