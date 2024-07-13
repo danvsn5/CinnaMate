@@ -12,6 +12,8 @@ import './App.css'
 import './resources/css/my-movies.css'
 import './index.css'
 
+// dummy commit for testing azure publishing
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
