@@ -363,6 +363,9 @@ span {
 .tag {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#create-tag {
   cursor: pointer;
 }
 

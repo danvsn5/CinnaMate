@@ -76,7 +76,7 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     return (
         <div className='movie-tag'>
             <hr className="break-tag" />
-            <h1 className='main-tagline tag' onClick={() => setTagOpen(!tagOpen)} onMouseEnter={handleHover} onMouseLeave={handleHoverOff}>Create Tag</h1>
+            <h1 id="create-tag" className='main-tagline tag' onClick={() => setTagOpen(!tagOpen)} onMouseEnter={handleHover} onMouseLeave={handleHoverOff}>Create Tag</h1>
             <span className="create-tag-underline"></span>
             {tagOpen ? (
                 <div className="movie-tag">
