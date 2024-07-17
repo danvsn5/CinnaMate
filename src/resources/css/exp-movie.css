@@ -363,7 +363,7 @@ span {
 .tag {
   margin-top: 20px;
   margin-bottom: 20px;
-
+  cursor: pointer;
 }
 
 .tag::first-line {
@@ -629,4 +629,14 @@ span {
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+
+.create-tag-underline{
+  height: 3px;
+  width: 0px;
+  background-color: var(--light-purple);
+  border-radius: 10px;
+  margin-top: -25px;
+  margin-bottom: 25px;
+  transition: 250ms ease-out;
 }

@@ -9,6 +9,17 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     const [tagContent, setContent] = useState("")
     const [tagOpen, setTagOpen] = useState(false)
 
+    const handleHover = () => {
+       const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
+         underline.style.width = '160px'
+    }
+
+    const handleHoverOff = () => {
+        if(tagOpen) return
+        const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
+        underline.style.width = '0px'
+    }
+
     const inputTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTitle(e.currentTarget.value)
     }
@@ -65,9 +76,10 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     return (
         <div className='movie-tag'>
             <hr className="break-tag" />
-            <h1 className='main-tagline tag' onClick={() => setTagOpen(!tagOpen)}>Create Tag</h1>
-            {tagOpen ? null :
-                (<div className="movie-tag">
+            <h1 className='main-tagline tag' onClick={() => setTagOpen(!tagOpen)} onMouseEnter={handleHover} onMouseLeave={handleHoverOff}>Create Tag</h1>
+            <span className="create-tag-underline"></span>
+            {tagOpen ? (
+                <div className="movie-tag">
                     <h1 className="text-tag-label">Title and/or Timestamp</h1>
                     <textarea className="editor tag-title" rows={1} spellCheck={false} wrap="soft" placeholder="Write the title and/or timestamp of your tag..." onChange={inputTitleChange} />
                     <h1 className="text-tag-label">Tag Content</h1>
@@ -76,7 +88,7 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
                         <Tooltip id='my-tooltip3' className='exp-tooltip' border="1px solid var(--light-purple)" delayShow={250} place='bottom' offset={30} arrowColor='var(--light-purple )' />
                         <i className="icon fa-solid fa-plus exp-icon"></i>
                     </button>
-                </div>)}
+                </div>) : null}
 
         </div >
     )
