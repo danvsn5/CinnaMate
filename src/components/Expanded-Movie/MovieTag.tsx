@@ -21,16 +21,40 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     }
 
     const handleTagToggle = () => {
-        setTagOpen(!tagOpen)
-        // buffer time to wait for state update
-        setTimeout(() => {
-            const tagCreator = document.getElementById('tag-creator') as HTMLDivElement | null;
 
-            if (tagCreator) {
-                tagCreator.style.opacity = "1";
-                tagCreator.style.height = "632px";
-            }
-        }, 1);
+        if (!tagOpen) {
+            setTagOpen(!tagOpen)
+            // buffer time to wait for state update
+            setTimeout(() => {
+                const tagCreator = document.getElementById('tag-creator') as HTMLDivElement | null;
+
+                if (tagCreator) {
+                    setTimeout(() => {
+                        tagCreator.style.opacity = "1";
+
+                    }, 750);
+                    tagCreator.style.height = "632px";
+                }
+            }, 1);
+        } else {
+            // buffer time to wait for state update
+            setTimeout(() => {
+                const tagCreator = document.getElementById('tag-creator') as HTMLDivElement | null;
+                if (tagCreator) {
+                    tagCreator.style.opacity = "0";
+                    setTimeout(() => {
+                        tagCreator.style.height = "0px";
+
+                    }, 500);
+                }
+
+                setTimeout(() => {
+                    setTagOpen(!tagOpen)
+
+                }, 1000);
+
+            }, 1);
+        }
     }
 
     const inputTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

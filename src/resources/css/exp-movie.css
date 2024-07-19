@@ -429,7 +429,7 @@ span {
   animation: none;
   opacity: 0;
   height: 0px;
-  transition: 550ms;
+  transition: opacity 250ms ease-out, height 500ms ease-out;
 }
 
 /* ———————————————————————————————————————— Sign Up Modal ——————————————————————————————————————— */
