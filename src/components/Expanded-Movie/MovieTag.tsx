@@ -10,14 +10,27 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     const [tagOpen, setTagOpen] = useState(false)
 
     const handleHover = () => {
-       const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
-         underline.style.width = '160px'
+        const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
+        underline.style.width = '160px'
     }
 
     const handleHoverOff = () => {
-        if(tagOpen) return
+        if (tagOpen) return
         const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
         underline.style.width = '0px'
+    }
+
+    const handleTagToggle = () => {
+        setTagOpen(!tagOpen)
+        // buffer time to wait for state update
+        setTimeout(() => {
+            const tagCreator = document.getElementById('tag-creator') as HTMLDivElement | null;
+
+            if (tagCreator) {
+                tagCreator.style.opacity = "1";
+                tagCreator.style.height = "632px";
+            }
+        }, 1);
     }
 
     const inputTitleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -76,10 +89,10 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
     return (
         <div className='movie-tag'>
             <hr className="break-tag" />
-            <h1 id="create-tag" className='main-tagline tag' onClick={() => setTagOpen(!tagOpen)} onMouseEnter={handleHover} onMouseLeave={handleHoverOff}>Create Tag</h1>
+            <h1 id="create-tag" className='main-tagline tag' onClick={handleTagToggle} onMouseEnter={handleHover} onMouseLeave={handleHoverOff}>Create Tag</h1>
             <span className="create-tag-underline"></span>
             {tagOpen ? (
-                <div className="movie-tag">
+                <div id="tag-creator" className="movie-tag">
                     <h1 className="text-tag-label">Title and/or Timestamp</h1>
                     <textarea className="editor tag-title" rows={1} spellCheck={false} wrap="soft" placeholder="Write the title and/or timestamp of your tag..." onChange={inputTitleChange} />
                     <h1 className="text-tag-label">Tag Content</h1>

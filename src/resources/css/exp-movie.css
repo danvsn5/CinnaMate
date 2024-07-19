@@ -425,6 +425,13 @@ span {
   height: 60px;
 }
 
+#tag-creator {
+  animation: none;
+  opacity: 0;
+  height: 0px;
+  transition: 550ms;
+}
+
 /* ———————————————————————————————————————— Sign Up Modal ——————————————————————————————————————— */
 
 .sign-up-button {
@@ -634,7 +641,7 @@ span {
   justify-content: space-around;
 }
 
-.create-tag-underline{
+.create-tag-underline {
   height: 3px;
   width: 0px;
   background-color: var(--light-purple);
