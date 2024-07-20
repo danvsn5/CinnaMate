@@ -50,7 +50,8 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
 
                 setTimeout(() => {
                     setTagOpen(!tagOpen)
-
+                    const underline = document.querySelector('.create-tag-underline') as HTMLSpanElement
+                    underline.style.width = '0px'
                 }, 1000);
 
             }, 1);
