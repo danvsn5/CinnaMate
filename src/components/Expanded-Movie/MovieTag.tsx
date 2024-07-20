@@ -1,7 +1,7 @@
 import { Tooltip } from "react-tooltip"
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import db from "../../../firebase.config";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MovieTag = ({ movieID }: { movieID: string }) => {
 
@@ -20,6 +20,27 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
         underline.style.width = '0px'
     }
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (tagOpen) {
+                const tagCreator = document.getElementById('tag-creator') as HTMLDivElement | null;
+                if (tagCreator) {
+                    if (window.innerWidth > 999) {
+                        tagCreator.style.height = "632px";
+                    } else {
+                        tagCreator.style.height = "510px";
+                    }
+                }
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [tagOpen]);
+
     const handleTagToggle = () => {
 
         if (!tagOpen) {
@@ -33,7 +54,11 @@ const MovieTag = ({ movieID }: { movieID: string }) => {
                         tagCreator.style.opacity = "1";
 
                     }, 750);
-                    tagCreator.style.height = "632px";
+                    if (window.innerWidth > 999) {
+                        tagCreator.style.height = "632px";
+                    } else {
+                        tagCreator.style.height = "510px";
+                    }
                 }
             }, 1);
         } else {
