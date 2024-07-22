@@ -1,27 +1,20 @@
-# Kia ora, I'm Danny
+# Welcome to CinnaMate!
 
-<h3>✨A little about me✨<h3/>
+To open CinnaMate, clone the repository into a folder, type ```npm i```, wait for the necessary packages to be installed, and then type ```npm run dev``` to access the link to CinnaMate.
 
-<h5>🖊️ - I'm a penultimate year software engineering student, graduating in 2025<h5/> 
-<h5>☄️ - I love learning about space, the universe, and everything that works around us<h5/>
-<h5>📖 - I'm a passionate reader, often delving into historical fiction, sci-fi and classics<h5/>
-<hr/>
+## CinnaMate allows you to look for trending films in the main page:
+![Home Page](public/main_page.png)
 
-<h3>✍️Some of my skills✍️<h3/>
+## Browse for any movies that you have watched or would like to watch with the partial search:
+![Browse For Movies](public/browse_bar.png)
+## Or the detailed search:
+![Detailed Search](public/browse_movie.png)
 
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" /> 
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypressio/cypressio-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" />
-  <img width=50px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" />
-  <hr/>
+## Easily access the movies that you have added to your lists:
+![See Your Saved Movies](public/my_movies.png)
 
-<h3>My GitHub summary<h3/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danvsn5&layout=compact&theme=tokyonight" height="200">
+## And create comments on your favourite movies, supporting CRUD operations!
+![Create Movie Tags](public/tag.png)
+
+## CinnaMate also supports mobile devices, so you can use it on the run at any time you want!
+<img src="public/mobile.png" alt="Mobile Site" width="300"/>
