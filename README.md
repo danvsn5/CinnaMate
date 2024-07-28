@@ -1,6 +1,6 @@
 # Welcome to CinnaMate!
 
-To open CinnaMate, clone the repository into a folder, type ```npm i```, wait for the necessary packages to be installed, and then type ```npm run dev``` to access the link to CinnaMate.
+To open CinnaMate, simply open <a href='https://cinnamate-u7g6miux6q-ts.a.run.app/' target="_blank">this<a/> link!
 
 ## CinnaMate allows you to look for trending films in the main page:
 ![Home Page](public/main_page.png)
